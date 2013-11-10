@@ -72,8 +72,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="SuperieurA" eSuperTypes="#//OperateurBinaire"/>
   <eClassifiers xsi:type="ecore:EClass" name="Egal" eSuperTypes="#//OperateurBinaire"/>
   <eClassifiers xsi:type="ecore:EClass" name="Different" eSuperTypes="#//OperateurBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Valeur" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BoolVal" eSuperTypes="#//Valeur"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FloatVal" eSuperTypes="#//Valeur"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntVal" eSuperTypes="#//Valeur"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Valeur" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="est_de " eType="#//Type"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoolVal" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FloatVal" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntVal" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type"/>
 </ecore:EPackage>
