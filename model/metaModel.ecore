@@ -15,13 +15,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLeft" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Group">
+  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Actuator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="wheels" lowerBound="2"
-        upperBound="2" eType="#//DifferentialWheel" containment="true"/>
+        upperBound="2" eType="#//DifferentialWheel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionWheel" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" lowerBound="1" eType="#//Group"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" lowerBound="1" eType="#//Group"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TurnLeft" eSuperTypes="#//ActionWheel"/>
@@ -40,6 +39,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Value">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Type"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoolVal" eSuperTypes="#//Type">
@@ -52,8 +52,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachine" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachine" lowerBound="1"
         eType="#//StateMachine" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
@@ -66,6 +67,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//State"/>
@@ -77,12 +79,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valeur" lowerBound="1"
-        eType="#//Value" containment="true"/>
+        eType="#//Value"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EClass0"/>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryOperator" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valeurs" lowerBound="2"
-        upperBound="2" eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operandLeft" lowerBound="1"
+        eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operandRight" lowerBound="1"
+        eType="#//Value"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryCond" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//BinaryCond"/>
