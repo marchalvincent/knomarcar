@@ -1,83 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
-  <eClassifiers xsi:type="ecore:EClass" name="Comportement">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="searchForLight" nsURI="http://searchForLight/1.0" nsPrefix="searchForLight">
+  <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
     <eStructuralFeatures xsi:type="ecore:EReference" name="etats" lowerBound="1" upperBound="-1"
-        eType="#//Etat" containment="true"/>
+        eType="#//State" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachine" lowerBound="1"
+        eType="#//StateMachine" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Arbitre">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="comportements" upperBound="-1"
-        eType="#//Comportement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="effecteurs" upperBound="-1"
-        eType="#//Effecteur" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="capteurs" upperBound="-1"
-        eType="#//Capteur" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Robot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
+        eType="#//Behaviour" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuators" upperBound="-1"
+        eType="#//Actuator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
+        eType="#//Sensor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" upperBound="-1"
+        eType="#//DifferentialWheels"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuators" upperBound="-1"
+        eType="#//Actuator"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Effecteur" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Roue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//DifferentialWheels"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Capteur" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="produitValeur" eType="#//Valeur"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="String name"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CapteurDistance" eSuperTypes="#//Capteur"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CapteurLumiere" eSuperTypes="#//Capteur"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CapteurInfrarouge" eSuperTypes="#//Capteur"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Etat">
+  <eClassifiers xsi:type="ecore:EClass" name="DistanceSensor" eSuperTypes="#//Sensor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LightSensor" eSuperTypes="#//Sensor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
         eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="produitValeur" eType="#//Valeur"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Etat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
-        eType="#//Etat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dest" lowerBound="1" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="String name"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Roue" abstract="true" eSuperTypes="#//Effecteur">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vitesseRotation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DifferentialWheels" eSuperTypes="#//Actuator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="String nom"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boolean estGauche"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int speed"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RoueAvG" eSuperTypes="#//Roue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RoueAvD" eSuperTypes="#//Roue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RoueArG" eSuperTypes="#//Roue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RoueArD" eSuperTypes="#//Roue"/>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AvancerAvD" eSuperTypes="#//ActionRoue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AvancerAvG" eSuperTypes="#//ActionRoue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionRoue" abstract="true" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roue" lowerBound="1" eType="#//Roue"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vitesse"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionWheel" abstract="true" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roue" lowerBound="1" eType="#//DifferentialWheels"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int speed"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wheels" lowerBound="1"
+        eType="#//Group"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AvancerArG" eSuperTypes="#//ActionRoue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AvancerArD" eSuperTypes="#//ActionRoue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CondNegation" eSuperTypes="#//CondUnaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CondEt" eSuperTypes="#//CondBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CondOu" eSuperTypes="#//CondBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CondBinaire" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CondUnaire" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OperateurBinaire" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valeurs" lowerBound="2"
-        upperBound="2" eType="#//Valeur" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//UnaryCond"/>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//BinaryCond"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//BinaryCond"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryCond" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryCond" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryOperator" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" lowerBound="2"
+        upperBound="2" eType="#//Value" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OperateurUnaire" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valeur" lowerBound="1"
-        eType="#//Valeur" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InferieurA" eSuperTypes="#//OperateurBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SuperieurA" eSuperTypes="#//OperateurBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Egal" eSuperTypes="#//OperateurBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Different" eSuperTypes="#//OperateurBinaire"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Valeur" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="est_de " eType="#//Type"
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BoolVal" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FloatVal" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntVal" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//BinaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MoreThan" eSuperTypes="#//BinaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Equal" eSuperTypes="#//BinaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Different" eSuperTypes="#//BinaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Type"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoolVal" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boolean valeur"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FloatVal" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="float valeur"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntVal" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int valeur"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wheels" lowerBound="2"
+        upperBound="2" eType="#//DifferentialWheels" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Forward" eSuperTypes="#//ActionWheel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Backward" eSuperTypes="#//ActionWheel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnLeft" eSuperTypes="#//ActionWheel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnRight" eSuperTypes="#//ActionWheel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stopping" eSuperTypes="#//ActionWheel"/>
 </ecore:EPackage>
