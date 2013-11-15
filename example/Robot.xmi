@@ -9,6 +9,7 @@
       name="home">
     <stateMachine>
       <states
+          actions="//@actions.0"
           name="forward">
         <transitions
             src="//@behaviours.0/@stateMachine/@states.0"
@@ -28,12 +29,31 @@
               operandLeft="//@sensors.4/@value"
               operandRight="//@sensors.5/@value"/>
         </transitions>
-        <actions
-            xsi:type="metamodel:Forward"
-            group="//@actuators.2"
-            speed="50"/>
+        <transitions
+            src="//@behaviours.0/@stateMachine/@states.0"
+            dest="//@behaviours.0/@stateMachine/@states.3"
+            name="lightReached">
+          <conditions
+              xsi:type="metamodel:And">
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.4/@value"
+                operandRight="//@behaviours.0/@stateMachine/@states.0/@value"/>
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.5/@value"
+                operandRight="//@behaviours.0/@stateMachine/@states.0/@value"/>
+          </conditions>
+        </transitions>
+        <value
+            name="lightReachedValue">
+          <value
+              xsi:type="metamodel:IntVal"
+              value="10"/>
+        </value>
       </states>
       <states
+          actions="//@actions.2"
           name="turnRight">
         <transitions
             src="//@behaviours.0/@stateMachine/@states.1"
@@ -44,12 +64,9 @@
               operandLeft="//@sensors.4/@value"
               operandRight="//@sensors.5/@value"/>
         </transitions>
-        <actions
-            xsi:type="metamodel:TurnRight"
-            group="//@actuators.2"
-            speed="50"/>
       </states>
       <states
+          actions="//@actions.1"
           name="turnLeft">
         <transitions
             src="//@behaviours.0/@stateMachine/@states.2"
@@ -60,15 +77,15 @@
               operandLeft="//@sensors.4/@value"
               operandRight="//@sensors.5/@value"/>
         </transitions>
-        <actions
-            xsi:type="metamodel:TurnLeft"
-            group="//@actuators.2"
-            speed="50"/>
       </states>
       <states
+          actions="//@actions.3"
           name="stop"/>
     </stateMachine>
   </behaviours>
+  <behaviours
+      name="escape"
+      priority="1"/>
   <sensors xsi:type="metamodel:DistanceSensor"
       name="FrDsRight">
     <value name="FrDsRightVal">
@@ -121,4 +138,15 @@
   <actuators
       xsi:type="metamodel:Group"
       wheels="//@actuators.0 //@actuators.1"/>
+  <actions xsi:type="metamodel:Forward"
+      group="//@actuators.2"
+      speed="50"/>
+  <actions xsi:type="metamodel:TurnLeft"
+      group="//@actuators.2"
+      speed="50"/>
+  <actions xsi:type="metamodel:TurnRight"
+      group="//@actuators.2"
+      speed="50"/>
+  <actions xsi:type="metamodel:Stopping"
+      group="//@actuators.2"/>
 </metamodel:Robot>
