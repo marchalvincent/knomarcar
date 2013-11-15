@@ -33,11 +33,11 @@
             name="lightReached">
           <conditions
               xsi:type="metamodel:And">
-            <childs
+            <operandRight
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.4/@value"
                 operandRight="//@behaviours.0/@stateMachine/@states.0/@value"/>
-            <childs
+            <operandLeft
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.5/@value"
                 operandRight="//@behaviours.0/@stateMachine/@states.0/@value"/>
@@ -91,11 +91,11 @@
             name="avoidLeft">
           <conditions
               xsi:type="metamodel:And">
-            <childs
+            <operandRight
                 xsi:type="metamodel:LessThan"
                 operandLeft="//@sensors.1/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
-            <childs
+            <operandLeft
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.0/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
@@ -106,11 +106,11 @@
             name="avoidRight">
           <conditions
               xsi:type="metamodel:And">
-            <childs
+            <operandRight
                 xsi:type="metamodel:LessThan"
                 operandLeft="//@sensors.0/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
-            <childs
+            <operandLeft
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.1/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
@@ -121,12 +121,12 @@
             name="avoidFront">
           <conditions
               xsi:type="metamodel:And">
-            <childs
-                xsi:type="metamodel:LessThan"
+            <operandRight
+                xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.0/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
-            <childs
-                xsi:type="metamodel:LessThan"
+            <operandLeft
+                xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.1/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
           </conditions>
@@ -146,11 +146,11 @@
             name="goodToGo">
           <conditions
               xsi:type="metamodel:And">
-            <childs
+            <operandRight
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.0/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
-            <childs
+            <operandLeft
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.1/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
@@ -165,13 +165,13 @@
             name="goodToGo">
           <conditions
               xsi:type="metamodel:And">
-            <childs
-                xsi:type="metamodel:MoreThan"
-                operandLeft="//@sensors.0/@value"
-                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
-            <childs
+            <operandRight
                 xsi:type="metamodel:MoreThan"
                 operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+            <operandLeft
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.0/@value"
                 operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
           </conditions>
         </transitions>

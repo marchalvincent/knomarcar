@@ -7,6 +7,7 @@ import metamodel.generator.IVisitable;
 
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unary Cond</b></em>'.
@@ -20,7 +21,7 @@ import metamodel.generator.IVisitable;
  * </p>
  *
  * @see metamodel.MetamodelPackage#getUnaryCond()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface UnaryCond extends Condition, IVisitable {

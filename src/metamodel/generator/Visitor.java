@@ -117,6 +117,8 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(DifferentialWheel a) {
+		actuators.setWheels(a, a.isIsLeft());
+		
 		// var wheelR;
 		actuators.addVar("var " + a.getName() + ";");
 		
@@ -172,6 +174,8 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(Group a) {
+		actuators.setGroup(a);
+		
 		// var wheels;
 		actuators.addVar("var " + a.getName() + ";");
 

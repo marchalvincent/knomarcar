@@ -5,6 +5,7 @@ package backup;
 import metamodel.generator.IVisitable;
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Binary Cond</b></em>'.
@@ -19,7 +20,7 @@ import metamodel.generator.IVisitable;
  * </p>
  *
  * @see metamodel.MetamodelPackage#getBinaryCond()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface BinaryCond extends Condition, IVisitable {

@@ -99,14 +99,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryCond" abstract="true" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operandRight" lowerBound="1"
-        eType="#//Condition"/>
+        eType="#//Condition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operandLeft" lowerBound="1"
-        eType="#//Condition"/>
+        eType="#//Condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//BinaryCond"/>
   <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//BinaryCond"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnaryCond" abstract="true" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//Condition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//Condition"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//UnaryCond"/>
   <eClassifiers xsi:type="ecore:EClass" name="Equal" eSuperTypes="#//BinaryOperator"/>

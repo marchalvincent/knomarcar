@@ -1,0 +1,27 @@
+<xml="1.0">	
+var Global.FrDsRight = DistanceSensor.new("ds0")var Global.FrDsLeft = DistanceSensor.new("ps7")var Global.BhDsRight = DistanceSensor.new("ps3")var Global.BhDsLeft = DistanceSensor.new("ps4")var Global.LsRight = LightSensor.new("ls1")var Global.LsLeft = LightSensor.new("ls6")class Actuators {
+var wheelLeft;
+var wheelRight;
+var group;
+function init() {
+wheelLeft = DifferentialWheels.new("e-puck", true);
+wheelRight = DifferentialWheels.new("e-puck", false);
+group = Group.new(wheelLeft, wheelRight);
+};
+function forward(s) {
+group.speed = s;
+}
+
+function turnLeft(s) {
+wheelLeft.speed = -s &wheelRight.speed = s;
+}
+
+function turnRight(s) {
+wheelLeft.speed = s &wheelRight.speed = -s;
+}
+
+function stopping() {
+group.speed = 0;
+}
+
+};

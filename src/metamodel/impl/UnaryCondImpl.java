@@ -7,6 +7,7 @@ import metamodel.MetamodelPackage;
 import metamodel.UnaryCond;
 import metamodel.generator.IVisitor;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class UnaryCondImpl extends ConditionImpl implements UnaryCond {
 	/**
-	 * The cached value of the '{@link #getChild() <em>Child</em>}' reference.
+	 * The cached value of the '{@link #getChild() <em>Child</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getChild()
@@ -70,14 +71,6 @@ public abstract class UnaryCondImpl extends ConditionImpl implements UnaryCond {
 	 * @generated
 	 */
 	public Condition getChild() {
-		if (child != null && child.eIsProxy()) {
-			InternalEObject oldChild = (InternalEObject)child;
-			child = (Condition)eResolveProxy(oldChild);
-			if (child != oldChild) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.UNARY_COND__CHILD, oldChild, child));
-			}
-		}
 		return child;
 	}
 
@@ -86,8 +79,14 @@ public abstract class UnaryCondImpl extends ConditionImpl implements UnaryCond {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Condition basicGetChild() {
-		return child;
+	public NotificationChain basicSetChild(Condition newChild, NotificationChain msgs) {
+		Condition oldChild = child;
+		child = newChild;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.UNARY_COND__CHILD, oldChild, newChild);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -96,10 +95,31 @@ public abstract class UnaryCondImpl extends ConditionImpl implements UnaryCond {
 	 * @generated
 	 */
 	public void setChild(Condition newChild) {
-		Condition oldChild = child;
-		child = newChild;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.UNARY_COND__CHILD, oldChild, child));
+		if (newChild != child) {
+			NotificationChain msgs = null;
+			if (child != null)
+				msgs = ((InternalEObject)child).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.UNARY_COND__CHILD, null, msgs);
+			if (newChild != null)
+				msgs = ((InternalEObject)newChild).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.UNARY_COND__CHILD, null, msgs);
+			msgs = basicSetChild(newChild, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.UNARY_COND__CHILD, newChild, newChild));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MetamodelPackage.UNARY_COND__CHILD:
+				return basicSetChild(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -111,8 +131,7 @@ public abstract class UnaryCondImpl extends ConditionImpl implements UnaryCond {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case MetamodelPackage.UNARY_COND__CHILD:
-				if (resolve) return getChild();
-				return basicGetChild();
+				return getChild();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

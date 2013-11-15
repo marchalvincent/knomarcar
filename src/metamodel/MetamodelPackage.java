@@ -1263,7 +1263,7 @@ public interface MetamodelPackage extends EPackage {
 	int BINARY_COND = 26;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1272,7 +1272,7 @@ public interface MetamodelPackage extends EPackage {
 	int BINARY_COND__OPERAND_RIGHT = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1309,7 +1309,7 @@ public interface MetamodelPackage extends EPackage {
 	int OR = 27;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1318,7 +1318,7 @@ public interface MetamodelPackage extends EPackage {
 	int OR__OPERAND_RIGHT = BINARY_COND__OPERAND_RIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1355,7 +1355,7 @@ public interface MetamodelPackage extends EPackage {
 	int AND = 28;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1364,7 +1364,7 @@ public interface MetamodelPackage extends EPackage {
 	int AND__OPERAND_RIGHT = BINARY_COND__OPERAND_RIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1401,7 +1401,7 @@ public interface MetamodelPackage extends EPackage {
 	int UNARY_COND = 29;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' reference.
+	 * The feature id for the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1438,7 +1438,7 @@ public interface MetamodelPackage extends EPackage {
 	int NEGATION = 30;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' reference.
+	 * The feature id for the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2341,10 +2341,10 @@ public interface MetamodelPackage extends EPackage {
 	EClass getBinaryCond();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.BinaryCond#getOperandRight <em>Operand Right</em>}'.
+	 * Returns the meta object for the containment reference '{@link metamodel.BinaryCond#getOperandRight <em>Operand Right</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operand Right</em>'.
+	 * @return the meta object for the containment reference '<em>Operand Right</em>'.
 	 * @see metamodel.BinaryCond#getOperandRight()
 	 * @see #getBinaryCond()
 	 * @generated
@@ -2352,10 +2352,10 @@ public interface MetamodelPackage extends EPackage {
 	EReference getBinaryCond_OperandRight();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.BinaryCond#getOperandLeft <em>Operand Left</em>}'.
+	 * Returns the meta object for the containment reference '{@link metamodel.BinaryCond#getOperandLeft <em>Operand Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operand Left</em>'.
+	 * @return the meta object for the containment reference '<em>Operand Left</em>'.
 	 * @see metamodel.BinaryCond#getOperandLeft()
 	 * @see #getBinaryCond()
 	 * @generated
@@ -2393,10 +2393,10 @@ public interface MetamodelPackage extends EPackage {
 	EClass getUnaryCond();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.UnaryCond#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference '{@link metamodel.UnaryCond#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child</em>'.
+	 * @return the meta object for the containment reference '<em>Child</em>'.
 	 * @see metamodel.UnaryCond#getChild()
 	 * @see #getUnaryCond()
 	 * @generated
@@ -3029,7 +3029,7 @@ public interface MetamodelPackage extends EPackage {
 		EClass BINARY_COND = eINSTANCE.getBinaryCond();
 
 		/**
-		 * The meta object literal for the '<em><b>Operand Right</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Operand Right</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3037,7 +3037,7 @@ public interface MetamodelPackage extends EPackage {
 		EReference BINARY_COND__OPERAND_RIGHT = eINSTANCE.getBinaryCond_OperandRight();
 
 		/**
-		 * The meta object literal for the '<em><b>Operand Left</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Operand Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3075,7 +3075,7 @@ public interface MetamodelPackage extends EPackage {
 		EClass UNARY_COND = eINSTANCE.getUnaryCond();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
