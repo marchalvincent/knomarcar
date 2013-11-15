@@ -12,7 +12,6 @@
           actions="//@actions.0"
           name="forward">
         <transitions
-            src="//@behaviours.0/@stateMachine/@states.0"
             dest="//@behaviours.0/@stateMachine/@states.2"
             name="lightOnLeft">
           <conditions
@@ -21,7 +20,6 @@
               operandRight="//@sensors.4/@value"/>
         </transitions>
         <transitions
-            src="//@behaviours.0/@stateMachine/@states.0"
             dest="//@behaviours.0/@stateMachine/@states.1"
             name="lightOnRight">
           <conditions
@@ -30,7 +28,6 @@
               operandRight="//@sensors.5/@value"/>
         </transitions>
         <transitions
-            src="//@behaviours.0/@stateMachine/@states.0"
             dest="//@behaviours.0/@stateMachine/@states.3"
             name="lightReached">
           <conditions
@@ -56,7 +53,6 @@
           actions="//@actions.2"
           name="turnRight">
         <transitions
-            src="//@behaviours.0/@stateMachine/@states.1"
             dest="//@behaviours.0/@stateMachine/@states.0"
             name="lightInFrontOf">
           <conditions
@@ -69,7 +65,6 @@
           actions="//@actions.1"
           name="turnLeft">
         <transitions
-            src="//@behaviours.0/@stateMachine/@states.2"
             dest="//@behaviours.0/@stateMachine/@states.0"
             name="lightInFrontOf">
           <conditions
@@ -85,7 +80,102 @@
   </behaviours>
   <behaviours
       name="escape"
-      priority="1"/>
+      priority="1">
+    <stateMachine>
+      <states
+          actions="//@actions.4"
+          name="forwardESC">
+        <transitions
+            dest="//@behaviours.1/@stateMachine/@states.1"
+            name="avoidLeft">
+          <conditions
+              xsi:type="metamodel:And">
+            <childs
+                xsi:type="metamodel:LessThan"
+                operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.0/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+          </conditions>
+        </transitions>
+        <transitions
+            dest="//@behaviours.1/@stateMachine/@states.2"
+            name="avoidRight">
+          <conditions
+              xsi:type="metamodel:And">
+            <childs
+                xsi:type="metamodel:LessThan"
+                operandLeft="//@sensors.0/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+          </conditions>
+        </transitions>
+        <transitions
+            dest="//@behaviours.1/@stateMachine/@states.1"
+            name="avoidFront">
+          <conditions
+              xsi:type="metamodel:And">
+            <childs
+                xsi:type="metamodel:LessThan"
+                operandLeft="//@sensors.0/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+            <childs
+                xsi:type="metamodel:LessThan"
+                operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+          </conditions>
+        </transitions>
+        <value
+            name="rangeMax">
+          <value
+              xsi:type="metamodel:IntVal"/>
+        </value>
+      </states>
+      <states
+          actions="//@actions.2"
+          name="turnRightESC">
+        <transitions
+            dest="//@behaviours.1/@stateMachine/@states.0"
+            name="goodToGo">
+          <conditions
+              xsi:type="metamodel:And">
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.0/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+          </conditions>
+        </transitions>
+      </states>
+      <states
+          actions="//@actions.1"
+          name="turnLeftESC">
+        <transitions
+            dest="//@behaviours.1/@stateMachine/@states.0"
+            name="goodToGo">
+          <conditions
+              xsi:type="metamodel:And">
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.0/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+            <childs
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.1/@stateMachine/@states.0/@value"/>
+          </conditions>
+        </transitions>
+      </states>
+    </stateMachine>
+  </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
       name="FrDsRight">
     <value name="FrDsRightVal">
@@ -148,5 +238,7 @@
       group="//@actuators.2"
       speed="50"/>
   <actions xsi:type="metamodel:Stopping"
+      group="//@actuators.2"/>
+  <actions xsi:type="metamodel:Wait"
       group="//@actuators.2"/>
 </metamodel:Robot>
