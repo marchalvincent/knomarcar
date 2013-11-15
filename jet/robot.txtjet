@@ -1,0 +1,9 @@
+<%@jet package="metamodel.generator" 
+class="RobotUrbi" imports="metamodel.*"%>
+<%Robot robot = (Robot) argument; %>
+<xml="1.0">
+<%
+	IVisitor v = new Visitor();
+	robot.accept(v);
+%>	
+<%=v.getValue()%>

@@ -362,7 +362,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_9piZsUv6EeOrGrcZr3cNpQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="metaModel.ecore#//Behaviour"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9piZskv6EeOrGrcZr3cNpQ" x="485" y="95"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9piZskv6EeOrGrcZr3cNpQ" x="480" y="85"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="__bii0Ev6EeOrGrcZr3cNpQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="__bjJ4Ev6EeOrGrcZr3cNpQ" type="4001"/>
