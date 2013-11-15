@@ -103,13 +103,22 @@ public interface MetamodelPackage extends EPackage {
 	int ROBOT__ACTIONS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 4;
+	int ROBOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Robot</em>' class.
@@ -131,13 +140,22 @@ public interface MetamodelPackage extends EPackage {
 	int ACTUATOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTUATOR_FEATURE_COUNT = 0;
+	int ACTUATOR_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Actuator</em>' class.
@@ -165,7 +183,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIFFERENTIAL_WHEEL__NAME = ACTUATOR_FEATURE_COUNT + 0;
+	int DIFFERENTIAL_WHEEL__NAME = ACTUATOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Is Left</b></em>' attribute.
@@ -174,7 +192,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIFFERENTIAL_WHEEL__IS_LEFT = ACTUATOR_FEATURE_COUNT + 1;
+	int DIFFERENTIAL_WHEEL__IS_LEFT = ACTUATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Speed</b></em>' attribute.
@@ -183,7 +201,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIFFERENTIAL_WHEEL__SPEED = ACTUATOR_FEATURE_COUNT + 2;
+	int DIFFERENTIAL_WHEEL__SPEED = ACTUATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Differential Wheel</em>' class.
@@ -192,7 +210,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIFFERENTIAL_WHEEL_FEATURE_COUNT = ACTUATOR_FEATURE_COUNT + 3;
+	int DIFFERENTIAL_WHEEL_FEATURE_COUNT = ACTUATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Differential Wheel</em>' class.
@@ -212,6 +230,15 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	int GROUP = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NAME = ACTUATOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Wheels</b></em>' reference list.
@@ -573,13 +600,22 @@ public interface MetamodelPackage extends EPackage {
 	int SENSOR__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Sensor Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__SENSOR_NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = 2;
+	int SENSOR_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Sensor</em>' class.
@@ -617,6 +653,15 @@ public interface MetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int DISTANCE_SENSOR__NAME = SENSOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sensor Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_SENSOR__SENSOR_NAME = SENSOR__SENSOR_NAME;
 
 	/**
 	 * The number of structural features of the '<em>Distance Sensor</em>' class.
@@ -663,6 +708,15 @@ public interface MetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIGHT_SENSOR__NAME = SENSOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sensor Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT_SENSOR__SENSOR_NAME = SENSOR__SENSOR_NAME;
 
 	/**
 	 * The number of structural features of the '<em>Light Sensor</em>' class.
@@ -1209,13 +1263,22 @@ public interface MetamodelPackage extends EPackage {
 	int BINARY_COND = 26;
 
 	/**
-	 * The feature id for the '<em><b>Childs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_COND__CHILDS = CONDITION_FEATURE_COUNT + 0;
+	int BINARY_COND__OPERAND_RIGHT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_COND__OPERAND_LEFT = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Binary Cond</em>' class.
@@ -1224,7 +1287,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_COND_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+	int BINARY_COND_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Binary Cond</em>' class.
@@ -1246,13 +1309,22 @@ public interface MetamodelPackage extends EPackage {
 	int OR = 27;
 
 	/**
-	 * The feature id for the '<em><b>Childs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OR__CHILDS = BINARY_COND__CHILDS;
+	int OR__OPERAND_RIGHT = BINARY_COND__OPERAND_RIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR__OPERAND_LEFT = BINARY_COND__OPERAND_LEFT;
 
 	/**
 	 * The number of structural features of the '<em>Or</em>' class.
@@ -1283,13 +1355,22 @@ public interface MetamodelPackage extends EPackage {
 	int AND = 28;
 
 	/**
-	 * The feature id for the '<em><b>Childs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AND__CHILDS = BINARY_COND__CHILDS;
+	int AND__OPERAND_RIGHT = BINARY_COND__OPERAND_RIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__OPERAND_LEFT = BINARY_COND__OPERAND_LEFT;
 
 	/**
 	 * The number of structural features of the '<em>And</em>' class.
@@ -1320,7 +1401,7 @@ public interface MetamodelPackage extends EPackage {
 	int UNARY_COND = 29;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' containment reference.
+	 * The feature id for the '<em><b>Child</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1357,7 +1438,7 @@ public interface MetamodelPackage extends EPackage {
 	int NEGATION = 30;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' containment reference.
+	 * The feature id for the '<em><b>Child</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1670,6 +1751,17 @@ public interface MetamodelPackage extends EPackage {
 	EReference getRobot_Actions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link metamodel.Robot#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see metamodel.Robot#getName()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EAttribute getRobot_Name();
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.Actuator <em>Actuator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1680,6 +1772,17 @@ public interface MetamodelPackage extends EPackage {
 	EClass getActuator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link metamodel.Actuator#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see metamodel.Actuator#getName()
+	 * @see #getActuator()
+	 * @generated
+	 */
+	EAttribute getActuator_Name();
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.DifferentialWheel <em>Differential Wheel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1688,17 +1791,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDifferentialWheel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link metamodel.DifferentialWheel#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see metamodel.DifferentialWheel#getName()
-	 * @see #getDifferentialWheel()
-	 * @generated
-	 */
-	EAttribute getDifferentialWheel_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link metamodel.DifferentialWheel#isIsLeft <em>Is Left</em>}'.
@@ -1886,6 +1978,17 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSensor_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link metamodel.Sensor#getSensorName <em>Sensor Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sensor Name</em>'.
+	 * @see metamodel.Sensor#getSensorName()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EAttribute getSensor_SensorName();
 
 	/**
 	 * Returns the meta object for class '{@link metamodel.Value <em>Value</em>}'.
@@ -2238,15 +2341,26 @@ public interface MetamodelPackage extends EPackage {
 	EClass getBinaryCond();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.BinaryCond#getChilds <em>Childs</em>}'.
+	 * Returns the meta object for the reference '{@link metamodel.BinaryCond#getOperandRight <em>Operand Right</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Childs</em>'.
-	 * @see metamodel.BinaryCond#getChilds()
+	 * @return the meta object for the reference '<em>Operand Right</em>'.
+	 * @see metamodel.BinaryCond#getOperandRight()
 	 * @see #getBinaryCond()
 	 * @generated
 	 */
-	EReference getBinaryCond_Childs();
+	EReference getBinaryCond_OperandRight();
+
+	/**
+	 * Returns the meta object for the reference '{@link metamodel.BinaryCond#getOperandLeft <em>Operand Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Operand Left</em>'.
+	 * @see metamodel.BinaryCond#getOperandLeft()
+	 * @see #getBinaryCond()
+	 * @generated
+	 */
+	EReference getBinaryCond_OperandLeft();
 
 	/**
 	 * Returns the meta object for class '{@link metamodel.Or <em>Or</em>}'.
@@ -2279,10 +2393,10 @@ public interface MetamodelPackage extends EPackage {
 	EClass getUnaryCond();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link metamodel.UnaryCond#getChild <em>Child</em>}'.
+	 * Returns the meta object for the reference '{@link metamodel.UnaryCond#getChild <em>Child</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Child</em>'.
+	 * @return the meta object for the reference '<em>Child</em>'.
 	 * @see metamodel.UnaryCond#getChild()
 	 * @see #getUnaryCond()
 	 * @generated
@@ -2415,6 +2529,14 @@ public interface MetamodelPackage extends EPackage {
 		EReference ROBOT__ACTIONS = eINSTANCE.getRobot_Actions();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROBOT__NAME = eINSTANCE.getRobot_Name();
+
+		/**
 		 * The meta object literal for the '{@link metamodel.impl.ActuatorImpl <em>Actuator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2425,6 +2547,14 @@ public interface MetamodelPackage extends EPackage {
 		EClass ACTUATOR = eINSTANCE.getActuator();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTUATOR__NAME = eINSTANCE.getActuator_Name();
+
+		/**
 		 * The meta object literal for the '{@link metamodel.impl.DifferentialWheelImpl <em>Differential Wheel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2433,14 +2563,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DIFFERENTIAL_WHEEL = eINSTANCE.getDifferentialWheel();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIFFERENTIAL_WHEEL__NAME = eINSTANCE.getDifferentialWheel_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Left</b></em>' attribute feature.
@@ -2607,6 +2729,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SENSOR__NAME = eINSTANCE.getSensor_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensor Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENSOR__SENSOR_NAME = eINSTANCE.getSensor_SensorName();
 
 		/**
 		 * The meta object literal for the '{@link metamodel.impl.ValueImpl <em>Value</em>}' class.
@@ -2899,12 +3029,20 @@ public interface MetamodelPackage extends EPackage {
 		EClass BINARY_COND = eINSTANCE.getBinaryCond();
 
 		/**
-		 * The meta object literal for the '<em><b>Childs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Operand Right</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINARY_COND__CHILDS = eINSTANCE.getBinaryCond_Childs();
+		EReference BINARY_COND__OPERAND_RIGHT = eINSTANCE.getBinaryCond_OperandRight();
+
+		/**
+		 * The meta object literal for the '<em><b>Operand Left</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_COND__OPERAND_LEFT = eINSTANCE.getBinaryCond_OperandLeft();
 
 		/**
 		 * The meta object literal for the '{@link metamodel.impl.OrImpl <em>Or</em>}' class.
@@ -2937,7 +3075,7 @@ public interface MetamodelPackage extends EPackage {
 		EClass UNARY_COND = eINSTANCE.getUnaryCond();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Child</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

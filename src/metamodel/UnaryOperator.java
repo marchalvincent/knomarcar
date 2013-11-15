@@ -6,6 +6,7 @@ import metamodel.generator.IVisitable;
 
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unary Operator</b></em>'.
@@ -19,7 +20,7 @@ import metamodel.generator.IVisitable;
  * </p>
  *
  * @see metamodel.MetamodelPackage#getUnaryOperator()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface UnaryOperator extends Condition, IVisitable {

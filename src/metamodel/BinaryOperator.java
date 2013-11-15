@@ -6,6 +6,7 @@ import metamodel.generator.IVisitable;
 
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Binary Operator</b></em>'.
@@ -20,7 +21,7 @@ import metamodel.generator.IVisitable;
  * </p>
  *
  * @see metamodel.MetamodelPackage#getBinaryOperator()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface BinaryOperator extends Condition, IVisitable {

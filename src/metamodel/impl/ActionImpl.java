@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
+public abstract class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

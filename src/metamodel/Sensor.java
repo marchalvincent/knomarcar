@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link metamodel.Sensor#getValue <em>Value</em>}</li>
  *   <li>{@link metamodel.Sensor#getName <em>Name</em>}</li>
+ *   <li>{@link metamodel.Sensor#getSensorName <em>Sensor Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,31 @@ public interface Sensor extends EObject, IVisitable {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Sensor Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sensor Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sensor Name</em>' attribute.
+	 * @see #setSensorName(String)
+	 * @see metamodel.MetamodelPackage#getSensor_SensorName()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getSensorName();
+
+	/**
+	 * Sets the value of the '{@link metamodel.Sensor#getSensorName <em>Sensor Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sensor Name</em>' attribute.
+	 * @see #getSensorName()
+	 * @generated
+	 */
+	void setSensorName(String value);
 
 } // Sensor

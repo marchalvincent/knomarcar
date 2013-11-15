@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class UnaryOperatorImpl extends ConditionImpl implements UnaryOperator {
+public abstract class UnaryOperatorImpl extends ConditionImpl implements UnaryOperator {
 	/**
 	 * The cached value of the '{@link #getValeur() <em>Valeur</em>}' reference.
 	 * <!-- begin-user-doc -->

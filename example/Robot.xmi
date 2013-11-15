@@ -4,7 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:metamodel="http://metamodel/1.0"
-    xsi:schemaLocation="http://metamodel/1.0 ../model/metaModel.ecore">
+    xsi:schemaLocation="http://metamodel/1.0 ../model/metaModel.ecore"
+    name="e-puck">
   <behaviours
       name="home">
     <stateMachine>
@@ -133,7 +134,8 @@
         <value
             name="rangeMax">
           <value
-              xsi:type="metamodel:IntVal"/>
+              xsi:type="metamodel:IntVal"
+              value="1"/>
         </value>
       </states>
       <states
@@ -177,42 +179,48 @@
     </stateMachine>
   </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
-      name="FrDsRight">
+      name="FrDsRight"
+      sensorName="ds0">
     <value name="FrDsRightVal">
       <value
           xsi:type="metamodel:FloatVal"/>
     </value>
   </sensors>
   <sensors xsi:type="metamodel:DistanceSensor"
-      name="FrDsLeft">
+      name="FrDsLeft"
+      sensorName="ps7">
     <value name="FrDsLeftVal">
       <value
           xsi:type="metamodel:FloatVal"/>
     </value>
   </sensors>
   <sensors xsi:type="metamodel:DistanceSensor"
-      name="BhDsRight">
+      name="BhDsRight"
+      sensorName="ps3">
     <value name="BhDsRight">
       <value
           xsi:type="metamodel:FloatVal"/>
     </value>
   </sensors>
   <sensors xsi:type="metamodel:DistanceSensor"
-      name="BhDsLeft">
+      name="BhDsLeft"
+      sensorName="ps4">
     <value name="BhDsLeft">
       <value
           xsi:type="metamodel:FloatVal"/>
     </value>
   </sensors>
   <sensors xsi:type="metamodel:LightSensor"
-      name="LsRight">
+      name="LsRight"
+      sensorName="ls1">
     <value name="LsRightVal">
       <value
           xsi:type="metamodel:FloatVal"/>
     </value>
   </sensors>
   <sensors xsi:type="metamodel:LightSensor"
-      name="LsLeft">
+      name="LsLeft"
+      sensorName="ls6">
     <value name="LsLeftVal">
       <value
           xsi:type="metamodel:FloatVal"/>
@@ -227,6 +235,7 @@
       name="wheelRight"/>
   <actuators
       xsi:type="metamodel:Group"
+      name="group"
       wheels="//@actuators.0 //@actuators.1"/>
   <actions xsi:type="metamodel:Forward"
       group="//@actuators.2"

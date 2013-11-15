@@ -10,10 +10,12 @@ import metamodel.MetamodelPackage;
 import metamodel.Robot;
 import metamodel.Sensor;
 import metamodel.generator.IVisitor;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link metamodel.impl.RobotImpl#getSensors <em>Sensors</em>}</li>
  *   <li>{@link metamodel.impl.RobotImpl#getActuators <em>Actuators</em>}</li>
  *   <li>{@link metamodel.impl.RobotImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link metamodel.impl.RobotImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +77,26 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @ordered
 	 */
 	protected EList<Action> actions;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,6 +180,27 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.ROBOT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,6 +232,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return getActuators();
 			case MetamodelPackage.ROBOT__ACTIONS:
 				return getActions();
+			case MetamodelPackage.ROBOT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,6 +263,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				getActions().clear();
 				getActions().addAll((Collection<? extends Action>)newValue);
 				return;
+			case MetamodelPackage.ROBOT__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -241,6 +290,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			case MetamodelPackage.ROBOT__ACTIONS:
 				getActions().clear();
 				return;
+			case MetamodelPackage.ROBOT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -261,8 +313,26 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 				return actuators != null && !actuators.isEmpty();
 			case MetamodelPackage.ROBOT__ACTIONS:
 				return actions != null && !actions.isEmpty();
+			case MetamodelPackage.ROBOT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RobotImpl

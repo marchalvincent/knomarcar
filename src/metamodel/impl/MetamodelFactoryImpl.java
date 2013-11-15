@@ -2,13 +2,10 @@
  */
 package metamodel.impl;
 
-import metamodel.Action;
 import metamodel.ActionWheel;
 import metamodel.And;
 import metamodel.Backward;
 import metamodel.Behaviour;
-import metamodel.BinaryCond;
-import metamodel.BinaryOperator;
 import metamodel.BoolVal;
 import metamodel.Different;
 import metamodel.DifferentialWheel;
@@ -33,8 +30,6 @@ import metamodel.Transition;
 import metamodel.TurnLeft;
 import metamodel.TurnRight;
 import metamodel.Type;
-import metamodel.UnaryCond;
-import metamodel.UnaryOperator;
 import metamodel.Value;
 import metamodel.Wait;
 import org.eclipse.emf.ecore.EClass;
@@ -96,7 +91,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.STOPPING: return createStopping();
 			case MetamodelPackage.BACKWARD: return createBackward();
 			case MetamodelPackage.TURN_RIGHT: return createTurnRight();
-			case MetamodelPackage.ACTION: return createAction();
 			case MetamodelPackage.DISTANCE_SENSOR: return createDistanceSensor();
 			case MetamodelPackage.LIGHT_SENSOR: return createLightSensor();
 			case MetamodelPackage.VALUE: return createValue();
@@ -108,12 +102,8 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.STATE_MACHINE: return createStateMachine();
 			case MetamodelPackage.STATE: return createState();
 			case MetamodelPackage.TRANSITION: return createTransition();
-			case MetamodelPackage.UNARY_OPERATOR: return createUnaryOperator();
-			case MetamodelPackage.BINARY_OPERATOR: return createBinaryOperator();
-			case MetamodelPackage.BINARY_COND: return createBinaryCond();
 			case MetamodelPackage.OR: return createOr();
 			case MetamodelPackage.AND: return createAnd();
-			case MetamodelPackage.UNARY_COND: return createUnaryCond();
 			case MetamodelPackage.NEGATION: return createNegation();
 			case MetamodelPackage.EQUAL: return createEqual();
 			case MetamodelPackage.LESS_THAN: return createLessThan();
@@ -213,16 +203,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	public TurnRight createTurnRight() {
 		TurnRightImpl turnRight = new TurnRightImpl();
 		return turnRight;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Action createAction() {
-		ActionImpl action = new ActionImpl();
-		return action;
 	}
 
 	/**
@@ -340,36 +320,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnaryOperator createUnaryOperator() {
-		UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
-		return unaryOperator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BinaryOperator createBinaryOperator() {
-		BinaryOperatorImpl binaryOperator = new BinaryOperatorImpl();
-		return binaryOperator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BinaryCond createBinaryCond() {
-		BinaryCondImpl binaryCond = new BinaryCondImpl();
-		return binaryCond;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Or createOr() {
 		OrImpl or = new OrImpl();
 		return or;
@@ -383,16 +333,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	public And createAnd() {
 		AndImpl and = new AndImpl();
 		return and;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnaryCond createUnaryCond() {
-		UnaryCondImpl unaryCond = new UnaryCondImpl();
-		return unaryCond;
 	}
 
 	/**

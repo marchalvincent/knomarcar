@@ -417,8 +417,26 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRobot_Name() {
+		return (EAttribute)robotEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActuator() {
 		return actuatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActuator_Name() {
+		return (EAttribute)actuatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -435,7 +453,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDifferentialWheel_Name() {
+	public EAttribute getDifferentialWheel_IsLeft() {
 		return (EAttribute)differentialWheelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -444,17 +462,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDifferentialWheel_IsLeft() {
-		return (EAttribute)differentialWheelEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDifferentialWheel_Speed() {
-		return (EAttribute)differentialWheelEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)differentialWheelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -599,6 +608,15 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EAttribute getSensor_Name() {
 		return (EAttribute)sensorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSensor_SensorName() {
+		return (EAttribute)sensorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -903,8 +921,17 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBinaryCond_Childs() {
+	public EReference getBinaryCond_OperandRight() {
 		return (EReference)binaryCondEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryCond_OperandLeft() {
+		return (EReference)binaryCondEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1030,11 +1057,12 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEReference(robotEClass, ROBOT__SENSORS);
 		createEReference(robotEClass, ROBOT__ACTUATORS);
 		createEReference(robotEClass, ROBOT__ACTIONS);
+		createEAttribute(robotEClass, ROBOT__NAME);
 
 		actuatorEClass = createEClass(ACTUATOR);
+		createEAttribute(actuatorEClass, ACTUATOR__NAME);
 
 		differentialWheelEClass = createEClass(DIFFERENTIAL_WHEEL);
-		createEAttribute(differentialWheelEClass, DIFFERENTIAL_WHEEL__NAME);
 		createEAttribute(differentialWheelEClass, DIFFERENTIAL_WHEEL__IS_LEFT);
 		createEAttribute(differentialWheelEClass, DIFFERENTIAL_WHEEL__SPEED);
 
@@ -1064,6 +1092,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		sensorEClass = createEClass(SENSOR);
 		createEReference(sensorEClass, SENSOR__VALUE);
 		createEAttribute(sensorEClass, SENSOR__NAME);
+		createEAttribute(sensorEClass, SENSOR__SENSOR_NAME);
 
 		valueEClass = createEClass(VALUE);
 		createEReference(valueEClass, VALUE__VALUE);
@@ -1110,7 +1139,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEReference(binaryOperatorEClass, BINARY_OPERATOR__OPERAND_RIGHT);
 
 		binaryCondEClass = createEClass(BINARY_COND);
-		createEReference(binaryCondEClass, BINARY_COND__CHILDS);
+		createEReference(binaryCondEClass, BINARY_COND__OPERAND_RIGHT);
+		createEReference(binaryCondEClass, BINARY_COND__OPERAND_LEFT);
 
 		orEClass = createEClass(OR);
 
@@ -1192,11 +1222,12 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEReference(getRobot_Sensors(), this.getSensor(), null, "sensors", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Actuators(), this.getActuator(), null, "actuators", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobot_Actions(), this.getAction(), null, "actions", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getActuator_Name(), ecorePackage.getEString(), "name", null, 1, 1, Actuator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(differentialWheelEClass, DifferentialWheel.class, "DifferentialWheel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDifferentialWheel_Name(), ecorePackage.getEString(), "name", null, 1, 1, DifferentialWheel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDifferentialWheel_IsLeft(), ecorePackage.getEBoolean(), "isLeft", null, 1, 1, DifferentialWheel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDifferentialWheel_Speed(), ecorePackage.getEInt(), "speed", null, 1, 1, DifferentialWheel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1217,7 +1248,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		initEClass(turnRightEClass, TurnRight.class, "TurnRight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(distanceSensorEClass, DistanceSensor.class, "DistanceSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1226,6 +1257,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSensor_Value(), this.getValue(), null, "value", null, 1, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSensor_Name(), ecorePackage.getEString(), "name", null, 1, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSensor_SensorName(), ecorePackage.getEString(), "sensorName", null, 1, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValue_Value(), this.getType(), null, "value", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1264,22 +1296,23 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUnaryOperator_Valeur(), this.getValue(), null, "valeur", null, 1, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(binaryOperatorEClass, BinaryOperator.class, "BinaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(binaryOperatorEClass, BinaryOperator.class, "BinaryOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinaryOperator_OperandLeft(), this.getValue(), null, "operandLeft", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBinaryOperator_OperandRight(), this.getValue(), null, "operandRight", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(binaryCondEClass, BinaryCond.class, "BinaryCond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryCond_Childs(), this.getCondition(), null, "childs", null, 2, 2, BinaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(binaryCondEClass, BinaryCond.class, "BinaryCond", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBinaryCond_OperandRight(), this.getCondition(), null, "operandRight", null, 1, 1, BinaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryCond_OperandLeft(), this.getCondition(), null, "operandLeft", null, 1, 1, BinaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(unaryCondEClass, UnaryCond.class, "UnaryCond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUnaryCond_Child(), this.getCondition(), null, "child", null, 0, 1, UnaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(unaryCondEClass, UnaryCond.class, "UnaryCond", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUnaryCond_Child(), this.getCondition(), null, "child", null, 1, 1, UnaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(negationEClass, Negation.class, "Negation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

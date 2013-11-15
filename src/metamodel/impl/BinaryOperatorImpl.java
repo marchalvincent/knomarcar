@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class BinaryOperatorImpl extends ConditionImpl implements BinaryOperator {
+public abstract class BinaryOperatorImpl extends ConditionImpl implements BinaryOperator {
 	/**
 	 * The cached value of the '{@link #getOperandLeft() <em>Operand Left</em>}' reference.
 	 * <!-- begin-user-doc -->

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link metamodel.impl.SensorImpl#getValue <em>Value</em>}</li>
  *   <li>{@link metamodel.impl.SensorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link metamodel.impl.SensorImpl#getSensorName <em>Sensor Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +59,26 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSensorName() <em>Sensor Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSensorName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SENSOR_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSensorName() <em>Sensor Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSensorName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sensorName = SENSOR_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +166,27 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSensorName() {
+		return sensorName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSensorName(String newSensorName) {
+		String oldSensorName = sensorName;
+		sensorName = newSensorName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.SENSOR__SENSOR_NAME, oldSensorName, sensorName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -178,6 +220,8 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 				return getValue();
 			case MetamodelPackage.SENSOR__NAME:
 				return getName();
+			case MetamodelPackage.SENSOR__SENSOR_NAME:
+				return getSensorName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,6 +239,9 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case MetamodelPackage.SENSOR__NAME:
 				setName((String)newValue);
+				return;
+			case MetamodelPackage.SENSOR__SENSOR_NAME:
+				setSensorName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,6 +261,9 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 			case MetamodelPackage.SENSOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case MetamodelPackage.SENSOR__SENSOR_NAME:
+				setSensorName(SENSOR_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -230,6 +280,8 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 				return value != null;
 			case MetamodelPackage.SENSOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MetamodelPackage.SENSOR__SENSOR_NAME:
+				return SENSOR_NAME_EDEFAULT == null ? sensorName != null : !SENSOR_NAME_EDEFAULT.equals(sensorName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -246,6 +298,8 @@ public abstract class SensorImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", sensorName: ");
+		result.append(sensorName);
 		result.append(')');
 		return result.toString();
 	}

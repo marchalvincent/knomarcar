@@ -103,15 +103,6 @@ public interface MetamodelFactory extends EFactory {
 	TurnRight createTurnRight();
 
 	/**
-	 * Returns a new object of class '<em>Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action</em>'.
-	 * @generated
-	 */
-	Action createAction();
-
-	/**
 	 * Returns a new object of class '<em>Distance Sensor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -211,33 +202,6 @@ public interface MetamodelFactory extends EFactory {
 	Transition createTransition();
 
 	/**
-	 * Returns a new object of class '<em>Unary Operator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unary Operator</em>'.
-	 * @generated
-	 */
-	UnaryOperator createUnaryOperator();
-
-	/**
-	 * Returns a new object of class '<em>Binary Operator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary Operator</em>'.
-	 * @generated
-	 */
-	BinaryOperator createBinaryOperator();
-
-	/**
-	 * Returns a new object of class '<em>Binary Cond</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary Cond</em>'.
-	 * @generated
-	 */
-	BinaryCond createBinaryCond();
-
-	/**
 	 * Returns a new object of class '<em>Or</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,15 +218,6 @@ public interface MetamodelFactory extends EFactory {
 	 * @generated
 	 */
 	And createAnd();
-
-	/**
-	 * Returns a new object of class '<em>Unary Cond</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unary Cond</em>'.
-	 * @generated
-	 */
-	UnaryCond createUnaryCond();
 
 	/**
 	 * Returns a new object of class '<em>Negation</em>'.

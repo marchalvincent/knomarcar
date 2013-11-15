@@ -2,19 +2,14 @@
  */
 package metamodel.impl;
 
-import java.util.Collection;
-
 import metamodel.BinaryCond;
 import metamodel.Condition;
 import metamodel.MetamodelPackage;
 import metamodel.generator.IVisitor;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,23 +18,32 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link metamodel.impl.BinaryCondImpl#getChilds <em>Childs</em>}</li>
+ *   <li>{@link metamodel.impl.BinaryCondImpl#getOperandRight <em>Operand Right</em>}</li>
+ *   <li>{@link metamodel.impl.BinaryCondImpl#getOperandLeft <em>Operand Left</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
+public abstract class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	/**
-	 * The cached value of the '{@link #getChilds() <em>Childs</em>}' containment reference list.
+	 * The cached value of the '{@link #getOperandRight() <em>Operand Right</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChilds()
+	 * @see #getOperandRight()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Condition> childs;
-
+	protected Condition operandRight;
+	/**
+	 * The cached value of the '{@link #getOperandLeft() <em>Operand Left</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperandLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Condition operandLeft;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,11 +78,16 @@ public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Condition> getChilds() {
-		if (childs == null) {
-			childs = new EObjectContainmentEList<Condition>(Condition.class, this, MetamodelPackage.BINARY_COND__CHILDS);
+	public Condition getOperandRight() {
+		if (operandRight != null && operandRight.eIsProxy()) {
+			InternalEObject oldOperandRight = (InternalEObject)operandRight;
+			operandRight = (Condition)eResolveProxy(oldOperandRight);
+			if (operandRight != oldOperandRight) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.BINARY_COND__OPERAND_RIGHT, oldOperandRight, operandRight));
+			}
 		}
-		return childs;
+		return operandRight;
 	}
 
 	/**
@@ -86,13 +95,58 @@ public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MetamodelPackage.BINARY_COND__CHILDS:
-				return ((InternalEList<?>)getChilds()).basicRemove(otherEnd, msgs);
+	public Condition basicGetOperandRight() {
+		return operandRight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperandRight(Condition newOperandRight) {
+		Condition oldOperandRight = operandRight;
+		operandRight = newOperandRight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.BINARY_COND__OPERAND_RIGHT, oldOperandRight, operandRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Condition getOperandLeft() {
+		if (operandLeft != null && operandLeft.eIsProxy()) {
+			InternalEObject oldOperandLeft = (InternalEObject)operandLeft;
+			operandLeft = (Condition)eResolveProxy(oldOperandLeft);
+			if (operandLeft != oldOperandLeft) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.BINARY_COND__OPERAND_LEFT, oldOperandLeft, operandLeft));
+			}
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return operandLeft;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Condition basicGetOperandLeft() {
+		return operandLeft;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperandLeft(Condition newOperandLeft) {
+		Condition oldOperandLeft = operandLeft;
+		operandLeft = newOperandLeft;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.BINARY_COND__OPERAND_LEFT, oldOperandLeft, operandLeft));
 	}
 
 	/**
@@ -103,8 +157,12 @@ public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MetamodelPackage.BINARY_COND__CHILDS:
-				return getChilds();
+			case MetamodelPackage.BINARY_COND__OPERAND_RIGHT:
+				if (resolve) return getOperandRight();
+				return basicGetOperandRight();
+			case MetamodelPackage.BINARY_COND__OPERAND_LEFT:
+				if (resolve) return getOperandLeft();
+				return basicGetOperandLeft();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,9 +176,11 @@ public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MetamodelPackage.BINARY_COND__CHILDS:
-				getChilds().clear();
-				getChilds().addAll((Collection<? extends Condition>)newValue);
+			case MetamodelPackage.BINARY_COND__OPERAND_RIGHT:
+				setOperandRight((Condition)newValue);
+				return;
+			case MetamodelPackage.BINARY_COND__OPERAND_LEFT:
+				setOperandLeft((Condition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,8 +194,11 @@ public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.BINARY_COND__CHILDS:
-				getChilds().clear();
+			case MetamodelPackage.BINARY_COND__OPERAND_RIGHT:
+				setOperandRight((Condition)null);
+				return;
+			case MetamodelPackage.BINARY_COND__OPERAND_LEFT:
+				setOperandLeft((Condition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -149,8 +212,10 @@ public class BinaryCondImpl extends ConditionImpl implements BinaryCond {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.BINARY_COND__CHILDS:
-				return childs != null && !childs.isEmpty();
+			case MetamodelPackage.BINARY_COND__OPERAND_RIGHT:
+				return operandRight != null;
+			case MetamodelPackage.BINARY_COND__OPERAND_LEFT:
+				return operandLeft != null;
 		}
 		return super.eIsSet(featureID);
 	}
