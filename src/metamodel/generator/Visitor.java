@@ -43,7 +43,7 @@ public class Visitor implements IVisitor {
 	private int transitionCount = 0;
 	private StateMachine currentStateMachine;
 	private State currentState;
-	private Actuators actuators;
+	private ActuatorsContainer actuators;
 	
 	StringBuilder sb;
 	private String robotName;
@@ -51,7 +51,7 @@ public class Visitor implements IVisitor {
 	public Visitor() {
 		super();
 		sb = new StringBuilder();
-		actuators = new Actuators();
+		actuators = new ActuatorsContainer();
 	}
 
 	@Override
@@ -260,8 +260,10 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(State a) {
 		// TODO Auto-generated method stub
-		// CurrentState = a
+		currentState = a;
 		// code...
+		
+		
 	}
 
 	@Override
@@ -273,7 +275,7 @@ public class Visitor implements IVisitor {
 		sb.append("var Global." + a.getName() + " = fsm.State.new(\"" + a.getName() + "\");\n");
 		
 		// on ne comprend pas ce code...
-		sb.append(".params_dict\n");
+		sb.append(".params_dict = Dictionary.new();\n");
 		// code...
 	}
 
