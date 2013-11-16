@@ -6,6 +6,7 @@ import metamodel.Condition;
 import metamodel.MetamodelPackage;
 import metamodel.UnaryCond;
 import metamodel.generator.IVisitor;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;

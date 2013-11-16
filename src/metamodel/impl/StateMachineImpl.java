@@ -7,6 +7,7 @@ import java.util.Collection;
 import metamodel.MetamodelPackage;
 import metamodel.State;
 import metamodel.StateMachine;
+import metamodel.Value;
 import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link metamodel.impl.StateMachineImpl#getStates <em>States</em>}</li>
  *   <li>{@link metamodel.impl.StateMachineImpl#getName <em>Name</em>}</li>
+ *   <li>{@link metamodel.impl.StateMachineImpl#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +64,16 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Value> constants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +130,18 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Value> getConstants() {
+		if (constants == null) {
+			constants = new EObjectContainmentEList<Value>(Value.class, this, MetamodelPackage.STATE_MACHINE__CONSTANTS);
+		}
+		return constants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -135,6 +159,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 		switch (featureID) {
 			case MetamodelPackage.STATE_MACHINE__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+			case MetamodelPackage.STATE_MACHINE__CONSTANTS:
+				return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -151,6 +177,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 				return getStates();
 			case MetamodelPackage.STATE_MACHINE__NAME:
 				return getName();
+			case MetamodelPackage.STATE_MACHINE__CONSTANTS:
+				return getConstants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +199,10 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 			case MetamodelPackage.STATE_MACHINE__NAME:
 				setName((String)newValue);
 				return;
+			case MetamodelPackage.STATE_MACHINE__CONSTANTS:
+				getConstants().clear();
+				getConstants().addAll((Collection<? extends Value>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -189,6 +221,9 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 			case MetamodelPackage.STATE_MACHINE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case MetamodelPackage.STATE_MACHINE__CONSTANTS:
+				getConstants().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +240,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 				return states != null && !states.isEmpty();
 			case MetamodelPackage.STATE_MACHINE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MetamodelPackage.STATE_MACHINE__CONSTANTS:
+				return constants != null && !constants.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

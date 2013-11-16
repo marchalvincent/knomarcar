@@ -23,7 +23,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface BinaryOperator extends Condition {
+public interface BinaryOperator extends Operator {
 	/**
 	 * Returns the value of the '<em><b>Operand Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -33,12 +33,12 @@ public interface BinaryOperator extends Condition {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operand Left</em>' reference.
-	 * @see #setOperandLeft(Value)
+	 * @see #setOperandLeft(Operator)
 	 * @see metamodel.MetamodelPackage#getBinaryOperator_OperandLeft()
 	 * @model required="true"
 	 * @generated
 	 */
-	Value getOperandLeft();
+	Operator getOperandLeft();
 
 	/**
 	 * Sets the value of the '{@link metamodel.BinaryOperator#getOperandLeft <em>Operand Left</em>}' reference.
@@ -48,7 +48,7 @@ public interface BinaryOperator extends Condition {
 	 * @see #getOperandLeft()
 	 * @generated
 	 */
-	void setOperandLeft(Value value);
+	void setOperandLeft(Operator value);
 
 	/**
 	 * Returns the value of the '<em><b>Operand Right</b></em>' reference.
@@ -59,12 +59,12 @@ public interface BinaryOperator extends Condition {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operand Right</em>' reference.
-	 * @see #setOperandRight(Value)
+	 * @see #setOperandRight(Operator)
 	 * @see metamodel.MetamodelPackage#getBinaryOperator_OperandRight()
 	 * @model required="true"
 	 * @generated
 	 */
-	Value getOperandRight();
+	Operator getOperandRight();
 
 	/**
 	 * Sets the value of the '{@link metamodel.BinaryOperator#getOperandRight <em>Operand Right</em>}' reference.
@@ -74,6 +74,6 @@ public interface BinaryOperator extends Condition {
 	 * @see #getOperandRight()
 	 * @generated
 	 */
-	void setOperandRight(Value value);
+	void setOperandRight(Operator value);
 
 } // BinaryOperator

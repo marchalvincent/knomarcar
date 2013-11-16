@@ -2,7 +2,50 @@
  */
 package metamodel.util;
 
-import metamodel.*;
+import metamodel.Action;
+import metamodel.ActionWheel;
+import metamodel.Actuator;
+import metamodel.Add;
+import metamodel.And;
+import metamodel.Backward;
+import metamodel.Behaviour;
+import metamodel.BinaryCond;
+import metamodel.BinaryOperator;
+import metamodel.BoolVal;
+import metamodel.Condition;
+import metamodel.Different;
+import metamodel.DifferentialWheel;
+import metamodel.DistanceSensor;
+import metamodel.Equal;
+import metamodel.FloatVal;
+import metamodel.Forward;
+import metamodel.Group;
+import metamodel.IntVal;
+import metamodel.LessOrEqual;
+import metamodel.LessThan;
+import metamodel.LightSensor;
+import metamodel.MetamodelPackage;
+import metamodel.MoreOrEqual;
+import metamodel.MoreThan;
+import metamodel.Negation;
+import metamodel.Negative;
+import metamodel.Operator;
+import metamodel.Or;
+import metamodel.Positive;
+import metamodel.Robot;
+import metamodel.Sensor;
+import metamodel.State;
+import metamodel.StateMachine;
+import metamodel.Stopping;
+import metamodel.Sub;
+import metamodel.Transition;
+import metamodel.TurnLeft;
+import metamodel.TurnRight;
+import metamodel.Type;
+import metamodel.UnaryCond;
+import metamodel.UnaryOperator;
+import metamodel.Value;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -229,6 +272,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 			case MetamodelPackage.UNARY_OPERATOR: {
 				UnaryOperator unaryOperator = (UnaryOperator)theEObject;
 				T result = caseUnaryOperator(unaryOperator);
+				if (result == null) result = caseOperator(unaryOperator);
 				if (result == null) result = caseCondition(unaryOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -236,6 +280,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 			case MetamodelPackage.BINARY_OPERATOR: {
 				BinaryOperator binaryOperator = (BinaryOperator)theEObject;
 				T result = caseBinaryOperator(binaryOperator);
+				if (result == null) result = caseOperator(binaryOperator);
 				if (result == null) result = caseCondition(binaryOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -282,6 +327,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				Equal equal = (Equal)theEObject;
 				T result = caseEqual(equal);
 				if (result == null) result = caseBinaryOperator(equal);
+				if (result == null) result = caseOperator(equal);
 				if (result == null) result = caseCondition(equal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -290,6 +336,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				LessThan lessThan = (LessThan)theEObject;
 				T result = caseLessThan(lessThan);
 				if (result == null) result = caseBinaryOperator(lessThan);
+				if (result == null) result = caseOperator(lessThan);
 				if (result == null) result = caseCondition(lessThan);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -298,6 +345,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				MoreThan moreThan = (MoreThan)theEObject;
 				T result = caseMoreThan(moreThan);
 				if (result == null) result = caseBinaryOperator(moreThan);
+				if (result == null) result = caseOperator(moreThan);
 				if (result == null) result = caseCondition(moreThan);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -306,6 +354,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				Different different = (Different)theEObject;
 				T result = caseDifferent(different);
 				if (result == null) result = caseBinaryOperator(different);
+				if (result == null) result = caseOperator(different);
 				if (result == null) result = caseCondition(different);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -314,6 +363,7 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				LessOrEqual lessOrEqual = (LessOrEqual)theEObject;
 				T result = caseLessOrEqual(lessOrEqual);
 				if (result == null) result = caseBinaryOperator(lessOrEqual);
+				if (result == null) result = caseOperator(lessOrEqual);
 				if (result == null) result = caseCondition(lessOrEqual);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -322,7 +372,51 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				MoreOrEqual moreOrEqual = (MoreOrEqual)theEObject;
 				T result = caseMoreOrEqual(moreOrEqual);
 				if (result == null) result = caseBinaryOperator(moreOrEqual);
+				if (result == null) result = caseOperator(moreOrEqual);
 				if (result == null) result = caseCondition(moreOrEqual);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.ADD: {
+				Add add = (Add)theEObject;
+				T result = caseAdd(add);
+				if (result == null) result = caseBinaryOperator(add);
+				if (result == null) result = caseOperator(add);
+				if (result == null) result = caseCondition(add);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.SUB: {
+				Sub sub = (Sub)theEObject;
+				T result = caseSub(sub);
+				if (result == null) result = caseBinaryOperator(sub);
+				if (result == null) result = caseOperator(sub);
+				if (result == null) result = caseCondition(sub);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.NEGATIVE: {
+				Negative negative = (Negative)theEObject;
+				T result = caseNegative(negative);
+				if (result == null) result = caseUnaryOperator(negative);
+				if (result == null) result = caseOperator(negative);
+				if (result == null) result = caseCondition(negative);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.POSITIVE: {
+				Positive positive = (Positive)theEObject;
+				T result = casePositive(positive);
+				if (result == null) result = caseUnaryOperator(positive);
+				if (result == null) result = caseOperator(positive);
+				if (result == null) result = caseCondition(positive);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.OPERATOR: {
+				Operator operator = (Operator)theEObject;
+				T result = caseOperator(operator);
+				if (result == null) result = caseCondition(operator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -882,6 +976,81 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMoreOrEqual(MoreOrEqual object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Add</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Add</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAdd(Add object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sub</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sub</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSub(Sub object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Negative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Negative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNegative(Negative object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Positive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Positive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePositive(Positive object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperator(Operator object) {
 		return null;
 	}
 
