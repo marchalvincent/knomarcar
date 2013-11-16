@@ -442,7 +442,7 @@ public class Visitor implements IVisitor {
 		
 		String root = currentStateMachine.getName();
 		String srcId = root + "." + currentState.getName();
-		String destId = a.getDstId().getName();
+		String destId = root + "." + a.getDstId().getName();
 		
 		sb.append("fsm.Transition.create(" + root + ", " + srcId + ", " + destId + ", (");
 		// on évalue la condition
