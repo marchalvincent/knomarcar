@@ -2,7 +2,6 @@
  */
 package metamodel;
 
-import metamodel.generator.IVisitable;
 
 
 
@@ -16,5 +15,5 @@ import metamodel.generator.IVisitable;
  * @model
  * @generated
  */
-public interface Different extends BinaryOperator, IVisitable {
+public interface Different extends BinaryOperator {
 } // Different

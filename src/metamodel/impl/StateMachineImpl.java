@@ -9,10 +9,12 @@ import metamodel.State;
 import metamodel.StateMachine;
 import metamodel.generator.IVisitor;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -25,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link metamodel.impl.StateMachineImpl#getStates <em>States</em>}</li>
+ *   <li>{@link metamodel.impl.StateMachineImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +43,25 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 	 * @ordered
 	 */
 	protected EList<State> states;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,6 +92,27 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 			states = new EObjectContainmentEList<State>(State.class, this, MetamodelPackage.STATE_MACHINE__STATES);
 		}
 		return states;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE_MACHINE__NAME, oldName, name));
 	}
 
 	/**
@@ -106,6 +149,8 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 		switch (featureID) {
 			case MetamodelPackage.STATE_MACHINE__STATES:
 				return getStates();
+			case MetamodelPackage.STATE_MACHINE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +168,9 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 				getStates().clear();
 				getStates().addAll((Collection<? extends State>)newValue);
 				return;
+			case MetamodelPackage.STATE_MACHINE__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,6 +186,9 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 			case MetamodelPackage.STATE_MACHINE__STATES:
 				getStates().clear();
 				return;
+			case MetamodelPackage.STATE_MACHINE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,8 +203,26 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
 		switch (featureID) {
 			case MetamodelPackage.STATE_MACHINE__STATES:
 				return states != null && !states.isEmpty();
+			case MetamodelPackage.STATE_MACHINE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StateMachineImpl

@@ -310,11 +310,19 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.WAIT: {
-				Wait wait = (Wait)theEObject;
-				T result = caseWait(wait);
-				if (result == null) result = caseActionWheel(wait);
-				if (result == null) result = caseAction(wait);
+			case MetamodelPackage.LESS_OR_EQUAL: {
+				LessOrEqual lessOrEqual = (LessOrEqual)theEObject;
+				T result = caseLessOrEqual(lessOrEqual);
+				if (result == null) result = caseBinaryOperator(lessOrEqual);
+				if (result == null) result = caseCondition(lessOrEqual);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.MORE_OR_EQUAL: {
+				MoreOrEqual moreOrEqual = (MoreOrEqual)theEObject;
+				T result = caseMoreOrEqual(moreOrEqual);
+				if (result == null) result = caseBinaryOperator(moreOrEqual);
+				if (result == null) result = caseCondition(moreOrEqual);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -848,17 +856,32 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Wait</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Less Or Equal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Wait</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Less Or Equal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWait(Wait object) {
+	public T caseLessOrEqual(LessOrEqual object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>More Or Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>More Or Equal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMoreOrEqual(MoreOrEqual object) {
 		return null;
 	}
 

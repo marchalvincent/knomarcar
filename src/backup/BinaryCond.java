@@ -6,6 +6,7 @@ import metamodel.generator.IVisitable;
 
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Binary Cond</b></em>'.
@@ -25,52 +26,52 @@ import metamodel.generator.IVisitable;
  */
 public interface BinaryCond extends Condition, IVisitable {
 	/**
-	 * Returns the value of the '<em><b>Operand Right</b></em>' reference.
+	 * Returns the value of the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operand Right</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operand Right</em>' reference.
+	 * @return the value of the '<em>Operand Right</em>' containment reference.
 	 * @see #setOperandRight(Condition)
 	 * @see metamodel.MetamodelPackage#getBinaryCond_OperandRight()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Condition getOperandRight();
 
 	/**
-	 * Sets the value of the '{@link metamodel.BinaryCond#getOperandRight <em>Operand Right</em>}' reference.
+	 * Sets the value of the '{@link metamodel.BinaryCond#getOperandRight <em>Operand Right</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operand Right</em>' reference.
+	 * @param value the new value of the '<em>Operand Right</em>' containment reference.
 	 * @see #getOperandRight()
 	 * @generated
 	 */
 	void setOperandRight(Condition value);
 
 	/**
-	 * Returns the value of the '<em><b>Operand Left</b></em>' reference.
+	 * Returns the value of the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operand Left</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operand Left</em>' reference.
+	 * @return the value of the '<em>Operand Left</em>' containment reference.
 	 * @see #setOperandLeft(Condition)
 	 * @see metamodel.MetamodelPackage#getBinaryCond_OperandLeft()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Condition getOperandLeft();
 
 	/**
-	 * Sets the value of the '{@link metamodel.BinaryCond#getOperandLeft <em>Operand Left</em>}' reference.
+	 * Sets the value of the '{@link metamodel.BinaryCond#getOperandLeft <em>Operand Left</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operand Left</em>' reference.
+	 * @param value the new value of the '<em>Operand Left</em>' containment reference.
 	 * @see #getOperandLeft()
 	 * @generated
 	 */

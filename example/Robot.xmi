@@ -84,7 +84,6 @@
       priority="1">
     <stateMachine>
       <states
-          actions="//@actions.4"
           name="forwardESC">
         <transitions
             dest="//@behaviours.1/@stateMachine/@states.1"
@@ -135,7 +134,7 @@
             name="rangeMax">
           <value
               xsi:type="metamodel:IntVal"
-              value="1"/>
+              value="10"/>
         </value>
       </states>
       <states
@@ -247,7 +246,5 @@
       group="//@actuators.2"
       speed="50"/>
   <actions xsi:type="metamodel:Stopping"
-      group="//@actuators.2"/>
-  <actions xsi:type="metamodel:Wait"
       group="//@actuators.2"/>
 </metamodel:Robot>

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ActionWheelImpl extends ActionImpl implements ActionWheel {
+public abstract class ActionWheelImpl extends ActionImpl implements ActionWheel {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' reference.
 	 * <!-- begin-user-doc -->

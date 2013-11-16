@@ -2,23 +2,17 @@
  */
 package metamodel.impl;
 
-import java.util.Collection;
-
 import metamodel.Condition;
 import metamodel.MetamodelPackage;
 import metamodel.State;
 import metamodel.Transition;
 import metamodel.generator.IVisitor;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,9 +21,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link metamodel.impl.TransitionImpl#getDest <em>Dest</em>}</li>
- *   <li>{@link metamodel.impl.TransitionImpl#getConditions <em>Conditions</em>}</li>
- *   <li>{@link metamodel.impl.TransitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link metamodel.impl.TransitionImpl#getDstId <em>Dst Id</em>}</li>
+ *   <li>{@link metamodel.impl.TransitionImpl#getCond <em>Cond</em>}</li>
+ *   <li>{@link metamodel.impl.TransitionImpl#getNameIn <em>Name In</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,44 +31,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TransitionImpl extends MinimalEObjectImpl.Container implements Transition {
 	/**
-	 * The cached value of the '{@link #getDest() <em>Dest</em>}' reference.
+	 * The cached value of the '{@link #getDstId() <em>Dst Id</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDest()
+	 * @see #getDstId()
 	 * @generated
 	 * @ordered
 	 */
-	protected State dest;
+	protected State dstId;
 
 	/**
-	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
+	 * The cached value of the '{@link #getCond() <em>Cond</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConditions()
+	 * @see #getCond()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Condition> conditions;
+	protected Condition cond;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getNameIn() <em>Name In</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getNameIn()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_IN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getNameIn() <em>Name In</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getNameIn()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String nameIn = NAME_IN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,16 +94,16 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State getDest() {
-		if (dest != null && dest.eIsProxy()) {
-			InternalEObject oldDest = (InternalEObject)dest;
-			dest = (State)eResolveProxy(oldDest);
-			if (dest != oldDest) {
+	public State getDstId() {
+		if (dstId != null && dstId.eIsProxy()) {
+			InternalEObject oldDstId = (InternalEObject)dstId;
+			dstId = (State)eResolveProxy(oldDstId);
+			if (dstId != oldDstId) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.TRANSITION__DEST, oldDest, dest));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.TRANSITION__DST_ID, oldDstId, dstId));
 			}
 		}
-		return dest;
+		return dstId;
 	}
 
 	/**
@@ -117,8 +111,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State basicGetDest() {
-		return dest;
+	public State basicGetDstId() {
+		return dstId;
 	}
 
 	/**
@@ -126,11 +120,11 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDest(State newDest) {
-		State oldDest = dest;
-		dest = newDest;
+	public void setDstId(State newDstId) {
+		State oldDstId = dstId;
+		dstId = newDstId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.TRANSITION__DEST, oldDest, dest));
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.TRANSITION__DST_ID, oldDstId, dstId));
 	}
 
 	/**
@@ -138,11 +132,23 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Condition> getConditions() {
-		if (conditions == null) {
-			conditions = new EObjectContainmentEList<Condition>(Condition.class, this, MetamodelPackage.TRANSITION__CONDITIONS);
+	public Condition getCond() {
+		return cond;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCond(Condition newCond, NotificationChain msgs) {
+		Condition oldCond = cond;
+		cond = newCond;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.TRANSITION__COND, oldCond, newCond);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return conditions;
+		return msgs;
 	}
 
 	/**
@@ -150,8 +156,18 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public void setCond(Condition newCond) {
+		if (newCond != cond) {
+			NotificationChain msgs = null;
+			if (cond != null)
+				msgs = ((InternalEObject)cond).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.TRANSITION__COND, null, msgs);
+			if (newCond != null)
+				msgs = ((InternalEObject)newCond).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.TRANSITION__COND, null, msgs);
+			msgs = basicSetCond(newCond, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.TRANSITION__COND, newCond, newCond));
 	}
 
 	/**
@@ -159,11 +175,20 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public String getNameIn() {
+		return nameIn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNameIn(String newNameIn) {
+		String oldNameIn = nameIn;
+		nameIn = newNameIn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.TRANSITION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.TRANSITION__NAME_IN, oldNameIn, nameIn));
 	}
 
 	/**
@@ -184,8 +209,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MetamodelPackage.TRANSITION__CONDITIONS:
-				return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
+			case MetamodelPackage.TRANSITION__COND:
+				return basicSetCond(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,13 +223,13 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MetamodelPackage.TRANSITION__DEST:
-				if (resolve) return getDest();
-				return basicGetDest();
-			case MetamodelPackage.TRANSITION__CONDITIONS:
-				return getConditions();
-			case MetamodelPackage.TRANSITION__NAME:
-				return getName();
+			case MetamodelPackage.TRANSITION__DST_ID:
+				if (resolve) return getDstId();
+				return basicGetDstId();
+			case MetamodelPackage.TRANSITION__COND:
+				return getCond();
+			case MetamodelPackage.TRANSITION__NAME_IN:
+				return getNameIn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,15 +243,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MetamodelPackage.TRANSITION__DEST:
-				setDest((State)newValue);
+			case MetamodelPackage.TRANSITION__DST_ID:
+				setDstId((State)newValue);
 				return;
-			case MetamodelPackage.TRANSITION__CONDITIONS:
-				getConditions().clear();
-				getConditions().addAll((Collection<? extends Condition>)newValue);
+			case MetamodelPackage.TRANSITION__COND:
+				setCond((Condition)newValue);
 				return;
-			case MetamodelPackage.TRANSITION__NAME:
-				setName((String)newValue);
+			case MetamodelPackage.TRANSITION__NAME_IN:
+				setNameIn((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,14 +264,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.TRANSITION__DEST:
-				setDest((State)null);
+			case MetamodelPackage.TRANSITION__DST_ID:
+				setDstId((State)null);
 				return;
-			case MetamodelPackage.TRANSITION__CONDITIONS:
-				getConditions().clear();
+			case MetamodelPackage.TRANSITION__COND:
+				setCond((Condition)null);
 				return;
-			case MetamodelPackage.TRANSITION__NAME:
-				setName(NAME_EDEFAULT);
+			case MetamodelPackage.TRANSITION__NAME_IN:
+				setNameIn(NAME_IN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,12 +285,12 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.TRANSITION__DEST:
-				return dest != null;
-			case MetamodelPackage.TRANSITION__CONDITIONS:
-				return conditions != null && !conditions.isEmpty();
-			case MetamodelPackage.TRANSITION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MetamodelPackage.TRANSITION__DST_ID:
+				return dstId != null;
+			case MetamodelPackage.TRANSITION__COND:
+				return cond != null;
+			case MetamodelPackage.TRANSITION__NAME_IN:
+				return NAME_IN_EDEFAULT == null ? nameIn != null : !NAME_IN_EDEFAULT.equals(nameIn);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -281,8 +305,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (nameIn: ");
+		result.append(nameIn);
 		result.append(')');
 		return result.toString();
 	}

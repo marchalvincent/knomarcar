@@ -2,7 +2,6 @@
  */
 package metamodel;
 
-import metamodel.generator.IVisitable;
 
 
 
@@ -24,7 +23,7 @@ import metamodel.generator.IVisitable;
  * @model abstract="true"
  * @generated
  */
-public interface BinaryOperator extends Condition, IVisitable {
+public interface BinaryOperator extends Condition {
 	/**
 	 * Returns the value of the '<em><b>Operand Left</b></em>' reference.
 	 * <!-- begin-user-doc -->

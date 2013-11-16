@@ -2,7 +2,7 @@
  */
 package metamodel.impl;
 
-import metamodel.ActionWheel;
+import metamodel.*;
 import metamodel.And;
 import metamodel.Backward;
 import metamodel.Behaviour;
@@ -31,7 +31,7 @@ import metamodel.TurnLeft;
 import metamodel.TurnRight;
 import metamodel.Type;
 import metamodel.Value;
-import metamodel.Wait;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -85,7 +85,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.ROBOT: return createRobot();
 			case MetamodelPackage.DIFFERENTIAL_WHEEL: return createDifferentialWheel();
 			case MetamodelPackage.GROUP: return createGroup();
-			case MetamodelPackage.ACTION_WHEEL: return createActionWheel();
 			case MetamodelPackage.TURN_LEFT: return createTurnLeft();
 			case MetamodelPackage.FORWARD: return createForward();
 			case MetamodelPackage.STOPPING: return createStopping();
@@ -109,7 +108,8 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.LESS_THAN: return createLessThan();
 			case MetamodelPackage.MORE_THAN: return createMoreThan();
 			case MetamodelPackage.DIFFERENT: return createDifferent();
-			case MetamodelPackage.WAIT: return createWait();
+			case MetamodelPackage.LESS_OR_EQUAL: return createLessOrEqual();
+			case MetamodelPackage.MORE_OR_EQUAL: return createMoreOrEqual();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,16 +143,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	public Group createGroup() {
 		GroupImpl group = new GroupImpl();
 		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActionWheel createActionWheel() {
-		ActionWheelImpl actionWheel = new ActionWheelImpl();
-		return actionWheel;
 	}
 
 	/**
@@ -390,9 +380,19 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Wait createWait() {
-		WaitImpl wait = new WaitImpl();
-		return wait;
+	public LessOrEqual createLessOrEqual() {
+		LessOrEqualImpl lessOrEqual = new LessOrEqualImpl();
+		return lessOrEqual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MoreOrEqual createMoreOrEqual() {
+		MoreOrEqualImpl moreOrEqual = new MoreOrEqualImpl();
+		return moreOrEqual;
 	}
 
 	/**

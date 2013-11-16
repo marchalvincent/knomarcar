@@ -996,13 +996,22 @@ public interface MetamodelPackage extends EPackage {
 	int STATE_MACHINE__STATES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_MACHINE__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>State Machine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE_FEATURE_COUNT = 1;
+	int STATE_MACHINE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>State Machine</em>' class.
@@ -1042,13 +1051,13 @@ public interface MetamodelPackage extends EPackage {
 	int STATE__VALUE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * The feature id for the '<em><b>Working Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__ACTIONS = 2;
+	int STATE__WORKING_ACTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1069,13 +1078,40 @@ public interface MetamodelPackage extends EPackage {
 	int STATE__IS_INITIAL = 4;
 
 	/**
+	 * The feature id for the '<em><b>On Enter Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ON_ENTER_ACTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>On Leave Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ON_LEAVE_ACTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__UID = 7;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 5;
+	int STATE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -1097,31 +1133,31 @@ public interface MetamodelPackage extends EPackage {
 	int TRANSITION = 22;
 
 	/**
-	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * The feature id for the '<em><b>Dst Id</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__DEST = 0;
+	int TRANSITION__DST_ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Cond</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__CONDITIONS = 1;
+	int TRANSITION__COND = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name In</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__NAME = 2;
+	int TRANSITION__NAME_IN = 2;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -1650,51 +1686,96 @@ public interface MetamodelPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.WaitImpl <em>Wait</em>}' class.
+	 * The meta object id for the '{@link metamodel.impl.LessOrEqualImpl <em>Less Or Equal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.WaitImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getWait()
+	 * @see metamodel.impl.LessOrEqualImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getLessOrEqual()
 	 * @generated
 	 */
-	int WAIT = 35;
+	int LESS_OR_EQUAL = 35;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT__GROUP = ACTION_WHEEL__GROUP;
+	int LESS_OR_EQUAL__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Speed</b></em>' attribute.
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT__SPEED = ACTION_WHEEL__SPEED;
+	int LESS_OR_EQUAL__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
 
 	/**
-	 * The number of structural features of the '<em>Wait</em>' class.
+	 * The number of structural features of the '<em>Less Or Equal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_FEATURE_COUNT = ACTION_WHEEL_FEATURE_COUNT + 0;
+	int LESS_OR_EQUAL_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Wait</em>' class.
+	 * The number of operations of the '<em>Less Or Equal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_OPERATION_COUNT = ACTION_WHEEL_OPERATION_COUNT + 0;
+	int LESS_OR_EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link metamodel.impl.MoreOrEqualImpl <em>More Or Equal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.MoreOrEqualImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getMoreOrEqual()
+	 * @generated
+	 */
+	int MORE_OR_EQUAL = 36;
+
+	/**
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORE_OR_EQUAL__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORE_OR_EQUAL__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
+
+	/**
+	 * The number of structural features of the '<em>More Or Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORE_OR_EQUAL_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>More Or Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORE_OR_EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link metamodel.Robot <em>Robot</em>}'.
@@ -2160,6 +2241,17 @@ public interface MetamodelPackage extends EPackage {
 	EReference getStateMachine_States();
 
 	/**
+	 * Returns the meta object for the attribute '{@link metamodel.StateMachine#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see metamodel.StateMachine#getName()
+	 * @see #getStateMachine()
+	 * @generated
+	 */
+	EAttribute getStateMachine_Name();
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2192,15 +2284,15 @@ public interface MetamodelPackage extends EPackage {
 	EReference getState_Value();
 
 	/**
-	 * Returns the meta object for the reference list '{@link metamodel.State#getActions <em>Actions</em>}'.
+	 * Returns the meta object for the reference '{@link metamodel.State#getWorkingAction <em>Working Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actions</em>'.
-	 * @see metamodel.State#getActions()
+	 * @return the meta object for the reference '<em>Working Action</em>'.
+	 * @see metamodel.State#getWorkingAction()
 	 * @see #getState()
 	 * @generated
 	 */
-	EReference getState_Actions();
+	EReference getState_WorkingAction();
 
 	/**
 	 * Returns the meta object for the attribute '{@link metamodel.State#getName <em>Name</em>}'.
@@ -2225,6 +2317,39 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getState_IsInitial();
 
 	/**
+	 * Returns the meta object for the reference '{@link metamodel.State#getOnEnterAction <em>On Enter Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>On Enter Action</em>'.
+	 * @see metamodel.State#getOnEnterAction()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_OnEnterAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link metamodel.State#getOnLeaveAction <em>On Leave Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>On Leave Action</em>'.
+	 * @see metamodel.State#getOnLeaveAction()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_OnLeaveAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link metamodel.State#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see metamodel.State#getUid()
+	 * @see #getState()
+	 * @generated
+	 */
+	EAttribute getState_Uid();
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2235,37 +2360,37 @@ public interface MetamodelPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.Transition#getDest <em>Dest</em>}'.
+	 * Returns the meta object for the reference '{@link metamodel.Transition#getDstId <em>Dst Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Dest</em>'.
-	 * @see metamodel.Transition#getDest()
+	 * @return the meta object for the reference '<em>Dst Id</em>'.
+	 * @see metamodel.Transition#getDstId()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EReference getTransition_Dest();
+	EReference getTransition_DstId();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.Transition#getConditions <em>Conditions</em>}'.
+	 * Returns the meta object for the containment reference '{@link metamodel.Transition#getCond <em>Cond</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Conditions</em>'.
-	 * @see metamodel.Transition#getConditions()
+	 * @return the meta object for the containment reference '<em>Cond</em>'.
+	 * @see metamodel.Transition#getCond()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EReference getTransition_Conditions();
+	EReference getTransition_Cond();
 
 	/**
-	 * Returns the meta object for the attribute '{@link metamodel.Transition#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link metamodel.Transition#getNameIn <em>Name In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see metamodel.Transition#getName()
+	 * @return the meta object for the attribute '<em>Name In</em>'.
+	 * @see metamodel.Transition#getNameIn()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EAttribute getTransition_Name();
+	EAttribute getTransition_NameIn();
 
 	/**
 	 * Returns the meta object for class '{@link metamodel.Condition <em>Condition</em>}'.
@@ -2454,14 +2579,24 @@ public interface MetamodelPackage extends EPackage {
 	EClass getDifferent();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.Wait <em>Wait</em>}'.
+	 * Returns the meta object for class '{@link metamodel.LessOrEqual <em>Less Or Equal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Wait</em>'.
-	 * @see metamodel.Wait
+	 * @return the meta object for class '<em>Less Or Equal</em>'.
+	 * @see metamodel.LessOrEqual
 	 * @generated
 	 */
-	EClass getWait();
+	EClass getLessOrEqual();
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.MoreOrEqual <em>More Or Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>More Or Equal</em>'.
+	 * @see metamodel.MoreOrEqual
+	 * @generated
+	 */
+	EClass getMoreOrEqual();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2881,6 +3016,14 @@ public interface MetamodelPackage extends EPackage {
 		EReference STATE_MACHINE__STATES = eINSTANCE.getStateMachine_States();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATE_MACHINE__NAME = eINSTANCE.getStateMachine_Name();
+
+		/**
 		 * The meta object literal for the '{@link metamodel.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2907,12 +3050,12 @@ public interface MetamodelPackage extends EPackage {
 		EReference STATE__VALUE = eINSTANCE.getState_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Working Action</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__ACTIONS = eINSTANCE.getState_Actions();
+		EReference STATE__WORKING_ACTION = eINSTANCE.getState_WorkingAction();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2931,6 +3074,30 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute STATE__IS_INITIAL = eINSTANCE.getState_IsInitial();
 
 		/**
+		 * The meta object literal for the '<em><b>On Enter Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ON_ENTER_ACTION = eINSTANCE.getState_OnEnterAction();
+
+		/**
+		 * The meta object literal for the '<em><b>On Leave Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ON_LEAVE_ACTION = eINSTANCE.getState_OnLeaveAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATE__UID = eINSTANCE.getState_Uid();
+
+		/**
 		 * The meta object literal for the '{@link metamodel.impl.TransitionImpl <em>Transition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2941,28 +3108,28 @@ public interface MetamodelPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Dest</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Dst Id</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRANSITION__DEST = eINSTANCE.getTransition_Dest();
+		EReference TRANSITION__DST_ID = eINSTANCE.getTransition_DstId();
 
 		/**
-		 * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRANSITION__CONDITIONS = eINSTANCE.getTransition_Conditions();
+		EReference TRANSITION__COND = eINSTANCE.getTransition_Cond();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name In</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRANSITION__NAME = eINSTANCE.getTransition_Name();
+		EAttribute TRANSITION__NAME_IN = eINSTANCE.getTransition_NameIn();
 
 		/**
 		 * The meta object literal for the '{@link metamodel.impl.ConditionImpl <em>Condition</em>}' class.
@@ -3133,14 +3300,24 @@ public interface MetamodelPackage extends EPackage {
 		EClass DIFFERENT = eINSTANCE.getDifferent();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.WaitImpl <em>Wait</em>}' class.
+		 * The meta object literal for the '{@link metamodel.impl.LessOrEqualImpl <em>Less Or Equal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.WaitImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getWait()
+		 * @see metamodel.impl.LessOrEqualImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getLessOrEqual()
 		 * @generated
 		 */
-		EClass WAIT = eINSTANCE.getWait();
+		EClass LESS_OR_EQUAL = eINSTANCE.getLessOrEqual();
+
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.MoreOrEqualImpl <em>More Or Equal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.MoreOrEqualImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getMoreOrEqual()
+		 * @generated
+		 */
+		EClass MORE_OR_EQUAL = eINSTANCE.getMoreOrEqual();
 
 	}
 

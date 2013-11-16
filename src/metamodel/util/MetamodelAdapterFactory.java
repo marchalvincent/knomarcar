@@ -205,8 +205,12 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 				return createDifferentAdapter();
 			}
 			@Override
-			public Adapter caseWait(Wait object) {
-				return createWaitAdapter();
+			public Adapter caseLessOrEqual(LessOrEqual object) {
+				return createLessOrEqualAdapter();
+			}
+			@Override
+			public Adapter caseMoreOrEqual(MoreOrEqual object) {
+				return createMoreOrEqualAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -719,16 +723,30 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.Wait <em>Wait</em>}'.
+	 * Creates a new adapter for an object of class '{@link metamodel.LessOrEqual <em>Less Or Equal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.Wait
+	 * @see metamodel.LessOrEqual
 	 * @generated
 	 */
-	public Adapter createWaitAdapter() {
+	public Adapter createLessOrEqualAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.MoreOrEqual <em>More Or Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.MoreOrEqual
+	 * @generated
+	 */
+	public Adapter createMoreOrEqualAdapter() {
 		return null;
 	}
 

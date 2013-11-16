@@ -2,7 +2,7 @@
  */
 package metamodel;
 
-import metamodel.generator.IVisitable;
+
 
 
 
@@ -20,10 +20,10 @@ import metamodel.generator.IVisitable;
  * </p>
  *
  * @see metamodel.MetamodelPackage#getActionWheel()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface ActionWheel extends Action, IVisitable {
+public interface ActionWheel extends Action {
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' reference.
 	 * <!-- begin-user-doc -->

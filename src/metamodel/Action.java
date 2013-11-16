@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see metamodel.MetamodelPackage#getAction()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Action extends EObject, IVisitable {

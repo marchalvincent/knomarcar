@@ -49,15 +49,6 @@ public interface MetamodelFactory extends EFactory {
 	Group createGroup();
 
 	/**
-	 * Returns a new object of class '<em>Action Wheel</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action Wheel</em>'.
-	 * @generated
-	 */
-	ActionWheel createActionWheel();
-
-	/**
 	 * Returns a new object of class '<em>Turn Left</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,13 +256,22 @@ public interface MetamodelFactory extends EFactory {
 	Different createDifferent();
 
 	/**
-	 * Returns a new object of class '<em>Wait</em>'.
+	 * Returns a new object of class '<em>Less Or Equal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Wait</em>'.
+	 * @return a new object of class '<em>Less Or Equal</em>'.
 	 * @generated
 	 */
-	Wait createWait();
+	LessOrEqual createLessOrEqual();
+
+	/**
+	 * Returns a new object of class '<em>More Or Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>More Or Equal</em>'.
+	 * @generated
+	 */
+	MoreOrEqual createMoreOrEqual();
 
 	/**
 	 * Returns the package supported by this factory.

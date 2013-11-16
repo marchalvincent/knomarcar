@@ -3,14 +3,12 @@
 package metamodel.impl;
 
 import java.util.Collection;
-
 import metamodel.Action;
 import metamodel.MetamodelPackage;
 import metamodel.State;
 import metamodel.Transition;
 import metamodel.Value;
 import metamodel.generator.IVisitor;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,9 +28,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link metamodel.impl.StateImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link metamodel.impl.StateImpl#getValue <em>Value</em>}</li>
- *   <li>{@link metamodel.impl.StateImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link metamodel.impl.StateImpl#getWorkingAction <em>Working Action</em>}</li>
  *   <li>{@link metamodel.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link metamodel.impl.StateImpl#isIsInitial <em>Is Initial</em>}</li>
+ *   <li>{@link metamodel.impl.StateImpl#getOnEnterAction <em>On Enter Action</em>}</li>
+ *   <li>{@link metamodel.impl.StateImpl#getOnLeaveAction <em>On Leave Action</em>}</li>
+ *   <li>{@link metamodel.impl.StateImpl#getUid <em>Uid</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,14 +61,14 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	protected Value value;
 
 	/**
-	 * The cached value of the '{@link #getActions() <em>Actions</em>}' reference list.
+	 * The cached value of the '{@link #getWorkingAction() <em>Working Action</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActions()
+	 * @see #getWorkingAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Action> actions;
+	protected Action workingAction;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -109,6 +109,46 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @ordered
 	 */
 	protected boolean isInitial = IS_INITIAL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOnEnterAction() <em>On Enter Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnEnterAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected Action onEnterAction;
+
+	/**
+	 * The cached value of the '{@link #getOnLeaveAction() <em>On Leave Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnLeaveAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected Action onLeaveAction;
+
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int UID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected int uid = UID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,11 +229,37 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Action> getActions() {
-		if (actions == null) {
-			actions = new EObjectResolvingEList<Action>(Action.class, this, MetamodelPackage.STATE__ACTIONS);
+	public Action getWorkingAction() {
+		if (workingAction != null && workingAction.eIsProxy()) {
+			InternalEObject oldWorkingAction = (InternalEObject)workingAction;
+			workingAction = (Action)eResolveProxy(oldWorkingAction);
+			if (workingAction != oldWorkingAction) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.STATE__WORKING_ACTION, oldWorkingAction, workingAction));
+			}
 		}
-		return actions;
+		return workingAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action basicGetWorkingAction() {
+		return workingAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWorkingAction(Action newWorkingAction) {
+		Action oldWorkingAction = workingAction;
+		workingAction = newWorkingAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__WORKING_ACTION, oldWorkingAction, workingAction));
 	}
 
 	/**
@@ -241,6 +307,103 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action getOnEnterAction() {
+		if (onEnterAction != null && onEnterAction.eIsProxy()) {
+			InternalEObject oldOnEnterAction = (InternalEObject)onEnterAction;
+			onEnterAction = (Action)eResolveProxy(oldOnEnterAction);
+			if (onEnterAction != oldOnEnterAction) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.STATE__ON_ENTER_ACTION, oldOnEnterAction, onEnterAction));
+			}
+		}
+		return onEnterAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action basicGetOnEnterAction() {
+		return onEnterAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnEnterAction(Action newOnEnterAction) {
+		Action oldOnEnterAction = onEnterAction;
+		onEnterAction = newOnEnterAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__ON_ENTER_ACTION, oldOnEnterAction, onEnterAction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action getOnLeaveAction() {
+		if (onLeaveAction != null && onLeaveAction.eIsProxy()) {
+			InternalEObject oldOnLeaveAction = (InternalEObject)onLeaveAction;
+			onLeaveAction = (Action)eResolveProxy(oldOnLeaveAction);
+			if (onLeaveAction != oldOnLeaveAction) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.STATE__ON_LEAVE_ACTION, oldOnLeaveAction, onLeaveAction));
+			}
+		}
+		return onLeaveAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action basicGetOnLeaveAction() {
+		return onLeaveAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnLeaveAction(Action newOnLeaveAction) {
+		Action oldOnLeaveAction = onLeaveAction;
+		onLeaveAction = newOnLeaveAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__ON_LEAVE_ACTION, oldOnLeaveAction, onLeaveAction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(int newUid) {
+		int oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -276,12 +439,21 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return getTransitions();
 			case MetamodelPackage.STATE__VALUE:
 				return getValue();
-			case MetamodelPackage.STATE__ACTIONS:
-				return getActions();
+			case MetamodelPackage.STATE__WORKING_ACTION:
+				if (resolve) return getWorkingAction();
+				return basicGetWorkingAction();
 			case MetamodelPackage.STATE__NAME:
 				return getName();
 			case MetamodelPackage.STATE__IS_INITIAL:
 				return isIsInitial();
+			case MetamodelPackage.STATE__ON_ENTER_ACTION:
+				if (resolve) return getOnEnterAction();
+				return basicGetOnEnterAction();
+			case MetamodelPackage.STATE__ON_LEAVE_ACTION:
+				if (resolve) return getOnLeaveAction();
+				return basicGetOnLeaveAction();
+			case MetamodelPackage.STATE__UID:
+				return getUid();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -302,15 +474,23 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MetamodelPackage.STATE__VALUE:
 				setValue((Value)newValue);
 				return;
-			case MetamodelPackage.STATE__ACTIONS:
-				getActions().clear();
-				getActions().addAll((Collection<? extends Action>)newValue);
+			case MetamodelPackage.STATE__WORKING_ACTION:
+				setWorkingAction((Action)newValue);
 				return;
 			case MetamodelPackage.STATE__NAME:
 				setName((String)newValue);
 				return;
 			case MetamodelPackage.STATE__IS_INITIAL:
 				setIsInitial((Boolean)newValue);
+				return;
+			case MetamodelPackage.STATE__ON_ENTER_ACTION:
+				setOnEnterAction((Action)newValue);
+				return;
+			case MetamodelPackage.STATE__ON_LEAVE_ACTION:
+				setOnLeaveAction((Action)newValue);
+				return;
+			case MetamodelPackage.STATE__UID:
+				setUid((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,14 +510,23 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MetamodelPackage.STATE__VALUE:
 				setValue((Value)null);
 				return;
-			case MetamodelPackage.STATE__ACTIONS:
-				getActions().clear();
+			case MetamodelPackage.STATE__WORKING_ACTION:
+				setWorkingAction((Action)null);
 				return;
 			case MetamodelPackage.STATE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case MetamodelPackage.STATE__IS_INITIAL:
 				setIsInitial(IS_INITIAL_EDEFAULT);
+				return;
+			case MetamodelPackage.STATE__ON_ENTER_ACTION:
+				setOnEnterAction((Action)null);
+				return;
+			case MetamodelPackage.STATE__ON_LEAVE_ACTION:
+				setOnLeaveAction((Action)null);
+				return;
+			case MetamodelPackage.STATE__UID:
+				setUid(UID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -355,12 +544,18 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return transitions != null && !transitions.isEmpty();
 			case MetamodelPackage.STATE__VALUE:
 				return value != null;
-			case MetamodelPackage.STATE__ACTIONS:
-				return actions != null && !actions.isEmpty();
+			case MetamodelPackage.STATE__WORKING_ACTION:
+				return workingAction != null;
 			case MetamodelPackage.STATE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MetamodelPackage.STATE__IS_INITIAL:
 				return isInitial != IS_INITIAL_EDEFAULT;
+			case MetamodelPackage.STATE__ON_ENTER_ACTION:
+				return onEnterAction != null;
+			case MetamodelPackage.STATE__ON_LEAVE_ACTION:
+				return onLeaveAction != null;
+			case MetamodelPackage.STATE__UID:
+				return uid != UID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -379,6 +574,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		result.append(name);
 		result.append(", isInitial: ");
 		result.append(isInitial);
+		result.append(", uid: ");
+		result.append(uid);
 		result.append(')');
 		return result.toString();
 	}

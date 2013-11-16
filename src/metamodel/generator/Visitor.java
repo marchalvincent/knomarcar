@@ -40,11 +40,13 @@ import metamodel.Value;
 public class Visitor implements IVisitor {
 
 	private final String messErreur = "Ne devrait pas arriver, %s est abstrait.";
-	Actuators actuators;
-
+	private int transitionCount = 0;
+	private StateMachine currentStateMachine;
+	private State currentState;
+	private Actuators actuators;
+	
 	StringBuilder sb;
 	private String robotName;
-
 
 	public Visitor() {
 		super();
@@ -140,7 +142,7 @@ public class Visitor implements IVisitor {
 		sb.append(a.getName());
 		sb.append(" = DistanceSensor.new(\"");
 		sb.append(a.getSensorName());
-		sb.append("\")");
+		sb.append("\");\n");
 	}
 
 	@Override
@@ -207,7 +209,7 @@ public class Visitor implements IVisitor {
 		sb.append(a.getName());
 		sb.append(" = LightSensor.new(\"");
 		sb.append(a.getSensorName());
-		sb.append("\")");
+		sb.append("\");\n");
 	}
 
 	@Override
@@ -261,13 +263,15 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(State a) {
 		// TODO Auto-generated method stub
-
+		// CurrentState = a
+		// code...
 	}
 
 	@Override
 	public void visit(StateMachine a) {
 		// TODO Auto-generated method stub
-
+		// CurrentStateMachine = a
+		// code...
 	}
 
 	@Override
@@ -278,12 +282,6 @@ public class Visitor implements IVisitor {
 		 * };
 		 */
 		actuators.addFunction("stopping()", actuators.getGroup().getName() + ".speed = 0;");
-	}
-
-	@Override
-	public void visit(Transition a) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -306,6 +304,12 @@ public class Visitor implements IVisitor {
 		 */
 		actuators.addFunction("turnRight(s)", actuators.getDifferentialWheel(true).getName() + ".speed = s &"
 				+ actuators.getDifferentialWheel(false).getName() + ".speed = -s;");
+	}
+
+	@Override
+	public void visit(Transition a) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

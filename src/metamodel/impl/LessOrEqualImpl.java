@@ -2,28 +2,27 @@
  */
 package metamodel.impl;
 
+import metamodel.LessOrEqual;
 import metamodel.MetamodelPackage;
-import metamodel.Wait;
-import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Wait</b></em>'.
+ * An implementation of the model object '<em><b>Less Or Equal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class WaitImpl extends ActionWheelImpl implements Wait {
+public class LessOrEqualImpl extends BinaryOperatorImpl implements LessOrEqual {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WaitImpl() {
+	protected LessOrEqualImpl() {
 		super();
 	}
 
@@ -34,17 +33,7 @@ public class WaitImpl extends ActionWheelImpl implements Wait {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MetamodelPackage.Literals.WAIT;
+		return MetamodelPackage.Literals.LESS_OR_EQUAL;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void accept(IVisitor v) {
-		v.visit(this);
-	}
-
-} //WaitImpl
+} //LessOrEqualImpl
