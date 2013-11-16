@@ -4,6 +4,7 @@ package metamodel.impl;
 
 import metamodel.MetamodelPackage;
 import metamodel.Sub;
+import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +35,16 @@ public class SubImpl extends BinaryOperatorImpl implements Sub {
 	@Override
 	protected EClass eStaticClass() {
 		return MetamodelPackage.Literals.SUB;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 } //SubImpl

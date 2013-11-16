@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -15,5 +17,5 @@ package metamodel;
  * @model
  * @generated
  */
-public interface Stopping extends ActionWheel {
+public interface Stopping extends ActionWheel, IVisitable {
 } // Stopping

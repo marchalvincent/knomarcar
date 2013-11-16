@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -23,7 +25,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface BinaryOperator extends Operator {
+public interface BinaryOperator extends Operator, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

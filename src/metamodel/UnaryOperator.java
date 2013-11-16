@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -22,7 +24,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface UnaryOperator extends Operator {
+public interface UnaryOperator extends Operator, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Valeur</b></em>' reference.
 	 * <!-- begin-user-doc -->

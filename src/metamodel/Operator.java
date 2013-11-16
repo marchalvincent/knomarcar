@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface Operator extends Condition {
+public interface Operator extends Condition, IVisitable {
 } // Operator

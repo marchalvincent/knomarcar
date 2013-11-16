@@ -124,6 +124,8 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(BinaryOperator a) {
+		System.out.println(a.getClass().getSimpleName()
+				);
 		System.err.printf(messErreur, BinaryOperator.class.getSimpleName());
 	}
 
@@ -270,7 +272,7 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Negative a) {
 		sb.append("( -");
-		a.getValeur().getValue().accept(this);
+		sb.append(a.getValeur().getName());
 		sb.append(" )");
 	}
 
@@ -290,7 +292,7 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(Positive a) {
-		a.getValeur().getValue().accept(this);
+		sb.append(a.getValeur().getName());
 	}
 
 	@Override

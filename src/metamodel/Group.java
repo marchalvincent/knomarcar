@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -20,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Group extends Actuator {
+public interface Group extends Actuator, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Wheels</b></em>' reference list.
 	 * The list contents are of type {@link metamodel.DifferentialWheel}.

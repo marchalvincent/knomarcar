@@ -4,6 +4,7 @@ package metamodel.impl;
 
 import metamodel.MetamodelPackage;
 import metamodel.More;
+import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +35,16 @@ public class MoreImpl extends BinaryOperatorImpl implements More {
 	@Override
 	protected EClass eStaticClass() {
 		return MetamodelPackage.Literals.MORE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 } //MoreImpl

@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -24,7 +26,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface UnaryCond extends Condition {
+public interface UnaryCond extends Condition, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Child</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

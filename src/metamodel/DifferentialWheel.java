@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -23,7 +25,7 @@ package metamodel;
  * @model
  * @generated
  */
-public interface DifferentialWheel extends Actuator {
+public interface DifferentialWheel extends Actuator, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Is Left</b></em>' attribute.
 	 * <!-- begin-user-doc -->

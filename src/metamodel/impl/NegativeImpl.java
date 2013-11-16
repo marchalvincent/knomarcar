@@ -4,6 +4,7 @@ package metamodel.impl;
 
 import metamodel.MetamodelPackage;
 import metamodel.Negative;
+import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +35,16 @@ public class NegativeImpl extends UnaryOperatorImpl implements Negative {
 	@Override
 	protected EClass eStaticClass() {
 		return MetamodelPackage.Literals.NEGATIVE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 } //NegativeImpl

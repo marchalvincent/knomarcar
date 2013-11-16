@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -21,7 +23,7 @@ package metamodel;
  * @model
  * @generated
  */
-public interface IntVal extends Type {
+public interface IntVal extends Type, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

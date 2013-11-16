@@ -4,6 +4,7 @@ package metamodel.impl;
 
 import metamodel.LessOrEqual;
 import metamodel.MetamodelPackage;
+import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +35,16 @@ public class LessOrEqualImpl extends BinaryOperatorImpl implements LessOrEqual {
 	@Override
 	protected EClass eStaticClass() {
 		return MetamodelPackage.Literals.LESS_OR_EQUAL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 } //LessOrEqualImpl

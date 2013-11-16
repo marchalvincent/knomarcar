@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package metamodel;
  * @model
  * @generated
  */
-public interface Positive extends UnaryOperator {
+public interface Positive extends UnaryOperator, IVisitable {
 } // Positive
