@@ -13,8 +13,7 @@
         name="stateMachineEscape">
       <states
           name="init"
-          isInitial="true"
-          uid="rootEscape">
+          isInitial="true">
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.3"
             nameIn="initToLeft">
@@ -179,7 +178,7 @@
       <states
           workingAction="//@actions.2"
           name="goRight"
-          uid="rootEscape">
+          uid="1">
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.3"
             nameIn="rightToLeft">
@@ -302,7 +301,7 @@
       <states
           workingAction="//@actions.4"
           name="backward"
-          uid="rootEscape">
+          uid="2">
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.3"
             nameIn="backwardToLeft">
@@ -443,7 +442,7 @@
       <states
           workingAction="//@actions.1"
           name="goLeft"
-          uid="rootEscape">
+          uid="3">
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.4"
             nameIn="leftToStraight">
@@ -566,7 +565,7 @@
       <states
           workingAction="//@actions.0"
           name="goStraight"
-          uid="rootEscape">
+          uid="4">
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.3"
             nameIn="straightToLeft">
@@ -730,28 +729,27 @@
         name="stateMachineHome">
       <states
           name="init"
-          isInitial="true"
-          uid="rootHome"/>
+          isInitial="true"/>
       <states
           workingAction="//@actions.1"
           name="goLeft"
-          uid="rootHome"/>
+          uid="1"/>
       <states
           workingAction="//@actions.2"
           name="goRight"
-          uid="rootHome"/>
+          uid="2"/>
       <states
           workingAction="//@actions.3"
           name="end"
-          uid="rootHome"/>
+          uid="3"/>
       <states
           workingAction="//@actions.0"
           name="goStraight"
-          uid="rootHome"/>
+          uid="4"/>
       <states
           workingAction="//@actions.4"
           name="backward"
-          uid="rootHome"/>
+          uid="5"/>
     </stateMachine>
   </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
