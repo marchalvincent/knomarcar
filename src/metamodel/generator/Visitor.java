@@ -49,7 +49,6 @@ public class Visitor implements IVisitor {
 
 	private final String messErreur = "Ne devrait pas arriver, %s est abstrait.";
 	
-	private int transitionCount = 0;
 	private StateMachine currentStateMachine;
 	private State currentState;
 	private ActuatorsContainer actuators;
@@ -327,21 +326,57 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(State a) {
-		// TODO Auto-generated method stub
-		currentState = a;
 		
-		String varName = currentState.getName() + "." + a.getName();
+		String varName = currentStateMachine.getName() + "." + a.getName();
 		
+		// WORKING ACTION
 		String body = "";
-//		if (a.getWorkingAction() != null) {
-//			body = "\n actuator." + a.get; TODO
-//		}
+		Action action = a.getWorkingAction();
+		if (action != null) {
+			if (action instanceof ActionWheel) {
+				ActionWheel aWheel = (ActionWheel) action;
+				body = "\n actuator." + aWheel.getClass().getSimpleName() + "(" + aWheel.getSpeed() + ")\n";
+			}
+			else {
+				System.err.println("L'action 'working' est inconnue...");
+			}
+		}
+		String workingFunction = "function() {" + body + "}\n";
 		
 		
+		// ONENTER ACTION
+		body = "";
+		action = a.getOnEnterAction();
+		if (action != null) {
+			if (action instanceof ActionWheel) {
+				ActionWheel aWheel = (ActionWheel) action;
+				body = "\n actuator." + aWheel.getClass().getSimpleName() + "(" + aWheel.getSpeed() + ")\n";
+			}
+			else {
+				System.err.println("L'action 'onleave' est inconnue...");
+			}
+		}
+		String onEnterFunction = "function() {" + body + "}\n";
 		
-		String workingFunction = "function() {" + body + "}";
-		// code...
-		sb.append("var " + varName + " = fsm.State.create(\"" + varName + "\", " + currentState.getName() + ", , , )");
+		// ONLEAVE ACTION
+		body = "";
+		action = a.getOnLeaveAction();
+		if (action != null) {
+			if (action instanceof ActionWheel) {
+				ActionWheel aWheel = (ActionWheel) action;
+				body = "\n actuator." + aWheel.getClass().getSimpleName() + "(" + aWheel.getSpeed() + ")\n";
+			}
+			else {
+				System.err.println("L'action 'onleave' est inconnue...");
+			}
+		}
+		String onLeaveFunction = "function() {" + body + "}\n";
+		
+		// breackpoint est laissé à false pour l'instant...
+		String breakPoint = "false";
+		
+		sb.append("var " + varName + " = fsm.State.create(\"" + varName + "\", " + currentStateMachine.getName() + ", " + 
+				workingFunction + ", " + a.isIsInitial() +", " + a.getUid() + ", " + onEnterFunction + ", " + onLeaveFunction + ", " + breakPoint + ");\n\n");
 
 	}
 
