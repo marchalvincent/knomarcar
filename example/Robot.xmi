@@ -17,26 +17,53 @@
           uid="rootEscape">
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.1"
-            nameIn="initToLeft"/>
-        <transitions
-            dstId="//@behaviours.0/@stateMachine/@states.4"
-            nameIn="initToStraight"/>
-        <transitions
-            dstId="//@behaviours.0/@stateMachine/@states.2"
-            nameIn="initToRight">
+            nameIn="initToLeft">
           <cond
               xsi:type="metamodel:And">
             <operandRight
                 xsi:type="metamodel:And">
               <operandRight
-                  xsi:type="metamodel:MoreThan"/>
+                  xsi:type="metamodel:More">
+                <operandLeft
+                    xsi:type="metamodel:Sub">
+                  <operandLeft
+                      xsi:type="metamodel:Positive"
+                      valeur="//@sensors.1/@value"/>
+                  <OperandRight
+                      xsi:type="metamodel:Positive"
+                      valeur="//@sensors.0/@value"/>
+                </operandLeft>
+                <OperandRight
+                    xsi:type="metamodel:Positive"
+                    valeur="//@behaviours.0/@stateMachine/@constants.2"/>
+              </operandRight>
               <operandLeft
-                  xsi:type="metamodel:LessThan"/>
+                  xsi:type="metamodel:Less">
+                <operandLeft
+                    xsi:type="metamodel:Positive"
+                    valeur="//@sensors.0/@value"/>
+                <OperandRight
+                    xsi:type="metamodel:Positive"
+                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
+              </operandLeft>
             </operandRight>
             <operandLeft
-                xsi:type="metamodel:MoreOrEqual"/>
+                xsi:type="metamodel:MoreOrEqual">
+              <operandLeft
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.1/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.0"/>
+            </operandLeft>
           </cond>
         </transitions>
+        <transitions
+            dstId="//@behaviours.0/@stateMachine/@states.4"
+            nameIn="initToStraight"/>
+        <transitions
+            dstId="//@behaviours.0/@stateMachine/@states.2"
+            nameIn="initToRight"/>
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.3"
             nameIn="initToBackward"/>
