@@ -274,6 +274,42 @@ public interface MetamodelFactory extends EFactory {
 	MoreOrEqual createMoreOrEqual();
 
 	/**
+	 * Returns a new object of class '<em>Add</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Add</em>'.
+	 * @generated
+	 */
+	Add createAdd();
+
+	/**
+	 * Returns a new object of class '<em>Sub</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sub</em>'.
+	 * @generated
+	 */
+	Sub createSub();
+
+	/**
+	 * Returns a new object of class '<em>Negative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Negative</em>'.
+	 * @generated
+	 */
+	Negative createNegative();
+
+	/**
+	 * Returns a new object of class '<em>Positive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Positive</em>'.
+	 * @generated
+	 */
+	Positive createPositive();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
