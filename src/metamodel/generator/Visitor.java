@@ -270,7 +270,7 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Negative a) {
 		sb.append("( -");
-		a.accept(this);
+		a.getValeur().getValue().accept(this);
 		sb.append(" )");
 	}
 
@@ -290,7 +290,7 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(Positive a) {
-		a.accept(this);
+		a.getValeur().getValue().accept(this);
 	}
 
 	@Override
@@ -382,6 +382,11 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(StateMachine a) {
+		
+		for (Value value : a.getConstants()) {
+			value.accept(this);
+		}
+		
 		// permet de dire qu'on est en train de générer cette StateMachine (pour récupérer le parentId)
 		currentStateMachine = a;
 		sb.append("/*  Creating the " + a.getName() + " state */\n");
@@ -426,11 +431,15 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(Transition a) {
-		// TODO Auto-generated method stub
 		
+		String root = currentStateMachine.getName();
+		String srcId = root + "." + currentState.getName();
+		String destId = a.getDstId().getName();
 		
-		
-//		sb.append("fsm.Transition.create(" + currentStateMachine.getName() + ", " + var + ", " + var + ", " + var + ", " + var + ");");
+		sb.append("fsm.Transition.create(" + root + ", " + srcId + ", " + destId + ", (");
+		// on évalue la condition
+		a.getCond().accept(this);
+		sb.append("), " + a.getNameIn() + ");\n");
 	}
 
 	@Override
@@ -472,6 +481,8 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(Value a) {
-		// TODO Auto-generated method stub
+		sb.append("var " + a.getName() + " = ");
+		a.getValue().accept(this);
+		sb.append(";\n");
 	}
 }
