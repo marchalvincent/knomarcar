@@ -7,10 +7,6 @@
     xsi:schemaLocation="http://metamodel/1.0 ../model/metaModel.ecore"
     name="e-puck">
   <behaviours
-      name="home">
-    <stateMachine/>
-  </behaviours>
-  <behaviours
       name="escape"
       priority="1">
     <stateMachine
@@ -20,7 +16,7 @@
           isInitial="true"
           uid="rootEscape">
         <transitions
-            dstId="//@behaviours.1/@stateMachine/@states.1"
+            dstId="//@behaviours.0/@stateMachine/@states.1"
             nameIn="initToLeft">
           <cond
               xsi:type="metamodel:And">
@@ -28,18 +24,21 @@
                 xsi:type="metamodel:And">
               <operandRight
                   xsi:type="metamodel:MoreThan"
-                  operandLeft="//@sensors.0/@value"/>
+                  operandLeft="//@sensors.0/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.2"/>
               <operandLeft
                   xsi:type="metamodel:LessThan"
-                  operandLeft="//@sensors.0/@value"/>
+                  operandLeft="//@sensors.0/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
             </operandRight>
             <operandLeft
                 xsi:type="metamodel:MoreOrEqual"
-                operandLeft="//@sensors.1/@value"/>
+                operandLeft="//@sensors.1/@value"
+                operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
           </cond>
         </transitions>
         <transitions
-            dstId="//@behaviours.1/@stateMachine/@states.4"
+            dstId="//@behaviours.0/@stateMachine/@states.4"
             nameIn="initToStraight">
           <cond
               xsi:type="metamodel:Or">
@@ -47,27 +46,50 @@
                 xsi:type="metamodel:And">
               <operandRight
                   xsi:type="metamodel:LessThan"
-                  operandLeft="//@sensors.2/@value"/>
+                  operandLeft="//@sensors.2/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
               <operandLeft
                   xsi:type="metamodel:LessThan"
-                  operandLeft="//@sensors.3/@value"/>
+                  operandLeft="//@sensors.3/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
             </operandRight>
             <operandLeft
                 xsi:type="metamodel:And">
               <operandRight
                   xsi:type="metamodel:MoreThan"
-                  operandLeft="//@sensors.0/@value"/>
+                  operandLeft="//@sensors.0/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
               <operandLeft
                   xsi:type="metamodel:MoreThan"
-                  operandLeft="//@sensors.1/@value"/>
+                  operandLeft="//@sensors.1/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
             </operandLeft>
           </cond>
         </transitions>
         <transitions
-            dstId="//@behaviours.1/@stateMachine/@states.2"
-            nameIn="initToRight"/>
+            dstId="//@behaviours.0/@stateMachine/@states.2"
+            nameIn="initToRight">
+          <cond
+              xsi:type="metamodel:And">
+            <operandRight
+                xsi:type="metamodel:And">
+              <operandRight
+                  xsi:type="metamodel:MoreThan"
+                  operandLeft="//@sensors.0/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.2"/>
+              <operandLeft
+                  xsi:type="metamodel:LessThan"
+                  operandLeft="//@sensors.1/@value"
+                  operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
+            </operandRight>
+            <operandLeft
+                xsi:type="metamodel:MoreThan"
+                operandLeft="//@sensors.0/@value"
+                operandRight="//@behaviours.0/@stateMachine/@constants.0"/>
+          </cond>
+        </transitions>
         <transitions
-            dstId="//@behaviours.1/@stateMachine/@states.3"
+            dstId="//@behaviours.0/@stateMachine/@states.3"
             nameIn="initToBackward"/>
       </states>
       <states
@@ -85,6 +107,12 @@
           workingAction="//@actions.0"
           name="goStraight"
           uid="rootEscape"/>
+      <constants
+          name="minDistance"/>
+      <constants
+          name="maxDistance"/>
+      <constants
+          name="beta"/>
     </stateMachine>
   </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
