@@ -2,7 +2,50 @@
  */
 package metamodel.util;
 
-import metamodel.*;
+import metamodel.Action;
+import metamodel.ActionWheel;
+import metamodel.Actuator;
+import metamodel.Add;
+import metamodel.And;
+import metamodel.Backward;
+import metamodel.Behaviour;
+import metamodel.BinaryCond;
+import metamodel.BinaryOperator;
+import metamodel.BoolVal;
+import metamodel.Condition;
+import metamodel.Different;
+import metamodel.DifferentialWheel;
+import metamodel.DistanceSensor;
+import metamodel.Equal;
+import metamodel.FloatVal;
+import metamodel.Forward;
+import metamodel.Group;
+import metamodel.IntVal;
+import metamodel.LessOrEqual;
+import metamodel.LessThan;
+import metamodel.LightSensor;
+import metamodel.MetamodelPackage;
+import metamodel.MoreOrEqual;
+import metamodel.MoreThan;
+import metamodel.Negation;
+import metamodel.Negative;
+import metamodel.Operator;
+import metamodel.Or;
+import metamodel.Positive;
+import metamodel.Robot;
+import metamodel.Sensor;
+import metamodel.State;
+import metamodel.StateMachine;
+import metamodel.Stopping;
+import metamodel.Sub;
+import metamodel.Transition;
+import metamodel.TurnLeft;
+import metamodel.TurnRight;
+import metamodel.Type;
+import metamodel.UnaryCond;
+import metamodel.UnaryOperator;
+import metamodel.Value;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -211,6 +254,26 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMoreOrEqual(MoreOrEqual object) {
 				return createMoreOrEqualAdapter();
+			}
+			@Override
+			public Adapter caseAdd(Add object) {
+				return createAddAdapter();
+			}
+			@Override
+			public Adapter caseSub(Sub object) {
+				return createSubAdapter();
+			}
+			@Override
+			public Adapter caseNegative(Negative object) {
+				return createNegativeAdapter();
+			}
+			@Override
+			public Adapter casePositive(Positive object) {
+				return createPositiveAdapter();
+			}
+			@Override
+			public Adapter caseOperator(Operator object) {
+				return createOperatorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -747,6 +810,76 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMoreOrEqualAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.Add <em>Add</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.Add
+	 * @generated
+	 */
+	public Adapter createAddAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.Sub <em>Sub</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.Sub
+	 * @generated
+	 */
+	public Adapter createSubAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.Negative <em>Negative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.Negative
+	 * @generated
+	 */
+	public Adapter createNegativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.Positive <em>Positive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.Positive
+	 * @generated
+	 */
+	public Adapter createPositiveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link metamodel.Operator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see metamodel.Operator
+	 * @generated
+	 */
+	public Adapter createOperatorAdapter() {
 		return null;
 	}
 

@@ -7,6 +7,7 @@ import metamodel.MetamodelPackage;
 import metamodel.State;
 import metamodel.Transition;
 import metamodel.generator.IVisitor;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;

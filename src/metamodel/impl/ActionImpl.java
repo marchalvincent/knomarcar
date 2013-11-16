@@ -5,6 +5,7 @@ package metamodel.impl;
 import metamodel.Action;
 import metamodel.MetamodelPackage;
 import metamodel.generator.IVisitor;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 

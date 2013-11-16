@@ -4,7 +4,7 @@ package metamodel.impl;
 
 import metamodel.BinaryOperator;
 import metamodel.MetamodelPackage;
-import metamodel.Value;
+import metamodel.Operator;
 import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class BinaryOperatorImpl extends ConditionImpl implements BinaryOperator {
+public abstract class BinaryOperatorImpl extends OperatorImpl implements BinaryOperator {
 	/**
 	 * The cached value of the '{@link #getOperandLeft() <em>Operand Left</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * @generated
 	 * @ordered
 	 */
-	protected Value operandLeft;
+	protected Operator operandLeft;
 
 	/**
 	 * The cached value of the '{@link #getOperandRight() <em>Operand Right</em>}' reference.
@@ -45,7 +45,7 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * @generated
 	 * @ordered
 	 */
-	protected Value operandRight;
+	protected Operator operandRight;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,10 +81,10 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value getOperandLeft() {
+	public Operator getOperandLeft() {
 		if (operandLeft != null && operandLeft.eIsProxy()) {
 			InternalEObject oldOperandLeft = (InternalEObject)operandLeft;
-			operandLeft = (Value)eResolveProxy(oldOperandLeft);
+			operandLeft = (Operator)eResolveProxy(oldOperandLeft);
 			if (operandLeft != oldOperandLeft) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.BINARY_OPERATOR__OPERAND_LEFT, oldOperandLeft, operandLeft));
@@ -98,7 +98,7 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value basicGetOperandLeft() {
+	public Operator basicGetOperandLeft() {
 		return operandLeft;
 	}
 
@@ -107,8 +107,8 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperandLeft(Value newOperandLeft) {
-		Value oldOperandLeft = operandLeft;
+	public void setOperandLeft(Operator newOperandLeft) {
+		Operator oldOperandLeft = operandLeft;
 		operandLeft = newOperandLeft;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.BINARY_OPERATOR__OPERAND_LEFT, oldOperandLeft, operandLeft));
@@ -119,10 +119,10 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value getOperandRight() {
+	public Operator getOperandRight() {
 		if (operandRight != null && operandRight.eIsProxy()) {
 			InternalEObject oldOperandRight = (InternalEObject)operandRight;
-			operandRight = (Value)eResolveProxy(oldOperandRight);
+			operandRight = (Operator)eResolveProxy(oldOperandRight);
 			if (operandRight != oldOperandRight) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.BINARY_OPERATOR__OPERAND_RIGHT, oldOperandRight, operandRight));
@@ -136,7 +136,7 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value basicGetOperandRight() {
+	public Operator basicGetOperandRight() {
 		return operandRight;
 	}
 
@@ -145,8 +145,8 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperandRight(Value newOperandRight) {
-		Value oldOperandRight = operandRight;
+	public void setOperandRight(Operator newOperandRight) {
+		Operator oldOperandRight = operandRight;
 		operandRight = newOperandRight;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.BINARY_OPERATOR__OPERAND_RIGHT, oldOperandRight, operandRight));
@@ -179,10 +179,10 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MetamodelPackage.BINARY_OPERATOR__OPERAND_LEFT:
-				setOperandLeft((Value)newValue);
+				setOperandLeft((Operator)newValue);
 				return;
 			case MetamodelPackage.BINARY_OPERATOR__OPERAND_RIGHT:
-				setOperandRight((Value)newValue);
+				setOperandRight((Operator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,10 +197,10 @@ public abstract class BinaryOperatorImpl extends ConditionImpl implements Binary
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case MetamodelPackage.BINARY_OPERATOR__OPERAND_LEFT:
-				setOperandLeft((Value)null);
+				setOperandLeft((Operator)null);
 				return;
 			case MetamodelPackage.BINARY_OPERATOR__OPERAND_RIGHT:
-				setOperandRight((Value)null);
+				setOperandRight((Operator)null);
 				return;
 		}
 		super.eUnset(featureID);
