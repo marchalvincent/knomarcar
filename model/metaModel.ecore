@@ -48,7 +48,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoolVal" eSuperTypes="#//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
@@ -97,9 +97,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryOperator" abstract="true" eSuperTypes="#//Operator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operandLeft" lowerBound="1"
-        eType="#//Operator"/>
+        eType="#//Operator" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="OperandRight" lowerBound="1"
-        eType="#//Operator"/>
+        eType="#//Operator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryCond" abstract="true" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operandRight" lowerBound="1"
@@ -115,8 +115,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//UnaryCond"/>
   <eClassifiers xsi:type="ecore:EClass" name="Equal" eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//BinaryOperator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MoreThan" eSuperTypes="#//BinaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Less" eSuperTypes="#//BinaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="More" eSuperTypes="#//BinaryOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="Different" eSuperTypes="#//BinaryOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="LessOrEqual" eSuperTypes="#//BinaryOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="MoreOrEqual" eSuperTypes="#//BinaryOperator"/>
