@@ -44,7 +44,7 @@ public class Visitor implements IVisitor {
 	private StateMachine currentStateMachine;
 	private State currentState;
 	private ActuatorsContainer actuators;
-	
+
 	StringBuilder sb;
 	private String robotName;
 
@@ -88,7 +88,7 @@ public class Visitor implements IVisitor {
 		 * 		wheels.speed = -1000;
 		 * };
 		 */
-		actuators.addFunction("backward()", actuators.getGroup().getName() + ".speed = -" + a.getSpeed() + ";");
+		actuators.addFunction("Backward()", actuators.getGroup().getName() + ".speed = -" + a.getSpeed() + ";");
 	}
 
 	@Override
@@ -120,10 +120,10 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(DifferentialWheel a) {
 		actuators.setWheels(a, a.isIsLeft());
-		
+
 		// var wheelR;
 		actuators.addVar("var " + a.getName() + ";");
-		
+
 		// wheelR = DifferentialWheels.new("e-puck", false);
 		actuators.addInit(a.getName() + " = DifferentialWheels.new(\"" + robotName + "\", " + a.isIsLeft() + ");");
 	}
@@ -155,7 +155,7 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Float a) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -171,13 +171,13 @@ public class Visitor implements IVisitor {
 		 * 		wheels.speed = s;
 		 * };
 		 */
-		actuators.addFunction("forward(s)", actuators.getGroup().getName() + ".speed = s;");
+		actuators.addFunction("Forward(s)", actuators.getGroup().getName() + ".speed = s;");
 	}
 
 	@Override
 	public void visit(Group a) {
 		actuators.setGroup(a);
-		
+
 		// var wheels;
 		actuators.addVar("var " + a.getName() + ";");
 
@@ -185,7 +185,7 @@ public class Visitor implements IVisitor {
 		List<DifferentialWheel> list = a.getWheels();
 		if (list.size() != 2)
 			System.err.println("Ne devrait pas arriver, un groupe de roue possède 2 roues.");
-		
+
 		actuators.addInit(a.getName() + " = Group.new(" + list.get(0).getName() + ", " + list.get(1).getName() + ");");
 	}
 
@@ -243,12 +243,12 @@ public class Visitor implements IVisitor {
 			action.accept(this);
 		}
 		sb.append(actuators.getString());
-		
+
 		// behaviors
 		for (Behaviour behavior : a.getBehaviours()) {
 			behavior.accept(this);
 		}
-		
+
 		// TODO...
 	}
 
@@ -261,9 +261,20 @@ public class Visitor implements IVisitor {
 	public void visit(State a) {
 		// TODO Auto-generated method stub
 		currentState = a;
+		
+		String varName = currentState.getName() + "." + a.getName();
+		
+		String body = "";
+//		if (a.getWorkingAction() != null) {
+//			body = "\n actuator." + a.get;
+//		}
+		
+		
+		
+		String workingFunction = "function() {" + body + "}";
 		// code...
-		
-		
+		sb.append("var " + varName + " = fsm.State.create(\"" + varName + "\", " + currentState.getName() + ", , , )");
+
 	}
 
 	@Override
@@ -273,10 +284,22 @@ public class Visitor implements IVisitor {
 		currentStateMachine = a;
 		sb.append("/*  Creating the " + a.getName() + " state */\n");
 		sb.append("var Global." + a.getName() + " = fsm.State.new(\"" + a.getName() + "\");\n");
-		
+
 		// on ne comprend pas ce code...
 		sb.append(".params_dict = Dictionary.new();\n");
-		// code...
+
+		// les states
+		for (State state : a.getStates()) {
+			state.accept(this);
+		}
+
+		// puis les transitions
+		for (State state : a.getStates()) {
+			currentState = state;
+			for (Transition transition : state.getTransitions()) {
+				transition.accept(this);
+			}
+		}
 	}
 
 	@Override
@@ -286,7 +309,7 @@ public class Visitor implements IVisitor {
 		 * 		wheels.speed = 0;
 		 * };
 		 */
-		actuators.addFunction("stopping()", actuators.getGroup().getName() + ".speed = 0;");
+		actuators.addFunction("Stopping()", actuators.getGroup().getName() + ".speed = 0;");
 	}
 
 	@Override
@@ -296,7 +319,7 @@ public class Visitor implements IVisitor {
 		 * 		wheelL.speed = -s & wheelR.speed = s;
 		 * };
 		 */
-		actuators.addFunction("turnLeft(s)", actuators.getDifferentialWheel(true).getName() + ".speed = -s &"
+		actuators.addFunction("TurnLeft(s)", actuators.getDifferentialWheel(true).getName() + ".speed = -s &"
 				+ actuators.getDifferentialWheel(false).getName() + ".speed = s;");
 	}
 
@@ -307,14 +330,14 @@ public class Visitor implements IVisitor {
 		 * 		wheelL.speed = s & wheelR.speed = -s;
 		 * };
 		 */
-		actuators.addFunction("turnRight(s)", actuators.getDifferentialWheel(true).getName() + ".speed = s &"
+		actuators.addFunction("TurnRight(s)", actuators.getDifferentialWheel(true).getName() + ".speed = s &"
 				+ actuators.getDifferentialWheel(false).getName() + ".speed = -s;");
 	}
 
 	@Override
 	public void visit(Transition a) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
