@@ -10,7 +10,7 @@
       name="escape"
       priority="1">
     <stateMachine
-        name="stateMachineScape">
+        name="stateMachineEscape">
       <states
           name="init"
           isInitial="true"
@@ -300,6 +300,7 @@
         </transitions>
       </states>
       <states
+          workingAction="//@actions.4"
           name="backward"
           uid="rootEscape">
         <transitions
@@ -721,6 +722,36 @@
             xsi:type="metamodel:FloatVal"
             value="0.02"/>
       </constants>
+    </stateMachine>
+  </behaviours>
+  <behaviours
+      name="home">
+    <stateMachine
+        name="stateMachineHome">
+      <states
+          name="init"
+          isInitial="true"
+          uid="rootHome"/>
+      <states
+          workingAction="//@actions.1"
+          name="goLeft"
+          uid="rootHome"/>
+      <states
+          workingAction="//@actions.2"
+          name="goRight"
+          uid="rootHome"/>
+      <states
+          workingAction="//@actions.3"
+          name="end"
+          uid="rootHome"/>
+      <states
+          workingAction="//@actions.0"
+          name="goStraight"
+          uid="rootHome"/>
+      <states
+          workingAction="//@actions.4"
+          name="backward"
+          uid="rootHome"/>
     </stateMachine>
   </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
