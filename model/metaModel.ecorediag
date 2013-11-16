@@ -597,7 +597,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_YjCLuEv7EeOrGrcZr3cNpQ"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_YjBkoUv7EeOrGrcZr3cNpQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="metaModel.ecore#//LessThan"/>
+    <element xmi:type="ecore:EClass" href="metaModel.ecore#//Less"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YjBkokv7EeOrGrcZr3cNpQ" x="855" y="690"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_ZnX9kEv7EeOrGrcZr3cNpQ" type="1001">
@@ -613,7 +613,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ZnYkqEv7EeOrGrcZr3cNpQ"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ZnX9kUv7EeOrGrcZr3cNpQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="metaModel.ecore#//MoreThan"/>
+    <element xmi:type="ecore:EClass" href="metaModel.ecore#//More"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZnX9kkv7EeOrGrcZr3cNpQ" x="960" y="690"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_aq-IkEv7EeOrGrcZr3cNpQ" type="1001">
