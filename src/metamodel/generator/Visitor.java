@@ -273,7 +273,7 @@ public class Visitor implements IVisitor {
 	public void visit(Negative a) {
 		sb.append("( -");
 		sb.append(a.getValeur().getName());
-		sb.append(" )");
+		sb.append(".val )");
 	}
 
 	@Override
@@ -293,6 +293,7 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Positive a) {
 		sb.append(a.getValeur().getName());
+		sb.append(".val");
 	}
 
 	@Override
@@ -444,10 +445,10 @@ public class Visitor implements IVisitor {
 		String srcId = root + "." + currentState.getName();
 		String destId = root + "." + a.getDstId().getName();
 		
-		sb.append("fsm.Transition.create(" + root + ", " + srcId + ", " + destId + ", (");
+		sb.append("fsm.Transition.create(" + root + ", " + srcId + ", " + destId + ", \"(");
 		// on évalue la condition
 		a.getCond().accept(this);
-		sb.append("), " + a.getNameIn() + ");\n");
+		sb.append(")\", \"" + a.getNameIn() + "\");\n");
 	}
 
 	@Override
