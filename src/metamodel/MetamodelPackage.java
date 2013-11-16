@@ -1005,13 +1005,22 @@ public interface MetamodelPackage extends EPackage {
 	int STATE_MACHINE__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_MACHINE__CONSTANTS = 2;
+
+	/**
 	 * The number of structural features of the '<em>State Machine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE_FEATURE_COUNT = 2;
+	int STATE_MACHINE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>State Machine</em>' class.
@@ -1042,22 +1051,13 @@ public interface MetamodelPackage extends EPackage {
 	int STATE__TRANSITIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__VALUE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Working Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__WORKING_ACTION = 2;
+	int STATE__WORKING_ACTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1066,7 +1066,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__NAME = 3;
+	int STATE__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Is Initial</b></em>' attribute.
@@ -1075,7 +1075,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__IS_INITIAL = 4;
+	int STATE__IS_INITIAL = 3;
 
 	/**
 	 * The feature id for the '<em><b>On Enter Action</b></em>' reference.
@@ -1084,7 +1084,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__ON_ENTER_ACTION = 5;
+	int STATE__ON_ENTER_ACTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>On Leave Action</b></em>' reference.
@@ -1093,7 +1093,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__ON_LEAVE_ACTION = 6;
+	int STATE__ON_LEAVE_ACTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Uid</b></em>' attribute.
@@ -1102,7 +1102,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__UID = 7;
+	int STATE__UID = 6;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -1111,7 +1111,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 8;
+	int STATE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -1206,6 +1206,34 @@ public interface MetamodelPackage extends EPackage {
 	int CONDITION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link metamodel.impl.OperatorImpl <em>Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.OperatorImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getOperator()
+	 * @generated
+	 */
+	int OPERATOR = 41;
+
+	/**
+	 * The number of structural features of the '<em>Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link metamodel.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1222,7 +1250,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNARY_OPERATOR__VALEUR = CONDITION_FEATURE_COUNT + 0;
+	int UNARY_OPERATOR__VALEUR = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Unary Operator</em>' class.
@@ -1231,7 +1259,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNARY_OPERATOR_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+	int UNARY_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Unary Operator</em>' class.
@@ -1240,7 +1268,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNARY_OPERATOR_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int UNARY_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link metamodel.impl.BinaryOperatorImpl <em>Binary Operator</em>}' class.
@@ -1259,7 +1287,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_OPERATOR__OPERAND_LEFT = CONDITION_FEATURE_COUNT + 0;
+	int BINARY_OPERATOR__OPERAND_LEFT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
@@ -1268,7 +1296,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_OPERATOR__OPERAND_RIGHT = CONDITION_FEATURE_COUNT + 1;
+	int BINARY_OPERATOR__OPERAND_RIGHT = OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Binary Operator</em>' class.
@@ -1277,7 +1305,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_OPERATOR_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+	int BINARY_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Binary Operator</em>' class.
@@ -1286,7 +1314,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_OPERATOR_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int BINARY_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link metamodel.impl.BinaryCondImpl <em>Binary Cond</em>}' class.
@@ -1778,6 +1806,172 @@ public interface MetamodelPackage extends EPackage {
 	int MORE_OR_EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link metamodel.impl.AddImpl <em>Add</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.AddImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getAdd()
+	 * @generated
+	 */
+	int ADD = 37;
+
+	/**
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
+
+	/**
+	 * The number of structural features of the '<em>Add</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Add</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link metamodel.impl.SubImpl <em>Sub</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.SubImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getSub()
+	 * @generated
+	 */
+	int SUB = 38;
+
+	/**
+	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
+
+	/**
+	 * The number of structural features of the '<em>Sub</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Sub</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link metamodel.impl.NegativeImpl <em>Negative</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.NegativeImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getNegative()
+	 * @generated
+	 */
+	int NEGATIVE = 39;
+
+	/**
+	 * The feature id for the '<em><b>Valeur</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATIVE__VALEUR = UNARY_OPERATOR__VALEUR;
+
+	/**
+	 * The number of structural features of the '<em>Negative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATIVE_FEATURE_COUNT = UNARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Negative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATIVE_OPERATION_COUNT = UNARY_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link metamodel.impl.PositiveImpl <em>Positive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see metamodel.impl.PositiveImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getPositive()
+	 * @generated
+	 */
+	int POSITIVE = 40;
+
+	/**
+	 * The feature id for the '<em><b>Valeur</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITIVE__VALEUR = UNARY_OPERATOR__VALEUR;
+
+	/**
+	 * The number of structural features of the '<em>Positive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITIVE_FEATURE_COUNT = UNARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Positive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITIVE_OPERATION_COUNT = UNARY_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2252,6 +2446,17 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getStateMachine_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link metamodel.StateMachine#getConstants <em>Constants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constants</em>'.
+	 * @see metamodel.StateMachine#getConstants()
+	 * @see #getStateMachine()
+	 * @generated
+	 */
+	EReference getStateMachine_Constants();
+
+	/**
 	 * Returns the meta object for class '{@link metamodel.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2271,17 +2476,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_Transitions();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link metamodel.State#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Value</em>'.
-	 * @see metamodel.State#getValue()
-	 * @see #getState()
-	 * @generated
-	 */
-	EReference getState_Value();
 
 	/**
 	 * Returns the meta object for the reference '{@link metamodel.State#getWorkingAction <em>Working Action</em>}'.
@@ -2597,6 +2791,56 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMoreOrEqual();
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.Add <em>Add</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Add</em>'.
+	 * @see metamodel.Add
+	 * @generated
+	 */
+	EClass getAdd();
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.Sub <em>Sub</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sub</em>'.
+	 * @see metamodel.Sub
+	 * @generated
+	 */
+	EClass getSub();
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.Negative <em>Negative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Negative</em>'.
+	 * @see metamodel.Negative
+	 * @generated
+	 */
+	EClass getNegative();
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.Positive <em>Positive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Positive</em>'.
+	 * @see metamodel.Positive
+	 * @generated
+	 */
+	EClass getPositive();
+
+	/**
+	 * Returns the meta object for class '{@link metamodel.Operator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operator</em>'.
+	 * @see metamodel.Operator
+	 * @generated
+	 */
+	EClass getOperator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3024,6 +3268,14 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute STATE_MACHINE__NAME = eINSTANCE.getStateMachine_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Constants</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE_MACHINE__CONSTANTS = eINSTANCE.getStateMachine_Constants();
+
+		/**
 		 * The meta object literal for the '{@link metamodel.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3040,14 +3292,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__TRANSITIONS = eINSTANCE.getState_Transitions();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STATE__VALUE = eINSTANCE.getState_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Working Action</b></em>' reference feature.
@@ -3318,6 +3562,56 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MORE_OR_EQUAL = eINSTANCE.getMoreOrEqual();
+
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.AddImpl <em>Add</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.AddImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getAdd()
+		 * @generated
+		 */
+		EClass ADD = eINSTANCE.getAdd();
+
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.SubImpl <em>Sub</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.SubImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getSub()
+		 * @generated
+		 */
+		EClass SUB = eINSTANCE.getSub();
+
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.NegativeImpl <em>Negative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.NegativeImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getNegative()
+		 * @generated
+		 */
+		EClass NEGATIVE = eINSTANCE.getNegative();
+
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.PositiveImpl <em>Positive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.PositiveImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getPositive()
+		 * @generated
+		 */
+		EClass POSITIVE = eINSTANCE.getPositive();
+
+		/**
+		 * The meta object literal for the '{@link metamodel.impl.OperatorImpl <em>Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see metamodel.impl.OperatorImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getOperator()
+		 * @generated
+		 */
+		EClass OPERATOR = eINSTANCE.getOperator();
 
 	}
 

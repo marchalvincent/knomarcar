@@ -5,6 +5,7 @@ package metamodel.impl;
 import metamodel.Action;
 import metamodel.ActionWheel;
 import metamodel.Actuator;
+import metamodel.Add;
 import metamodel.And;
 import metamodel.Backward;
 import metamodel.Behaviour;
@@ -28,12 +29,16 @@ import metamodel.MetamodelPackage;
 import metamodel.MoreOrEqual;
 import metamodel.MoreThan;
 import metamodel.Negation;
+import metamodel.Negative;
+import metamodel.Operator;
 import metamodel.Or;
+import metamodel.Positive;
 import metamodel.Robot;
 import metamodel.Sensor;
 import metamodel.State;
 import metamodel.StateMachine;
 import metamodel.Stopping;
+import metamodel.Sub;
 import metamodel.Transition;
 import metamodel.TurnLeft;
 import metamodel.TurnRight;
@@ -313,6 +318,41 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	private EClass moreOrEqualEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass subEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass negativeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass positiveEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operatorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -785,6 +825,15 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStateMachine_Constants() {
+		return (EReference)stateMachineEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getState() {
 		return stateEClass;
 	}
@@ -803,7 +852,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getState_Value() {
+	public EReference getState_WorkingAction() {
 		return (EReference)stateEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -812,17 +861,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getState_WorkingAction() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getState_Name() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)stateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -831,7 +871,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EAttribute getState_IsInitial() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)stateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -840,7 +880,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getState_OnEnterAction() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(5);
+		return (EReference)stateEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -849,7 +889,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getState_OnLeaveAction() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(6);
+		return (EReference)stateEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -858,7 +898,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EAttribute getState_Uid() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)stateEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1082,6 +1122,51 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAdd() {
+		return addEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSub() {
+		return subEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNegative() {
+		return negativeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPositive() {
+		return positiveEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperator() {
+		return operatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MetamodelFactory getMetamodelFactory() {
 		return (MetamodelFactory)getEFactoryInstance();
 	}
@@ -1170,10 +1255,10 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		stateMachineEClass = createEClass(STATE_MACHINE);
 		createEReference(stateMachineEClass, STATE_MACHINE__STATES);
 		createEAttribute(stateMachineEClass, STATE_MACHINE__NAME);
+		createEReference(stateMachineEClass, STATE_MACHINE__CONSTANTS);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__TRANSITIONS);
-		createEReference(stateEClass, STATE__VALUE);
 		createEReference(stateEClass, STATE__WORKING_ACTION);
 		createEAttribute(stateEClass, STATE__NAME);
 		createEAttribute(stateEClass, STATE__IS_INITIAL);
@@ -1219,6 +1304,16 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		lessOrEqualEClass = createEClass(LESS_OR_EQUAL);
 
 		moreOrEqualEClass = createEClass(MORE_OR_EQUAL);
+
+		addEClass = createEClass(ADD);
+
+		subEClass = createEClass(SUB);
+
+		negativeEClass = createEClass(NEGATIVE);
+
+		positiveEClass = createEClass(POSITIVE);
+
+		operatorEClass = createEClass(OPERATOR);
 	}
 
 	/**
@@ -1262,8 +1357,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		boolValEClass.getESuperTypes().add(this.getType());
 		floatValEClass.getESuperTypes().add(this.getType());
 		intValEClass.getESuperTypes().add(this.getType());
-		unaryOperatorEClass.getESuperTypes().add(this.getCondition());
-		binaryOperatorEClass.getESuperTypes().add(this.getCondition());
+		unaryOperatorEClass.getESuperTypes().add(this.getOperator());
+		binaryOperatorEClass.getESuperTypes().add(this.getOperator());
 		binaryCondEClass.getESuperTypes().add(this.getCondition());
 		orEClass.getESuperTypes().add(this.getBinaryCond());
 		andEClass.getESuperTypes().add(this.getBinaryCond());
@@ -1275,6 +1370,11 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		differentEClass.getESuperTypes().add(this.getBinaryOperator());
 		lessOrEqualEClass.getESuperTypes().add(this.getBinaryOperator());
 		moreOrEqualEClass.getESuperTypes().add(this.getBinaryOperator());
+		addEClass.getESuperTypes().add(this.getBinaryOperator());
+		subEClass.getESuperTypes().add(this.getBinaryOperator());
+		negativeEClass.getESuperTypes().add(this.getUnaryOperator());
+		positiveEClass.getESuperTypes().add(this.getUnaryOperator());
+		operatorEClass.getESuperTypes().add(this.getCondition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1342,16 +1442,16 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEClass(stateMachineEClass, StateMachine.class, "StateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateMachine_States(), this.getState(), null, "states", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStateMachine_Name(), ecorePackage.getEString(), "name", null, 1, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateMachine_Constants(), this.getValue(), null, "constants", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getState_Value(), this.getValue(), null, "value", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_WorkingAction(), this.getAction(), null, "workingAction", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getState_IsInitial(), ecorePackage.getEBoolean(), "isInitial", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_OnEnterAction(), this.getAction(), null, "onEnterAction", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_OnLeaveAction(), this.getAction(), null, "onLeaveAction", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_Uid(), ecorePackage.getEInt(), "uid", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getState_Uid(), ecorePackage.getEString(), "uid", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_DstId(), this.getState(), null, "dstId", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1364,8 +1464,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEReference(getUnaryOperator_Valeur(), this.getValue(), null, "valeur", null, 1, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryOperatorEClass, BinaryOperator.class, "BinaryOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryOperator_OperandLeft(), this.getValue(), null, "operandLeft", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryOperator_OperandRight(), this.getValue(), null, "operandRight", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperator_OperandLeft(), this.getOperator(), null, "operandLeft", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperator_OperandRight(), this.getOperator(), null, "OperandRight", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryCondEClass, BinaryCond.class, "BinaryCond", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinaryCond_OperandRight(), this.getCondition(), null, "operandRight", null, 1, 1, BinaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1391,6 +1491,16 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEClass(lessOrEqualEClass, LessOrEqual.class, "LessOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(moreOrEqualEClass, MoreOrEqual.class, "MoreOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(subEClass, Sub.class, "Sub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(negativeEClass, Negative.class, "Negative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(positiveEClass, Positive.class, "Positive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -2,7 +2,7 @@
  */
 package metamodel.impl;
 
-import metamodel.*;
+import metamodel.Add;
 import metamodel.And;
 import metamodel.Backward;
 import metamodel.Behaviour;
@@ -15,17 +15,22 @@ import metamodel.FloatVal;
 import metamodel.Forward;
 import metamodel.Group;
 import metamodel.IntVal;
+import metamodel.LessOrEqual;
 import metamodel.LessThan;
 import metamodel.LightSensor;
 import metamodel.MetamodelFactory;
 import metamodel.MetamodelPackage;
+import metamodel.MoreOrEqual;
 import metamodel.MoreThan;
 import metamodel.Negation;
+import metamodel.Negative;
 import metamodel.Or;
+import metamodel.Positive;
 import metamodel.Robot;
 import metamodel.State;
 import metamodel.StateMachine;
 import metamodel.Stopping;
+import metamodel.Sub;
 import metamodel.Transition;
 import metamodel.TurnLeft;
 import metamodel.TurnRight;
@@ -110,6 +115,10 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.DIFFERENT: return createDifferent();
 			case MetamodelPackage.LESS_OR_EQUAL: return createLessOrEqual();
 			case MetamodelPackage.MORE_OR_EQUAL: return createMoreOrEqual();
+			case MetamodelPackage.ADD: return createAdd();
+			case MetamodelPackage.SUB: return createSub();
+			case MetamodelPackage.NEGATIVE: return createNegative();
+			case MetamodelPackage.POSITIVE: return createPositive();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -393,6 +402,46 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	public MoreOrEqual createMoreOrEqual() {
 		MoreOrEqualImpl moreOrEqual = new MoreOrEqualImpl();
 		return moreOrEqual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Add createAdd() {
+		AddImpl add = new AddImpl();
+		return add;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sub createSub() {
+		SubImpl sub = new SubImpl();
+		return sub;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Negative createNegative() {
+		NegativeImpl negative = new NegativeImpl();
+		return negative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Positive createPositive() {
+		PositiveImpl positive = new PositiveImpl();
+		return positive;
 	}
 
 	/**

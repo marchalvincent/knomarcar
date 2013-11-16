@@ -3,12 +3,13 @@
 package metamodel.impl;
 
 import java.util.Collection;
+
 import metamodel.Action;
 import metamodel.MetamodelPackage;
 import metamodel.State;
 import metamodel.Transition;
-import metamodel.Value;
 import metamodel.generator.IVisitor;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -27,7 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link metamodel.impl.StateImpl#getTransitions <em>Transitions</em>}</li>
- *   <li>{@link metamodel.impl.StateImpl#getValue <em>Value</em>}</li>
  *   <li>{@link metamodel.impl.StateImpl#getWorkingAction <em>Working Action</em>}</li>
  *   <li>{@link metamodel.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link metamodel.impl.StateImpl#isIsInitial <em>Is Initial</em>}</li>
@@ -49,16 +49,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @ordered
 	 */
 	protected EList<Transition> transitions;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Value value;
 
 	/**
 	 * The cached value of the '{@link #getWorkingAction() <em>Working Action</em>}' reference.
@@ -138,7 +128,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int UID_EDEFAULT = 0;
+	protected static final String UID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -148,7 +138,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @generated
 	 * @ordered
 	 */
-	protected int uid = UID_EDEFAULT;
+	protected String uid = UID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,49 +169,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			transitions = new EObjectContainmentEList<Transition>(Transition.class, this, MetamodelPackage.STATE__TRANSITIONS);
 		}
 		return transitions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetValue(Value newValue, NotificationChain msgs) {
-		Value oldValue = value;
-		value = newValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__VALUE, oldValue, newValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(Value newValue) {
-		if (newValue != value) {
-			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.STATE__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.STATE__VALUE, null, msgs);
-			msgs = basicSetValue(newValue, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__VALUE, newValue, newValue));
 	}
 
 	/**
@@ -385,7 +332,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getUid() {
+	public String getUid() {
 		return uid;
 	}
 
@@ -394,8 +341,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUid(int newUid) {
-		int oldUid = uid;
+	public void setUid(String newUid) {
+		String oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__UID, oldUid, uid));
@@ -421,8 +368,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case MetamodelPackage.STATE__TRANSITIONS:
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
-			case MetamodelPackage.STATE__VALUE:
-				return basicSetValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -437,8 +382,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case MetamodelPackage.STATE__TRANSITIONS:
 				return getTransitions();
-			case MetamodelPackage.STATE__VALUE:
-				return getValue();
 			case MetamodelPackage.STATE__WORKING_ACTION:
 				if (resolve) return getWorkingAction();
 				return basicGetWorkingAction();
@@ -471,9 +414,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				getTransitions().clear();
 				getTransitions().addAll((Collection<? extends Transition>)newValue);
 				return;
-			case MetamodelPackage.STATE__VALUE:
-				setValue((Value)newValue);
-				return;
 			case MetamodelPackage.STATE__WORKING_ACTION:
 				setWorkingAction((Action)newValue);
 				return;
@@ -490,7 +430,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				setOnLeaveAction((Action)newValue);
 				return;
 			case MetamodelPackage.STATE__UID:
-				setUid((Integer)newValue);
+				setUid((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -506,9 +446,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case MetamodelPackage.STATE__TRANSITIONS:
 				getTransitions().clear();
-				return;
-			case MetamodelPackage.STATE__VALUE:
-				setValue((Value)null);
 				return;
 			case MetamodelPackage.STATE__WORKING_ACTION:
 				setWorkingAction((Action)null);
@@ -542,8 +479,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case MetamodelPackage.STATE__TRANSITIONS:
 				return transitions != null && !transitions.isEmpty();
-			case MetamodelPackage.STATE__VALUE:
-				return value != null;
 			case MetamodelPackage.STATE__WORKING_ACTION:
 				return workingAction != null;
 			case MetamodelPackage.STATE__NAME:
@@ -555,7 +490,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MetamodelPackage.STATE__ON_LEAVE_ACTION:
 				return onLeaveAction != null;
 			case MetamodelPackage.STATE__UID:
-				return uid != UID_EDEFAULT;
+				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
 		}
 		return super.eIsSet(featureID);
 	}

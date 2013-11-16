@@ -22,7 +22,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface UnaryOperator extends Condition {
+public interface UnaryOperator extends Operator {
 	/**
 	 * Returns the value of the '<em><b>Valeur</b></em>' reference.
 	 * <!-- begin-user-doc -->

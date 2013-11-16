@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link metamodel.State#getTransitions <em>Transitions</em>}</li>
- *   <li>{@link metamodel.State#getValue <em>Value</em>}</li>
  *   <li>{@link metamodel.State#getWorkingAction <em>Working Action</em>}</li>
  *   <li>{@link metamodel.State#getName <em>Name</em>}</li>
  *   <li>{@link metamodel.State#isIsInitial <em>Is Initial</em>}</li>
@@ -46,32 +45,6 @@ public interface State extends EObject, IVisitable {
 	 * @generated
 	 */
 	EList<Transition> getTransitions();
-
-	/**
-	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(Value)
-	 * @see metamodel.MetamodelPackage#getState_Value()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Value getValue();
-
-	/**
-	 * Sets the value of the '{@link metamodel.State#getValue <em>Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' containment reference.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(Value value);
 
 	/**
 	 * Returns the value of the '<em><b>Working Action</b></em>' reference.
@@ -212,12 +185,12 @@ public interface State extends EObject, IVisitable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
-	 * @see #setUid(int)
+	 * @see #setUid(String)
 	 * @see metamodel.MetamodelPackage#getState_Uid()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getUid();
+	String getUid();
 
 	/**
 	 * Sets the value of the '{@link metamodel.State#getUid <em>Uid</em>}' attribute.
@@ -227,6 +200,6 @@ public interface State extends EObject, IVisitable {
 	 * @see #getUid()
 	 * @generated
 	 */
-	void setUid(int value);
+	void setUid(String value);
 
 } // State
