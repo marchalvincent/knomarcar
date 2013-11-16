@@ -67,7 +67,7 @@
               <operandRight
                   xsi:type="metamodel:More">
                 <operandLeft
-                    xsi:type="metamodel:Negative"
+                    xsi:type="metamodel:Positive"
                     valeur="//@sensors.0/@value"/>
                 <OperandRight
                     xsi:type="metamodel:Positive"
@@ -722,10 +722,10 @@
             value="0.05"/>
       </constants>
       <constants
-          name="priorityHome">
+          name="priorityESC">
         <value
             xsi:type="metamodel:IntVal"
-            value="2"/>
+            value="1"/>
       </constants>
     </stateMachine>
   </behaviours>
@@ -1882,10 +1882,10 @@
             value="3500"/>
       </constants>
       <constants
-          name="priorityESC">
+          name="priorityHome">
         <value
             xsi:type="metamodel:IntVal"
-            value="1"/>
+            value="2"/>
       </constants>
     </stateMachine>
   </behaviours>
@@ -1950,13 +1950,13 @@
       wheels="//@actuators.0 //@actuators.1"/>
   <actions xsi:type="metamodel:Forward"
       group="//@actuators.2"
-      speed="50"/>
+      speed="1000"/>
   <actions xsi:type="metamodel:TurnLeft"
       group="//@actuators.2"
-      speed="50"/>
+      speed="500"/>
   <actions xsi:type="metamodel:TurnRight"
       group="//@actuators.2"
-      speed="50"/>
+      speed="500"/>
   <actions xsi:type="metamodel:Stopping"
       group="//@actuators.2"/>
   <actions xsi:type="metamodel:Backward"
