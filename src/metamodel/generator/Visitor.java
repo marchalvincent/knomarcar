@@ -273,7 +273,10 @@ public class Visitor implements IVisitor {
 	public void visit(Negative a) {
 		sb.append("( -");
 		sb.append(a.getValeur().getName());
-		sb.append(".val )");
+		// si la variable n'est pas une constante, on ajoute ".val" pour accéder à la valeur
+		if (!currentStateMachine.getConstants().contains(a.getValeur()))
+			sb.append(".val");
+		sb.append(" )");
 	}
 
 	@Override
@@ -293,7 +296,9 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Positive a) {
 		sb.append(a.getValeur().getName());
-		sb.append(".val");
+		// si la variable n'est pas une constante, on ajoute ".val" pour accéder à la valeur
+		if (!currentStateMachine.getConstants().contains(a.getValeur()))
+			sb.append(".val");
 	}
 
 	@Override
@@ -448,7 +453,7 @@ public class Visitor implements IVisitor {
 		sb.append("fsm.Transition.create(" + root + ", " + srcId + ", " + destId + ", \"(");
 		// on évalue la condition
 		a.getCond().accept(this);
-		sb.append(")\", \"" + a.getNameIn() + "\");\n");
+		sb.append(")\", \"" + root + "." + a.getNameIn() + "\");\n");
 	}
 
 	@Override
