@@ -1,0 +1,77 @@
+package metamodel.generator;
+
+import metamodel.Action;
+import metamodel.ActionWheel;
+import metamodel.Actuator;
+import metamodel.And;
+import metamodel.Backward;
+import metamodel.Behaviour;
+import metamodel.BinaryCond;
+import metamodel.BinaryOperator;
+import metamodel.BoolVal;
+import metamodel.Condition;
+import metamodel.Different;
+import metamodel.DifferentialWheel;
+import metamodel.DistanceSensor;
+import metamodel.Equal;
+import metamodel.FloatVal;
+import metamodel.Forward;
+import metamodel.Group;
+import metamodel.IntVal;
+import metamodel.LessThan;
+import metamodel.LightSensor;
+import metamodel.MoreThan;
+import metamodel.Or;
+import metamodel.Robot;
+import metamodel.Sensor;
+import metamodel.State;
+import metamodel.StateMachine;
+import metamodel.Stopping;
+import metamodel.Transition;
+import metamodel.TurnLeft;
+import metamodel.TurnRight;
+import metamodel.Type;
+import metamodel.UnaryCond;
+import metamodel.UnaryOperator;
+import metamodel.Value;
+
+public interface IVisitor {
+	
+	public String getValue();
+
+	public void visit(Action a);
+	public void visit(ActionWheel a);
+	public void visit(Actuator a);
+	public void visit(And a);
+	public void visit(Backward a);
+	public void visit(Behaviour a);
+	public void visit(BinaryCond a);
+	public void visit(BinaryOperator a);
+	public void visit(BoolVal a);
+	public void visit(Condition a);
+	public void visit(DifferentialWheel a);
+	public void visit(Different a);
+	public void visit(DistanceSensor a);
+	public void visit(Equal a);
+	public void visit(Float a);
+	public void visit(FloatVal a);
+	public void visit(Forward a);
+	public void visit(Group a);
+	public void visit(IntVal a);
+	public void visit(LessThan a);
+	public void visit(LightSensor a);
+	public void visit(MoreThan a);
+	public void visit(Or a);
+	public void visit(Robot a);
+	public void visit(Sensor a);
+	public void visit(State a);
+	public void visit(StateMachine a);
+	public void visit(Stopping a);
+	public void visit(Transition a);
+	public void visit(TurnLeft a);
+	public void visit(TurnRight a);
+	public void visit(Type a);
+	public void visit(UnaryCond a);
+	public void visit(UnaryOperator a);
+	public void visit(Value a);
+}

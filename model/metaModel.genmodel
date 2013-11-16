@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/knomarcar/src" modelPluginID="knomarcar" modelName="MetaModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>metaModel.ecore</foreignModel>
+  <genPackages prefix="Metamodel" disposableProviderFactory="true" ecorePackage="metaModel.ecore#/">
+    <genClasses ecoreClass="metaModel.ecore#//Robot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Robot/behaviours"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Robot/sensors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Robot/actuators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Robot/actions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metaModel.ecore#//Actuator"/>
+    <genClasses ecoreClass="metaModel.ecore#//DifferentialWheel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//DifferentialWheel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//DifferentialWheel/isLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//DifferentialWheel/speed"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Group">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Group/wheels"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//ActionWheel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//ActionWheel/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//ActionWheel/speed"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//TurnLeft"/>
+    <genClasses ecoreClass="metaModel.ecore#//Forward"/>
+    <genClasses ecoreClass="metaModel.ecore#//Stopping"/>
+    <genClasses ecoreClass="metaModel.ecore#//Backward"/>
+    <genClasses ecoreClass="metaModel.ecore#//TurnRight"/>
+    <genClasses ecoreClass="metaModel.ecore#//Action"/>
+    <genClasses ecoreClass="metaModel.ecore#//DistanceSensor"/>
+    <genClasses ecoreClass="metaModel.ecore#//LightSensor"/>
+    <genClasses image="false" ecoreClass="metaModel.ecore#//Sensor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Sensor/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Sensor/name"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Value">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Value/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Value/name"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Type"/>
+    <genClasses ecoreClass="metaModel.ecore#//BoolVal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//BoolVal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//FloatVal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//FloatVal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//IntVal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//IntVal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Behaviour">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Behaviour/stateMachine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Behaviour/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Behaviour/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//StateMachine/states"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//State/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//State/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//State/actions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//State/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//State/isInitial"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Transition/src"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//Transition/dest"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Transition/conditions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModel.ecore#//Transition/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metaModel.ecore#//Condition"/>
+    <genClasses ecoreClass="metaModel.ecore#//UnaryOperator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//UnaryOperator/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//EClass0"/>
+    <genClasses ecoreClass="metaModel.ecore#//BinaryOperator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//BinaryOperator/operandLeft"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//BinaryOperator/operandRight"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//BinaryCond">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//BinaryCond/childs"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Or"/>
+    <genClasses ecoreClass="metaModel.ecore#//And"/>
+    <genClasses ecoreClass="metaModel.ecore#//UnaryCond">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//UnaryCond/child"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModel.ecore#//Negation"/>
+    <genClasses ecoreClass="metaModel.ecore#//Equal"/>
+    <genClasses ecoreClass="metaModel.ecore#//LessThan"/>
+    <genClasses ecoreClass="metaModel.ecore#//MoreThan"/>
+    <genClasses ecoreClass="metaModel.ecore#//Different"/>
+  </genPackages>
+</genmodel:GenModel>
