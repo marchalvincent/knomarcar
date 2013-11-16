@@ -719,7 +719,13 @@
           name="beta">
         <value
             xsi:type="metamodel:FloatVal"
-            value="0.02"/>
+            value="0.05"/>
+      </constants>
+      <constants
+          name="priorityHome">
+        <value
+            xsi:type="metamodel:IntVal"
+            value="2"/>
       </constants>
     </stateMachine>
   </behaviours>
@@ -1874,6 +1880,12 @@
         <value
             xsi:type="metamodel:IntVal"
             value="3500"/>
+      </constants>
+      <constants
+          name="priorityESC">
+        <value
+            xsi:type="metamodel:IntVal"
+            value="1"/>
       </constants>
     </stateMachine>
   </behaviours>
