@@ -37,7 +37,7 @@ class actuators {
 var minDistance = 0.2;
 var maxDistance = 0.5;
 var beta = 0.05;
-var priorityHome = 2;
+var priorityESC = 1;
 
 /*  Creating the stateMachineEscape state */
 removeSlot("stateMachineEscape");
@@ -48,44 +48,44 @@ var stateMachineEscape.initESC = fsm.State.create("stateMachineEscape.initESC", 
 function() {}, true, 0, function() {}, function() {}, false);
 
 var stateMachineEscape.goRightESC = fsm.State.create("stateMachineEscape.goRightESC", stateMachineEscape, 
-function() {actuator.TurnRight(50)}, false, 1, function() {}, function() {}, false);
+function() {actuator.TurnRight(500)}, false, 1, function() {}, function() {}, false);
 
 var stateMachineEscape.backwardESC = fsm.State.create("stateMachineEscape.backwardESC", stateMachineEscape, 
 function() {actuator.Backward(0)}, false, 2, function() {}, function() {}, false);
 
 var stateMachineEscape.goLeftESC = fsm.State.create("stateMachineEscape.goLeftESC", stateMachineEscape, 
-function() {actuator.TurnLeft(50)}, false, 3, function() {}, function() {}, false);
+function() {actuator.TurnLeft(500)}, false, 3, function() {}, function() {}, false);
 
 var stateMachineEscape.goStraightESC = fsm.State.create("stateMachineEscape.goStraightESC", stateMachineEscape, 
-function() {actuator.Forward(50)}, false, 4, function() {}, function() {}, false);
+function() {actuator.Forward(1000)}, false, 4, function() {}, function() {}, false);
 
 
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta.val ) ) ))", "initToLeft");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.goStraightESC, "(( ( ( BhDsLeft.val ) < ( minDistance.val ) ) && ( ( BhDsRight.val ) < ( minDistance.val ) ) ) || ( ( ( FrDsLeftVal.val ) > ( minDistance.val ) ) && ( ( ( -FrDsRightVal.val ) ) > ( minDistance.val ) ) ))", "initToStraight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta.val ) ) ))", "initToRight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( FrDsRightVal.val ) < ( minDistance.val ) ))", "initToBackward");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta.val ) ) ))", "rightToLeft");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.goStraightESC, "(( ( FrDsLeftVal.val ) > ( minDistance.val ) ) && ( ( FrDsRightVal.val ) > ( minDistance.val ) ))", "rightToStraight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( FrDsRightVal.val ) < ( minDistance.val ) ))", "rightToBackward");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance.val ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance.val ) ))", "rightToInit");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta.val ) ) ))", "backwardToLeft");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.goStraightESC, "(( ( FrDsLeftVal.val ) > ( minDistance.val ) ) && ( ( FrDsRightVal.val ) > ( minDistance.val ) ))", "backwardToStraight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta.val ) ) ))", "backwardToRight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance.val ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance.val ) ))", "backwardToInit");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.goStraightESC, "(( ( FrDsLeftVal.val ) > ( minDistance.val ) ) && ( ( FrDsRightVal.val ) > ( minDistance.val ) ))", "leftToStraight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta.val ) ) ))", "leftToRight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( FrDsRightVal.val ) < ( minDistance.val ) ))", "leftToBackward");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance.val ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance.val ) ))", "leftToInit");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta.val ) ) ))", "straightToLeft");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance.val ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta.val ) ) ))", "straightToRight");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance.val ) ) && ( ( FrDsRightVal.val ) < ( minDistance.val ) ))", "straightToBackward");
-fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance.val ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance.val ) ))", "straightToInit");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.initToLeft");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.goStraightESC, "(( ( ( BhDsLeft.val ) < ( minDistance ) ) && ( ( BhDsRight.val ) < ( minDistance ) ) ) || ( ( ( FrDsLeftVal.val ) > ( minDistance ) ) && ( ( FrDsRightVal.val ) > ( minDistance ) ) ))", "stateMachineEscape.initToStraight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.initToRight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.initESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( FrDsRightVal.val ) < ( minDistance ) ))", "stateMachineEscape.initToBackward");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.rightToLeft");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.goStraightESC, "(( ( FrDsLeftVal.val ) > ( minDistance ) ) && ( ( FrDsRightVal.val ) > ( minDistance ) ))", "stateMachineEscape.rightToStraight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( FrDsRightVal.val ) < ( minDistance ) ))", "stateMachineEscape.rightToBackward");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goRightESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance ) ))", "stateMachineEscape.rightToInit");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.backwardToLeft");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.goStraightESC, "(( ( FrDsLeftVal.val ) > ( minDistance ) ) && ( ( FrDsRightVal.val ) > ( minDistance ) ))", "stateMachineEscape.backwardToStraight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.backwardToRight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.backwardESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance ) ))", "stateMachineEscape.backwardToInit");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.goStraightESC, "(( ( FrDsLeftVal.val ) > ( minDistance ) ) && ( ( FrDsRightVal.val ) > ( minDistance ) ))", "stateMachineEscape.leftToStraight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.leftToRight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( FrDsRightVal.val ) < ( minDistance ) ))", "stateMachineEscape.leftToBackward");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goLeftESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance ) ))", "stateMachineEscape.leftToInit");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.goLeftESC, "(( ( FrDsLeftVal.val ) >= ( minDistance ) ) && ( ( ( FrDsRightVal.val ) < ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) - ( FrDsRightVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.straightToLeft");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.goRightESC, "(( ( FrDsRightVal.val ) >= ( minDistance ) ) && ( ( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( ( FrDsRightVal.val ) - ( FrDsLeftVal.val ) ) > ( beta ) ) ))", "stateMachineEscape.straightToRight");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( FrDsRightVal.val ) < ( minDistance ) ))", "stateMachineEscape.straightToBackward");
+fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance ) ))", "stateMachineEscape.straightToInit");
 
 /* ==============Behavior home============== */
 var alpha = 100;
 var zero = 0;
 var valueMax = 3500;
-var priorityESC = 1;
+var priorityHome = 2;
 
 /*  Creating the stateMachineHome state */
 removeSlot("stateMachineHome");
@@ -93,16 +93,16 @@ var stateMachineHome = fsm.State.new("stateMachineHome");
 stateMachineHome.params_dict = Dictionary.new();
 
 var stateMachineHome.init = fsm.State.create("stateMachineHome.init", stateMachineHome, 
-function() {actuator.Forward(50)}, true, 0, function() {}, function() {}, false);
+function() {actuator.Forward(1000)}, true, 0, function() {}, function() {}, false);
 
 var stateMachineHome.goRight = fsm.State.create("stateMachineHome.goRight", stateMachineHome, 
-function() {actuator.TurnRight(50)}, false, 1, function() {}, function() {}, false);
+function() {actuator.TurnRight(500)}, false, 1, function() {}, function() {}, false);
 
 var stateMachineHome.goLeft = fsm.State.create("stateMachineHome.goLeft", stateMachineHome, 
-function() {actuator.TurnLeft(50)}, false, 2, function() {}, function() {}, false);
+function() {actuator.TurnLeft(500)}, false, 2, function() {}, function() {}, false);
 
 var stateMachineHome.goStraight = fsm.State.create("stateMachineHome.goStraight", stateMachineHome, 
-function() {actuator.Forward(50)}, false, 3, function() {}, function() {}, false);
+function() {actuator.Forward(1000)}, false, 3, function() {}, function() {}, false);
 
 var stateMachineHome.backward = fsm.State.create("stateMachineHome.backward", stateMachineHome, 
 function() {actuator.Backward(0)}, false, 5, function() {}, function() {}, false);
@@ -111,27 +111,27 @@ var stateMachineHome.end = fsm.State.create("stateMachineHome.end", stateMachine
 function() {}, false, 6, function() {}, function() {}, false);
 
 
-fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha.val ) ))", "initToLeft");
-fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.goStraight, "(( ( ( ( LsRightVal.val ) < ( valueMax.val ) ) && ( ( LsLeftVal.val ) < ( valueMax.val ) ) ) && ( ( ( LsLeftVal.val ) != ( zero.val ) ) && ( ( LsRightVal.val ) != ( zero.val ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( valueMax.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "initToStraight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha.val ) ))", "initToRight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero.val ) ) && ( ( LsLeftVal.val ) == ( zero.val ) ))", "initToEnd");
-fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax.val ) ) && ( ( LsRightVal.val ) >= ( valueMax.val ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "initToBackward");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha.val ) ))", "rightToLeft");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.goStraight, "(( ( ( ( LsRightVal.val ) < ( valueMax.val ) ) && ( ( LsLeftVal.val ) < ( valueMax.val ) ) ) && ( ( ( LsLeftVal.val ) != ( zero.val ) ) && ( ( LsRightVal.val ) != ( zero.val ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( valueMax.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "rightToStraight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero.val ) ) && ( ( LsLeftVal.val ) == ( zero.val ) ))", "rightToEnd");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax.val ) ) && ( ( LsRightVal.val ) >= ( valueMax.val ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) <= ( alpha.val ) ) ))", "rightToBackward");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.goStraight, "(( ( ( ( LsLeftVal.val ) != ( zero.val ) ) && ( ( LsRightVal.val ) != ( zero.val ) ) ) && ( ( ( LsRightVal.val ) < ( valueMax.val ) ) && ( ( LsLeftVal.val ) < ( valueMax.val ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "leftToStraight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha.val ) ))", "leftToRight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero.val ) ) && ( ( LsLeftVal.val ) == ( zero.val ) ))", "leftToEnd");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax.val ) ) && ( ( LsRightVal.val ) >= ( valueMax.val ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) <= ( alpha.val ) ) ))", "leftToBackward");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha.val ) ))", "straightToLeft");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.goStraight, "(( ( ( ( LsRightVal.val ) < ( valueMax.val ) ) && ( ( LsLeftVal.val ) < ( valueMax.val ) ) ) && ( ( ( LsLeftVal.val ) != ( zero.val ) ) && ( ( LsRightVal.val ) != ( zero.val ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( valueMax.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "straightToStraight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha.val ) ))", "straightToRight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero.val ) ) && ( ( LsLeftVal.val ) == ( zero.val ) ))", "straightToEnd");
-fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax.val ) ) && ( ( LsRightVal.val ) >= ( valueMax.val ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) <= ( alpha.val ) ) ))", "straightToBackward");
-fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha.val ) ))", "backwardToLeft");
-fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.goStraight, "(( ( ( ( LsLeftVal.val ) != ( zero.val ) ) && ( ( LsRightVal.val ) != ( zero.val ) ) ) && ( ( ( LsRightVal.val ) < ( valueMax.val ) ) && ( ( LsLeftVal.val ) < ( valueMax.val ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "backwardToStraight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha.val ) ))", "backwardToRight");
-fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero.val ) ) && ( ( LsLeftVal.val ) == ( zero.val ) ))", "backwardToEnd");
-fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax.val ) ) && ( ( LsRightVal.val ) >= ( valueMax.val ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha.val ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha.val ) ) ))", "backwardToBackward");
+fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha ) ))", "stateMachineHome.initToLeft");
+fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.goStraight, "(( ( ( ( LsRightVal.val ) < ( valueMax ) ) && ( ( LsLeftVal.val ) < ( valueMax ) ) ) && ( ( ( LsLeftVal.val ) != ( zero ) ) && ( ( LsRightVal.val ) != ( zero ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( valueMax ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.initToStraight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha ) ))", "stateMachineHome.initToRight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero ) ) && ( ( LsLeftVal.val ) == ( zero ) ))", "stateMachineHome.initToEnd");
+fsm.Transition.create(stateMachineHome, stateMachineHome.init, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax ) ) && ( ( LsRightVal.val ) >= ( valueMax ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.initToBackward");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha ) ))", "stateMachineHome.rightToLeft");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.goStraight, "(( ( ( ( LsRightVal.val ) < ( valueMax ) ) && ( ( LsLeftVal.val ) < ( valueMax ) ) ) && ( ( ( LsLeftVal.val ) != ( zero ) ) && ( ( LsRightVal.val ) != ( zero ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( valueMax ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.rightToStraight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero ) ) && ( ( LsLeftVal.val ) == ( zero ) ))", "stateMachineHome.rightToEnd");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goRight, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax ) ) && ( ( LsRightVal.val ) >= ( valueMax ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) <= ( alpha ) ) ))", "stateMachineHome.rightToBackward");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.goStraight, "(( ( ( ( LsLeftVal.val ) != ( zero ) ) && ( ( LsRightVal.val ) != ( zero ) ) ) && ( ( ( LsRightVal.val ) < ( valueMax ) ) && ( ( LsLeftVal.val ) < ( valueMax ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.leftToStraight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha ) ))", "stateMachineHome.leftToRight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero ) ) && ( ( LsLeftVal.val ) == ( zero ) ))", "stateMachineHome.leftToEnd");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goLeft, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax ) ) && ( ( LsRightVal.val ) >= ( valueMax ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) <= ( alpha ) ) ))", "stateMachineHome.leftToBackward");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha ) ))", "stateMachineHome.straightToLeft");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.goStraight, "(( ( ( ( LsRightVal.val ) < ( valueMax ) ) && ( ( LsLeftVal.val ) < ( valueMax ) ) ) && ( ( ( LsLeftVal.val ) != ( zero ) ) && ( ( LsRightVal.val ) != ( zero ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( valueMax ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.straightToStraight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha ) ))", "stateMachineHome.straightToRight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero ) ) && ( ( LsLeftVal.val ) == ( zero ) ))", "stateMachineHome.straightToEnd");
+fsm.Transition.create(stateMachineHome, stateMachineHome.goStraight, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax ) ) && ( ( LsRightVal.val ) >= ( valueMax ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) <= ( alpha ) ) ))", "stateMachineHome.straightToBackward");
+fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.goLeft, "(( ( LsLeftVal.val ) < ( LsRightVal.val ) ) && ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) > ( alpha ) ))", "stateMachineHome.backwardToLeft");
+fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.goStraight, "(( ( ( ( LsLeftVal.val ) != ( zero ) ) && ( ( LsRightVal.val ) != ( zero ) ) ) && ( ( ( LsRightVal.val ) < ( valueMax ) ) && ( ( LsLeftVal.val ) < ( valueMax ) ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) < ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.backwardToStraight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.goRight, "(( ( LsRightVal.val ) < ( LsLeftVal.val ) ) && ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) > ( alpha ) ))", "stateMachineHome.backwardToRight");
+fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero ) ) && ( ( LsLeftVal.val ) == ( zero ) ))", "stateMachineHome.backwardToEnd");
+fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax ) ) && ( ( LsRightVal.val ) >= ( valueMax ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.backwardToBackward");
 
