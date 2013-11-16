@@ -93,8 +93,8 @@ public class Visitor implements IVisitor {
 
 	@Override
 	public void visit(Behaviour a) {
-		// TODO Auto-generated method stub
-
+		sb.append("/* ==============Behavior " + a.getName() + "============== */\n");
+		a.getStateMachine().accept(this);
 	}
 
 	@Override
@@ -229,9 +229,6 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Robot a) {
 		robotName = a.getName();
-		
-		// fsm
-		// TODO
 
 		// sensor
 		for (Sensor sensor : a.getSensors()) {
@@ -246,13 +243,13 @@ public class Visitor implements IVisitor {
 			action.accept(this);
 		}
 		sb.append(actuators.getString());
-
-		// escape
-
-
-		// home
-
-
+		
+		// behaviors
+		for (Behaviour behavior : a.getBehaviours()) {
+			behavior.accept(this);
+		}
+		
+		// TODO...
 	}
 
 	@Override
@@ -270,7 +267,13 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(StateMachine a) {
 		// TODO Auto-generated method stub
-		// CurrentStateMachine = a
+		// permet de dire qu'on est en train de générer cette StateMachine (pour récupérer le parentId)
+		currentStateMachine = a;
+		sb.append("/*  Creating the " + a.getName() + " state */\n");
+		sb.append("var Global." + a.getName() + " = fsm.State.new(\"" + a.getName() + "\");\n");
+		
+		// on ne comprend pas ce code...
+		sb.append(".params_dict\n");
 		// code...
 	}
 
