@@ -2,7 +2,6 @@
  */
 package backup;
 
-import metamodel.generator.IVisitable;
 
 
 
@@ -16,5 +15,5 @@ import metamodel.generator.IVisitable;
  * @model
  * @generated
  */
-public interface Or extends BinaryCond, IVisitable {
+public interface Or extends BinaryCond {
 } // Or

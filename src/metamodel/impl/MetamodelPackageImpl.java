@@ -21,13 +21,13 @@ import metamodel.FloatVal;
 import metamodel.Forward;
 import metamodel.Group;
 import metamodel.IntVal;
+import metamodel.Less;
 import metamodel.LessOrEqual;
-import metamodel.LessThan;
 import metamodel.LightSensor;
 import metamodel.MetamodelFactory;
 import metamodel.MetamodelPackage;
+import metamodel.More;
 import metamodel.MoreOrEqual;
-import metamodel.MoreThan;
 import metamodel.Negation;
 import metamodel.Negative;
 import metamodel.Operator;
@@ -46,7 +46,6 @@ import metamodel.Type;
 import metamodel.UnaryCond;
 import metamodel.UnaryOperator;
 import metamodel.Value;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -289,14 +288,14 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass lessThanEClass = null;
+	private EClass lessEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass moreThanEClass = null;
+	private EClass moreEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1077,8 +1076,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLessThan() {
-		return lessThanEClass;
+	public EClass getLess() {
+		return lessEClass;
 	}
 
 	/**
@@ -1086,8 +1085,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMoreThan() {
-		return moreThanEClass;
+	public EClass getMore() {
+		return moreEClass;
 	}
 
 	/**
@@ -1295,9 +1294,9 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		equalEClass = createEClass(EQUAL);
 
-		lessThanEClass = createEClass(LESS_THAN);
+		lessEClass = createEClass(LESS);
 
-		moreThanEClass = createEClass(MORE_THAN);
+		moreEClass = createEClass(MORE);
 
 		differentEClass = createEClass(DIFFERENT);
 
@@ -1365,8 +1364,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		unaryCondEClass.getESuperTypes().add(this.getCondition());
 		negationEClass.getESuperTypes().add(this.getUnaryCond());
 		equalEClass.getESuperTypes().add(this.getBinaryOperator());
-		lessThanEClass.getESuperTypes().add(this.getBinaryOperator());
-		moreThanEClass.getESuperTypes().add(this.getBinaryOperator());
+		lessEClass.getESuperTypes().add(this.getBinaryOperator());
+		moreEClass.getESuperTypes().add(this.getBinaryOperator());
 		differentEClass.getESuperTypes().add(this.getBinaryOperator());
 		lessOrEqualEClass.getESuperTypes().add(this.getBinaryOperator());
 		moreOrEqualEClass.getESuperTypes().add(this.getBinaryOperator());
@@ -1423,7 +1422,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEReference(getValue_Value(), this.getType(), null, "value", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(boolValEClass, BoolVal.class, "BoolVal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoolVal_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BoolVal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1464,8 +1463,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEReference(getUnaryOperator_Valeur(), this.getValue(), null, "valeur", null, 1, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryOperatorEClass, BinaryOperator.class, "BinaryOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryOperator_OperandLeft(), this.getOperator(), null, "operandLeft", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryOperator_OperandRight(), this.getOperator(), null, "OperandRight", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperator_OperandLeft(), this.getOperator(), null, "operandLeft", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperator_OperandRight(), this.getOperator(), null, "OperandRight", null, 1, 1, BinaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryCondEClass, BinaryCond.class, "BinaryCond", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinaryCond_OperandRight(), this.getCondition(), null, "operandRight", null, 1, 1, BinaryCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1482,9 +1481,9 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(lessThanEClass, LessThan.class, "LessThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(lessEClass, Less.class, "Less", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(moreThanEClass, MoreThan.class, "MoreThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(moreEClass, More.class, "More", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(differentEClass, Different.class, "Different", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -2,50 +2,7 @@
  */
 package metamodel.util;
 
-import metamodel.Action;
-import metamodel.ActionWheel;
-import metamodel.Actuator;
-import metamodel.Add;
-import metamodel.And;
-import metamodel.Backward;
-import metamodel.Behaviour;
-import metamodel.BinaryCond;
-import metamodel.BinaryOperator;
-import metamodel.BoolVal;
-import metamodel.Condition;
-import metamodel.Different;
-import metamodel.DifferentialWheel;
-import metamodel.DistanceSensor;
-import metamodel.Equal;
-import metamodel.FloatVal;
-import metamodel.Forward;
-import metamodel.Group;
-import metamodel.IntVal;
-import metamodel.LessOrEqual;
-import metamodel.LessThan;
-import metamodel.LightSensor;
-import metamodel.MetamodelPackage;
-import metamodel.MoreOrEqual;
-import metamodel.MoreThan;
-import metamodel.Negation;
-import metamodel.Negative;
-import metamodel.Operator;
-import metamodel.Or;
-import metamodel.Positive;
-import metamodel.Robot;
-import metamodel.Sensor;
-import metamodel.State;
-import metamodel.StateMachine;
-import metamodel.Stopping;
-import metamodel.Sub;
-import metamodel.Transition;
-import metamodel.TurnLeft;
-import metamodel.TurnRight;
-import metamodel.Type;
-import metamodel.UnaryCond;
-import metamodel.UnaryOperator;
-import metamodel.Value;
-
+import metamodel.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -332,21 +289,21 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.LESS_THAN: {
-				LessThan lessThan = (LessThan)theEObject;
-				T result = caseLessThan(lessThan);
-				if (result == null) result = caseBinaryOperator(lessThan);
-				if (result == null) result = caseOperator(lessThan);
-				if (result == null) result = caseCondition(lessThan);
+			case MetamodelPackage.LESS: {
+				Less less = (Less)theEObject;
+				T result = caseLess(less);
+				if (result == null) result = caseBinaryOperator(less);
+				if (result == null) result = caseOperator(less);
+				if (result == null) result = caseCondition(less);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.MORE_THAN: {
-				MoreThan moreThan = (MoreThan)theEObject;
-				T result = caseMoreThan(moreThan);
-				if (result == null) result = caseBinaryOperator(moreThan);
-				if (result == null) result = caseOperator(moreThan);
-				if (result == null) result = caseCondition(moreThan);
+			case MetamodelPackage.MORE: {
+				More more = (More)theEObject;
+				T result = caseMore(more);
+				if (result == null) result = caseBinaryOperator(more);
+				if (result == null) result = caseOperator(more);
+				if (result == null) result = caseCondition(more);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -905,32 +862,32 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Less Than</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Less</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Less Than</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Less</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLessThan(LessThan object) {
+	public T caseLess(Less object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>More Than</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>More</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>More Than</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>More</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMoreThan(MoreThan object) {
+	public T caseMore(More object) {
 		return null;
 	}
 

@@ -4,7 +4,6 @@ package backup;
 
 import metamodel.generator.IVisitable;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link metamodel.Transition#getDest <em>Dest</em>}</li>
- *   <li>{@link metamodel.Transition#getConditions <em>Conditions</em>}</li>
- *   <li>{@link metamodel.Transition#getName <em>Name</em>}</li>
+ *   <li>{@link metamodel.Transition#getDstId <em>Dst Id</em>}</li>
+ *   <li>{@link metamodel.Transition#getCond <em>Cond</em>}</li>
+ *   <li>{@link metamodel.Transition#getNameIn <em>Name In</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,71 +26,81 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Transition extends EObject, IVisitable {
 	/**
-	 * Returns the value of the '<em><b>Dest</b></em>' reference.
+	 * Returns the value of the '<em><b>Dst Id</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dest</em>' reference isn't clear,
+	 * If the meaning of the '<em>Dst Id</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dest</em>' reference.
-	 * @see #setDest(State)
-	 * @see metamodel.MetamodelPackage#getTransition_Dest()
+	 * @return the value of the '<em>Dst Id</em>' reference.
+	 * @see #setDstId(State)
+	 * @see metamodel.MetamodelPackage#getTransition_DstId()
 	 * @model required="true"
 	 * @generated
 	 */
-	State getDest();
+	State getDstId();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Transition#getDest <em>Dest</em>}' reference.
+	 * Sets the value of the '{@link metamodel.Transition#getDstId <em>Dst Id</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dest</em>' reference.
-	 * @see #getDest()
+	 * @param value the new value of the '<em>Dst Id</em>' reference.
+	 * @see #getDstId()
 	 * @generated
 	 */
-	void setDest(State value);
+	void setDstId(State value);
 
 	/**
-	 * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link metamodel.Condition}.
+	 * Returns the value of the '<em><b>Cond</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Conditions</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Cond</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Conditions</em>' containment reference list.
-	 * @see metamodel.MetamodelPackage#getTransition_Conditions()
-	 * @model containment="true"
+	 * @return the value of the '<em>Cond</em>' containment reference.
+	 * @see #setCond(Condition)
+	 * @see metamodel.MetamodelPackage#getTransition_Cond()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Condition> getConditions();
+	Condition getCond();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Sets the value of the '{@link metamodel.Transition#getCond <em>Cond</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cond</em>' containment reference.
+	 * @see #getCond()
+	 * @generated
+	 */
+	void setCond(Condition value);
+
+	/**
+	 * Returns the value of the '<em><b>Name In</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name In</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see metamodel.MetamodelPackage#getTransition_Name()
+	 * @return the value of the '<em>Name In</em>' attribute.
+	 * @see #setNameIn(String)
+	 * @see metamodel.MetamodelPackage#getTransition_NameIn()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getName();
+	String getNameIn();
 
 	/**
-	 * Sets the value of the '{@link metamodel.Transition#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link metamodel.Transition#getNameIn <em>Name In</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Name In</em>' attribute.
+	 * @see #getNameIn()
 	 * @generated
 	 */
-	void setName(String value);
+	void setNameIn(String value);
 
 } // Transition

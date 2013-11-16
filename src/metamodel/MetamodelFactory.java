@@ -121,15 +121,6 @@ public interface MetamodelFactory extends EFactory {
 	Value createValue();
 
 	/**
-	 * Returns a new object of class '<em>Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type</em>'.
-	 * @generated
-	 */
-	Type createType();
-
-	/**
 	 * Returns a new object of class '<em>Bool Val</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,22 +220,22 @@ public interface MetamodelFactory extends EFactory {
 	Equal createEqual();
 
 	/**
-	 * Returns a new object of class '<em>Less Than</em>'.
+	 * Returns a new object of class '<em>Less</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Less Than</em>'.
+	 * @return a new object of class '<em>Less</em>'.
 	 * @generated
 	 */
-	LessThan createLessThan();
+	Less createLess();
 
 	/**
-	 * Returns a new object of class '<em>More Than</em>'.
+	 * Returns a new object of class '<em>More</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>More Than</em>'.
+	 * @return a new object of class '<em>More</em>'.
 	 * @generated
 	 */
-	MoreThan createMoreThan();
+	More createMore();
 
 	/**
 	 * Returns a new object of class '<em>Different</em>'.

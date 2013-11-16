@@ -2,50 +2,7 @@
  */
 package metamodel.util;
 
-import metamodel.Action;
-import metamodel.ActionWheel;
-import metamodel.Actuator;
-import metamodel.Add;
-import metamodel.And;
-import metamodel.Backward;
-import metamodel.Behaviour;
-import metamodel.BinaryCond;
-import metamodel.BinaryOperator;
-import metamodel.BoolVal;
-import metamodel.Condition;
-import metamodel.Different;
-import metamodel.DifferentialWheel;
-import metamodel.DistanceSensor;
-import metamodel.Equal;
-import metamodel.FloatVal;
-import metamodel.Forward;
-import metamodel.Group;
-import metamodel.IntVal;
-import metamodel.LessOrEqual;
-import metamodel.LessThan;
-import metamodel.LightSensor;
-import metamodel.MetamodelPackage;
-import metamodel.MoreOrEqual;
-import metamodel.MoreThan;
-import metamodel.Negation;
-import metamodel.Negative;
-import metamodel.Operator;
-import metamodel.Or;
-import metamodel.Positive;
-import metamodel.Robot;
-import metamodel.Sensor;
-import metamodel.State;
-import metamodel.StateMachine;
-import metamodel.Stopping;
-import metamodel.Sub;
-import metamodel.Transition;
-import metamodel.TurnLeft;
-import metamodel.TurnRight;
-import metamodel.Type;
-import metamodel.UnaryCond;
-import metamodel.UnaryOperator;
-import metamodel.Value;
-
+import metamodel.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -236,12 +193,12 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 				return createEqualAdapter();
 			}
 			@Override
-			public Adapter caseLessThan(LessThan object) {
-				return createLessThanAdapter();
+			public Adapter caseLess(Less object) {
+				return createLessAdapter();
 			}
 			@Override
-			public Adapter caseMoreThan(MoreThan object) {
-				return createMoreThanAdapter();
+			public Adapter caseMore(More object) {
+				return createMoreAdapter();
 			}
 			@Override
 			public Adapter caseDifferent(Different object) {
@@ -744,30 +701,30 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.LessThan <em>Less Than</em>}'.
+	 * Creates a new adapter for an object of class '{@link metamodel.Less <em>Less</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.LessThan
+	 * @see metamodel.Less
 	 * @generated
 	 */
-	public Adapter createLessThanAdapter() {
+	public Adapter createLessAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link metamodel.MoreThan <em>More Than</em>}'.
+	 * Creates a new adapter for an object of class '{@link metamodel.More <em>More</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see metamodel.MoreThan
+	 * @see metamodel.More
 	 * @generated
 	 */
-	public Adapter createMoreThanAdapter() {
+	public Adapter createMoreAdapter() {
 		return null;
 	}
 

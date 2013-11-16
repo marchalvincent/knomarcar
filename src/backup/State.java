@@ -16,10 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link metamodel.State#getTransitions <em>Transitions</em>}</li>
- *   <li>{@link metamodel.State#getValue <em>Value</em>}</li>
- *   <li>{@link metamodel.State#getActions <em>Actions</em>}</li>
+ *   <li>{@link metamodel.State#getWorkingAction <em>Working Action</em>}</li>
  *   <li>{@link metamodel.State#getName <em>Name</em>}</li>
  *   <li>{@link metamodel.State#isIsInitial <em>Is Initial</em>}</li>
+ *   <li>{@link metamodel.State#getOnEnterAction <em>On Enter Action</em>}</li>
+ *   <li>{@link metamodel.State#getOnLeaveAction <em>On Leave Action</em>}</li>
+ *   <li>{@link metamodel.State#getUid <em>Uid</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,46 +47,30 @@ public interface State extends EObject, IVisitable {
 	EList<Transition> getTransitions();
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Working Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Working Action</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(Value)
-	 * @see metamodel.MetamodelPackage#getState_Value()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Value getValue();
-
-	/**
-	 * Sets the value of the '{@link metamodel.State#getValue <em>Value</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' containment reference.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(Value value);
-
-	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' reference list.
-	 * The list contents are of type {@link metamodel.Action}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actions</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' reference list.
-	 * @see metamodel.MetamodelPackage#getState_Actions()
+	 * @return the value of the '<em>Working Action</em>' reference.
+	 * @see #setWorkingAction(Action)
+	 * @see metamodel.MetamodelPackage#getState_WorkingAction()
 	 * @model
 	 * @generated
 	 */
-	EList<Action> getActions();
+	Action getWorkingAction();
+
+	/**
+	 * Sets the value of the '{@link metamodel.State#getWorkingAction <em>Working Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Working Action</em>' reference.
+	 * @see #getWorkingAction()
+	 * @generated
+	 */
+	void setWorkingAction(Action value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -137,5 +123,83 @@ public interface State extends EObject, IVisitable {
 	 * @generated
 	 */
 	void setIsInitial(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>On Enter Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Enter Action</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Enter Action</em>' reference.
+	 * @see #setOnEnterAction(Action)
+	 * @see metamodel.MetamodelPackage#getState_OnEnterAction()
+	 * @model
+	 * @generated
+	 */
+	Action getOnEnterAction();
+
+	/**
+	 * Sets the value of the '{@link metamodel.State#getOnEnterAction <em>On Enter Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Enter Action</em>' reference.
+	 * @see #getOnEnterAction()
+	 * @generated
+	 */
+	void setOnEnterAction(Action value);
+
+	/**
+	 * Returns the value of the '<em><b>On Leave Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Leave Action</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Leave Action</em>' reference.
+	 * @see #setOnLeaveAction(Action)
+	 * @see metamodel.MetamodelPackage#getState_OnLeaveAction()
+	 * @model
+	 * @generated
+	 */
+	Action getOnLeaveAction();
+
+	/**
+	 * Sets the value of the '{@link metamodel.State#getOnLeaveAction <em>On Leave Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Leave Action</em>' reference.
+	 * @see #getOnLeaveAction()
+	 * @generated
+	 */
+	void setOnLeaveAction(Action value);
+
+	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uid</em>' attribute.
+	 * @see #setUid(String)
+	 * @see metamodel.MetamodelPackage#getState_Uid()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getUid();
+
+	/**
+	 * Sets the value of the '{@link metamodel.State#getUid <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' attribute.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(String value);
 
 } // State

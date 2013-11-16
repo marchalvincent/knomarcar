@@ -2,41 +2,7 @@
  */
 package metamodel.impl;
 
-import metamodel.Add;
-import metamodel.And;
-import metamodel.Backward;
-import metamodel.Behaviour;
-import metamodel.BoolVal;
-import metamodel.Different;
-import metamodel.DifferentialWheel;
-import metamodel.DistanceSensor;
-import metamodel.Equal;
-import metamodel.FloatVal;
-import metamodel.Forward;
-import metamodel.Group;
-import metamodel.IntVal;
-import metamodel.LessOrEqual;
-import metamodel.LessThan;
-import metamodel.LightSensor;
-import metamodel.MetamodelFactory;
-import metamodel.MetamodelPackage;
-import metamodel.MoreOrEqual;
-import metamodel.MoreThan;
-import metamodel.Negation;
-import metamodel.Negative;
-import metamodel.Or;
-import metamodel.Positive;
-import metamodel.Robot;
-import metamodel.State;
-import metamodel.StateMachine;
-import metamodel.Stopping;
-import metamodel.Sub;
-import metamodel.Transition;
-import metamodel.TurnLeft;
-import metamodel.TurnRight;
-import metamodel.Type;
-import metamodel.Value;
-
+import metamodel.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -98,7 +64,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.DISTANCE_SENSOR: return createDistanceSensor();
 			case MetamodelPackage.LIGHT_SENSOR: return createLightSensor();
 			case MetamodelPackage.VALUE: return createValue();
-			case MetamodelPackage.TYPE: return createType();
 			case MetamodelPackage.BOOL_VAL: return createBoolVal();
 			case MetamodelPackage.FLOAT_VAL: return createFloatVal();
 			case MetamodelPackage.INT_VAL: return createIntVal();
@@ -110,8 +75,8 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.AND: return createAnd();
 			case MetamodelPackage.NEGATION: return createNegation();
 			case MetamodelPackage.EQUAL: return createEqual();
-			case MetamodelPackage.LESS_THAN: return createLessThan();
-			case MetamodelPackage.MORE_THAN: return createMoreThan();
+			case MetamodelPackage.LESS: return createLess();
+			case MetamodelPackage.MORE: return createMore();
 			case MetamodelPackage.DIFFERENT: return createDifferent();
 			case MetamodelPackage.LESS_OR_EQUAL: return createLessOrEqual();
 			case MetamodelPackage.MORE_OR_EQUAL: return createMoreOrEqual();
@@ -239,16 +204,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type createType() {
-		TypeImpl type = new TypeImpl();
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BoolVal createBoolVal() {
 		BoolValImpl boolVal = new BoolValImpl();
 		return boolVal;
@@ -359,9 +314,9 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LessThan createLessThan() {
-		LessThanImpl lessThan = new LessThanImpl();
-		return lessThan;
+	public Less createLess() {
+		LessImpl less = new LessImpl();
+		return less;
 	}
 
 	/**
@@ -369,9 +324,9 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MoreThan createMoreThan() {
-		MoreThanImpl moreThan = new MoreThanImpl();
-		return moreThan;
+	public More createMore() {
+		MoreImpl more = new MoreImpl();
+		return more;
 	}
 
 	/**

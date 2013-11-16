@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see metamodel.MetamodelPackage#getType()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Type extends EObject, IVisitable {

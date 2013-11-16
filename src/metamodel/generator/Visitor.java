@@ -21,11 +21,11 @@ import metamodel.FloatVal;
 import metamodel.Forward;
 import metamodel.Group;
 import metamodel.IntVal;
+import metamodel.Less;
 import metamodel.LessOrEqual;
-import metamodel.LessThan;
 import metamodel.LightSensor;
+import metamodel.More;
 import metamodel.MoreOrEqual;
-import metamodel.MoreThan;
 import metamodel.Negation;
 import metamodel.Negative;
 import metamodel.Operator;
@@ -224,7 +224,7 @@ public class Visitor implements IVisitor {
 	}
 
 	@Override
-	public void visit(LessThan a) {
+	public void visit(Less a) {
 		sb.append("( ");
 		a.getOperandLeft().accept(this);
 		sb.append(" ) < ( ");
@@ -252,7 +252,7 @@ public class Visitor implements IVisitor {
 	}
 
 	@Override
-	public void visit(MoreThan a) {
+	public void visit(More a) {
 		sb.append("( ");
 		a.getOperandLeft().accept(this);
 		sb.append(" ) > ( ");
@@ -335,13 +335,13 @@ public class Visitor implements IVisitor {
 		if (action != null) {
 			if (action instanceof ActionWheel) {
 				ActionWheel aWheel = (ActionWheel) action;
-				body = "\n actuator." + aWheel.getClass().getSimpleName() + "(" + aWheel.getSpeed() + ")\n";
+				body = "actuator." + aWheel.getClass().getSimpleName() + "(" + aWheel.getSpeed() + ")";
 			}
 			else {
 				System.err.println("L'action 'working' est inconnue...");
 			}
 		}
-		String workingFunction = "function() {" + body + "}\n";
+		String workingFunction = "\nfunction() {" + body + "}";
 		
 		
 		// ONENTER ACTION
@@ -356,7 +356,7 @@ public class Visitor implements IVisitor {
 				System.err.println("L'action 'onleave' est inconnue...");
 			}
 		}
-		String onEnterFunction = "function() {" + body + "}\n";
+		String onEnterFunction = "function() {" + body + "}";
 		
 		// ONLEAVE ACTION
 		body = "";
@@ -370,7 +370,7 @@ public class Visitor implements IVisitor {
 				System.err.println("L'action 'onleave' est inconnue...");
 			}
 		}
-		String onLeaveFunction = "function() {" + body + "}\n";
+		String onLeaveFunction = "function() {" + body + "}";
 		
 		// breackpoint est laissé à false pour l'instant...
 		String breakPoint = "false";
@@ -427,7 +427,10 @@ public class Visitor implements IVisitor {
 	@Override
 	public void visit(Transition a) {
 		// TODO Auto-generated method stub
-
+		
+		
+		
+//		sb.append("fsm.Transition.create(" + currentStateMachine.getName() + ", " + var + ", " + var + ", " + var + ", " + var + ");");
 	}
 
 	@Override

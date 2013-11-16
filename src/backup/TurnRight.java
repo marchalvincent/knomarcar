@@ -2,7 +2,6 @@
  */
 package backup;
 
-import metamodel.generator.IVisitable;
 
 
 
@@ -16,5 +15,5 @@ import metamodel.generator.IVisitable;
  * @model
  * @generated
  */
-public interface TurnRight extends ActionWheel, IVisitable {
+public interface TurnRight extends ActionWheel {
 } // TurnRight

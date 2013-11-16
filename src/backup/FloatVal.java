@@ -2,7 +2,6 @@
  */
 package backup;
 
-import metamodel.generator.IVisitable;
 
 
 
@@ -22,7 +21,7 @@ import metamodel.generator.IVisitable;
  * @model
  * @generated
  */
-public interface FloatVal extends Type, IVisitable {
+public interface FloatVal extends Type {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

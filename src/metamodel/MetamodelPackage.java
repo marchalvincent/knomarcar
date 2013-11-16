@@ -1281,7 +1281,7 @@ public interface MetamodelPackage extends EPackage {
 	int BINARY_OPERATOR = 25;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1290,7 +1290,7 @@ public interface MetamodelPackage extends EPackage {
 	int BINARY_OPERATOR__OPERAND_LEFT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1539,7 +1539,7 @@ public interface MetamodelPackage extends EPackage {
 	int EQUAL = 31;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1548,7 +1548,7 @@ public interface MetamodelPackage extends EPackage {
 	int EQUAL__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1575,96 +1575,96 @@ public interface MetamodelPackage extends EPackage {
 	int EQUAL_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.LessThanImpl <em>Less Than</em>}' class.
+	 * The meta object id for the '{@link metamodel.impl.LessImpl <em>Less</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.LessThanImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getLessThan()
+	 * @see metamodel.impl.LessImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getLess()
 	 * @generated
 	 */
-	int LESS_THAN = 32;
+	int LESS = 32;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LESS_THAN__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
+	int LESS__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LESS_THAN__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
+	int LESS__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
 
 	/**
-	 * The number of structural features of the '<em>Less Than</em>' class.
+	 * The number of structural features of the '<em>Less</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LESS_THAN_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+	int LESS_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Less Than</em>' class.
+	 * The number of operations of the '<em>Less</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LESS_THAN_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
+	int LESS_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link metamodel.impl.MoreThanImpl <em>More Than</em>}' class.
+	 * The meta object id for the '{@link metamodel.impl.MoreImpl <em>More</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see metamodel.impl.MoreThanImpl
-	 * @see metamodel.impl.MetamodelPackageImpl#getMoreThan()
+	 * @see metamodel.impl.MoreImpl
+	 * @see metamodel.impl.MetamodelPackageImpl#getMore()
 	 * @generated
 	 */
-	int MORE_THAN = 33;
+	int MORE = 33;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORE_THAN__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
-
-	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORE_THAN__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
+	int MORE__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The number of structural features of the '<em>More Than</em>' class.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORE_THAN_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+	int MORE__OPERAND_RIGHT = BINARY_OPERATOR__OPERAND_RIGHT;
 
 	/**
-	 * The number of operations of the '<em>More Than</em>' class.
+	 * The number of structural features of the '<em>More</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORE_THAN_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
+	int MORE_FEATURE_COUNT = BINARY_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>More</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORE_OPERATION_COUNT = BINARY_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link metamodel.impl.DifferentImpl <em>Different</em>}' class.
@@ -1677,7 +1677,7 @@ public interface MetamodelPackage extends EPackage {
 	int DIFFERENT = 34;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1686,7 +1686,7 @@ public interface MetamodelPackage extends EPackage {
 	int DIFFERENT__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1724,7 +1724,7 @@ public interface MetamodelPackage extends EPackage {
 	int LESS_OR_EQUAL = 35;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1733,7 +1733,7 @@ public interface MetamodelPackage extends EPackage {
 	int LESS_OR_EQUAL__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1770,7 +1770,7 @@ public interface MetamodelPackage extends EPackage {
 	int MORE_OR_EQUAL = 36;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1779,7 +1779,7 @@ public interface MetamodelPackage extends EPackage {
 	int MORE_OR_EQUAL__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1816,7 +1816,7 @@ public interface MetamodelPackage extends EPackage {
 	int ADD = 37;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1825,7 +1825,7 @@ public interface MetamodelPackage extends EPackage {
 	int ADD__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1862,7 +1862,7 @@ public interface MetamodelPackage extends EPackage {
 	int SUB = 38;
 
 	/**
-	 * The feature id for the '<em><b>Operand Left</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1871,7 +1871,7 @@ public interface MetamodelPackage extends EPackage {
 	int SUB__OPERAND_LEFT = BINARY_OPERATOR__OPERAND_LEFT;
 
 	/**
-	 * The feature id for the '<em><b>Operand Right</b></em>' reference.
+	 * The feature id for the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2628,10 +2628,10 @@ public interface MetamodelPackage extends EPackage {
 	EClass getBinaryOperator();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.BinaryOperator#getOperandLeft <em>Operand Left</em>}'.
+	 * Returns the meta object for the containment reference '{@link metamodel.BinaryOperator#getOperandLeft <em>Operand Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operand Left</em>'.
+	 * @return the meta object for the containment reference '<em>Operand Left</em>'.
 	 * @see metamodel.BinaryOperator#getOperandLeft()
 	 * @see #getBinaryOperator()
 	 * @generated
@@ -2639,10 +2639,10 @@ public interface MetamodelPackage extends EPackage {
 	EReference getBinaryOperator_OperandLeft();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.BinaryOperator#getOperandRight <em>Operand Right</em>}'.
+	 * Returns the meta object for the containment reference '{@link metamodel.BinaryOperator#getOperandRight <em>Operand Right</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Operand Right</em>'.
+	 * @return the meta object for the containment reference '<em>Operand Right</em>'.
 	 * @see metamodel.BinaryOperator#getOperandRight()
 	 * @see #getBinaryOperator()
 	 * @generated
@@ -2743,24 +2743,24 @@ public interface MetamodelPackage extends EPackage {
 	EClass getEqual();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.LessThan <em>Less Than</em>}'.
+	 * Returns the meta object for class '{@link metamodel.Less <em>Less</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Less Than</em>'.
-	 * @see metamodel.LessThan
+	 * @return the meta object for class '<em>Less</em>'.
+	 * @see metamodel.Less
 	 * @generated
 	 */
-	EClass getLessThan();
+	EClass getLess();
 
 	/**
-	 * Returns the meta object for class '{@link metamodel.MoreThan <em>More Than</em>}'.
+	 * Returns the meta object for class '{@link metamodel.More <em>More</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>More Than</em>'.
-	 * @see metamodel.MoreThan
+	 * @return the meta object for class '<em>More</em>'.
+	 * @see metamodel.More
 	 * @generated
 	 */
-	EClass getMoreThan();
+	EClass getMore();
 
 	/**
 	 * Returns the meta object for class '{@link metamodel.Different <em>Different</em>}'.
@@ -3414,7 +3414,7 @@ public interface MetamodelPackage extends EPackage {
 		EClass BINARY_OPERATOR = eINSTANCE.getBinaryOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Operand Left</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Operand Left</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3422,7 +3422,7 @@ public interface MetamodelPackage extends EPackage {
 		EReference BINARY_OPERATOR__OPERAND_LEFT = eINSTANCE.getBinaryOperator_OperandLeft();
 
 		/**
-		 * The meta object literal for the '<em><b>Operand Right</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Operand Right</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3514,24 +3514,24 @@ public interface MetamodelPackage extends EPackage {
 		EClass EQUAL = eINSTANCE.getEqual();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.LessThanImpl <em>Less Than</em>}' class.
+		 * The meta object literal for the '{@link metamodel.impl.LessImpl <em>Less</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.LessThanImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getLessThan()
+		 * @see metamodel.impl.LessImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getLess()
 		 * @generated
 		 */
-		EClass LESS_THAN = eINSTANCE.getLessThan();
+		EClass LESS = eINSTANCE.getLess();
 
 		/**
-		 * The meta object literal for the '{@link metamodel.impl.MoreThanImpl <em>More Than</em>}' class.
+		 * The meta object literal for the '{@link metamodel.impl.MoreImpl <em>More</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see metamodel.impl.MoreThanImpl
-		 * @see metamodel.impl.MetamodelPackageImpl#getMoreThan()
+		 * @see metamodel.impl.MoreImpl
+		 * @see metamodel.impl.MetamodelPackageImpl#getMore()
 		 * @generated
 		 */
-		EClass MORE_THAN = eINSTANCE.getMoreThan();
+		EClass MORE = eINSTANCE.getMore();
 
 		/**
 		 * The meta object literal for the '{@link metamodel.impl.DifferentImpl <em>Different</em>}' class.
