@@ -1,62 +1,63 @@
 	
+/* ====== Sensor.u ====== */
 var Global.FrDsRight = DistanceSensor.new("ds0");
 var Global.FrDsLeft = DistanceSensor.new("ps7");
 var Global.BhDsRight = DistanceSensor.new("ps3");
 var Global.BhDsLeft = DistanceSensor.new("ps4");
 var Global.LsRight = LightSensor.new("ls1");
 var Global.LsLeft = LightSensor.new("ls6");
-class Actuators {
-var wheelLeft;
-var wheelRight;
-var group;
-function init() {
-wheelLeft = DifferentialWheels.new("e-puck", true);
-wheelRight = DifferentialWheels.new("e-puck", false);
-group = Group.new(wheelLeft, wheelRight);
-};
-function Forward(s) {
-group.speed = s;
-}
 
-function TurnLeft(s) {
-wheelLeft.speed = -s &wheelRight.speed = s;
-}
+/* ====== Actuator.u ====== */
+class actuators {
 
-function TurnRight(s) {
-wheelLeft.speed = s &wheelRight.speed = -s;
-}
+	var wheelLeft;
+	var wheelRight;
+	var group;
 
-function Stopping() {
-group.speed = 0;
-}
+	function init() {
+		wheelLeft = DifferentialWheels.new("e-puck", true);
+		wheelRight = DifferentialWheels.new("e-puck", false);
+		group = Group.new(wheelLeft, wheelRight);
+	};
 
-function Backward() {
-group.speed = -0;
-}
+	function Forward(s) { group.speed = s; }
+
+	function TurnLeft(s) { wheelLeft.speed = -s & wheelRight.speed = s; }
+
+	function TurnRight(s) { wheelLeft.speed = s & wheelRight.speed = -s; }
+
+	function Stopping(s) { group.speed = 0; }
+
+	function Backward(s) { group.speed = -s; }
 
 };
+
+
 /* ==============Behavior escape============== */
 var minDistance = 0.2;
 var maxDistance = 0.5;
 var beta = 0.02;
+
 /*  Creating the stateMachineEscape state */
 removeSlot("stateMachineEscape");
-var Global.stateMachineEscape = fsm.State.new("stateMachineEscape");
+var stateMachineEscape = fsm.State.new("stateMachineEscape");
 stateMachineEscape.params_dict = Dictionary.new();
+
 var stateMachineEscape.init = fsm.State.create("stateMachineEscape.init", stateMachineEscape, 
 function() {}, true, 0, function() {}, function() {}, false);
 
 var stateMachineEscape.goRight = fsm.State.create("stateMachineEscape.goRight", stateMachineEscape, 
-function() {actuator.TurnRightImpl(50)}, false, 1, function() {}, function() {}, false);
+function() {actuator.TurnRight(50)}, false, 1, function() {}, function() {}, false);
 
 var stateMachineEscape.backward = fsm.State.create("stateMachineEscape.backward", stateMachineEscape, 
-function() {actuator.BackwardImpl(0)}, false, 2, function() {}, function() {}, false);
+function() {actuator.Backward(0)}, false, 2, function() {}, function() {}, false);
 
 var stateMachineEscape.goLeft = fsm.State.create("stateMachineEscape.goLeft", stateMachineEscape, 
-function() {actuator.TurnLeftImpl(50)}, false, 3, function() {}, function() {}, false);
+function() {actuator.TurnLeft(50)}, false, 3, function() {}, function() {}, false);
 
 var stateMachineEscape.goStraight = fsm.State.create("stateMachineEscape.goStraight", stateMachineEscape, 
-function() {actuator.ForwardImpl(50)}, false, 4, function() {}, function() {}, false);
+function() {actuator.Forward(50)}, false, 4, function() {}, function() {}, false);
+
 
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.init, goLeft, (( ( FrDsLeftVal ) >= ( minDistance ) ) && ( ( ( FrDsRightVal ) < ( minDistance ) ) && ( ( ( FrDsLeftVal ) - ( FrDsRightVal ) ) > ( beta ) ) )), initToLeft);
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.init, goStraight, (( ( ( BhDsLeft ) < ( minDistance ) ) && ( ( BhDsRight ) < ( minDistance ) ) ) || ( ( ( FrDsLeftVal ) > ( minDistance ) ) && ( ( ( -FrDsRightVal ) ) > ( minDistance ) ) )), initToStraight);
@@ -78,26 +79,31 @@ fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraight, goLeft,
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraight, goRight, (( ( FrDsRightVal ) >= ( minDistance ) ) && ( ( ( FrDsLeftVal ) < ( minDistance ) ) && ( ( ( FrDsRightVal ) - ( FrDsLeftVal ) ) > ( beta ) ) )), straightToRight);
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraight, backward, (( ( FrDsLeftVal ) < ( minDistance ) ) && ( ( FrDsRightVal ) < ( minDistance ) )), straightToBackward);
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraight, init, (( ( FrDsLeftVal ) >= ( maxDistance ) ) && ( ( FrDsRightVal ) >= ( maxDistance ) )), straightToInit);
+
 /* ==============Behavior home============== */
+
 /*  Creating the stateMachineHome state */
 removeSlot("stateMachineHome");
-var Global.stateMachineHome = fsm.State.new("stateMachineHome");
+var stateMachineHome = fsm.State.new("stateMachineHome");
 stateMachineHome.params_dict = Dictionary.new();
+
 var stateMachineHome.init = fsm.State.create("stateMachineHome.init", stateMachineHome, 
 function() {}, true, 0, function() {}, function() {}, false);
 
 var stateMachineHome.goLeft = fsm.State.create("stateMachineHome.goLeft", stateMachineHome, 
-function() {actuator.TurnLeftImpl(50)}, false, 1, function() {}, function() {}, false);
+function() {actuator.TurnLeft(50)}, false, 1, function() {}, function() {}, false);
 
 var stateMachineHome.goRight = fsm.State.create("stateMachineHome.goRight", stateMachineHome, 
-function() {actuator.TurnRightImpl(50)}, false, 2, function() {}, function() {}, false);
+function() {actuator.TurnRight(50)}, false, 2, function() {}, function() {}, false);
 
 var stateMachineHome.end = fsm.State.create("stateMachineHome.end", stateMachineHome, 
-function() {actuator.StoppingImpl(0)}, false, 3, function() {}, function() {}, false);
+function() {actuator.Stopping(0)}, false, 3, function() {}, function() {}, false);
 
 var stateMachineHome.goStraight = fsm.State.create("stateMachineHome.goStraight", stateMachineHome, 
-function() {actuator.ForwardImpl(50)}, false, 4, function() {}, function() {}, false);
+function() {actuator.Forward(50)}, false, 4, function() {}, function() {}, false);
 
 var stateMachineHome.backward = fsm.State.create("stateMachineHome.backward", stateMachineHome, 
-function() {actuator.BackwardImpl(0)}, false, 5, function() {}, function() {}, false);
+function() {actuator.Backward(0)}, false, 5, function() {}, function() {}, false);
+
+
 

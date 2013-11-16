@@ -54,38 +54,41 @@ public class ActuatorsContainer {
 	
 	public void addFunction(String name, String corps) {
 		StringBuilder string = new StringBuilder();
-		string.append("function " + name + " {\n");
-		string.append(corps + "\n");
-		string.append("}\n");
+		string.append("function " + name + " { ");
+		string.append(corps);
+		string.append(" }\n");
 		
 		functions.add(string.toString());
 	}
 
 	public String getString() {
 		
-		sb.append("class Actuators {\n");
+		sb.append("class actuators {\n\n");
 		
 		// les vars
 		for (String var : vars) {
+			sb.append("\t");
 			sb.append(var);
 			sb.append("\n");
 		}
+		sb.append("\n");
 		
 		// la fonction init
-		sb.append("function init() {\n");
+		sb.append("\tfunction init() {\n");
 		for (String init : inits) {
+			sb.append("\t\t");
 			sb.append(init);
 			sb.append("\n");
 		}
-		sb.append("};\n");
+		sb.append("\t};\n\n");
 		
 		// les fonctions
 		for (String function : functions) {
+			sb.append("\t");
 			sb.append(function);
 			sb.append("\n");
 		}
-		
-		sb.append("};\n");
+		sb.append("};\n\n");
 		
 		return sb.toString();
 	}

@@ -108,7 +108,7 @@ public class Visitor implements IVisitor {
 		 * 		wheels.speed = -1000;
 		 * };
 		 */
-		actuators.addFunction(Backward.class.getSimpleName() + "()", actuators.getGroup().getName() + ".speed = -" + a.getSpeed() + ";");
+		actuators.addFunction(Backward.class.getSimpleName() + "(s)", actuators.getGroup().getName() + ".speed = -s;");
 	}
 
 	@Override
@@ -300,11 +300,14 @@ public class Visitor implements IVisitor {
 		robotName = a.getName();
 
 		// sensor
+		sb.append("/* ====== Sensor.u ====== */\n");
 		for (Sensor sensor : a.getSensors()) {
 			sensor.accept(this);
 		}
+		sb.append("\n");
 
 		// actuator & action
+		sb.append("/* ====== Actuator.u ====== */\n");
 		for (Actuator actuator : a.getActuators()) {
 			actuator.accept(this);
 		}
@@ -312,6 +315,7 @@ public class Visitor implements IVisitor {
 			action.accept(this);
 		}
 		sb.append(actuators.getString());
+		sb.append("\n");
 
 		// behaviors
 		for (Behaviour behavior : a.getBehaviours()) {
@@ -337,7 +341,7 @@ public class Visitor implements IVisitor {
 		if (action != null) {
 			if (action instanceof ActionWheel) {
 				ActionWheel aWheel = (ActionWheel) action;
-				body = "actuator." + aWheel.getClass().getSimpleName() + "(" + aWheel.getSpeed() + ")";
+				body = "actuator." + aWheel.getClass().getSimpleName().replace("Impl", "") + "(" + aWheel.getSpeed() + ")";
 			}
 			else {
 				System.err.println("L'action 'working' est inconnue...");
@@ -388,20 +392,21 @@ public class Visitor implements IVisitor {
 		for (Value value : a.getConstants()) {
 			value.accept(this);
 		}
+		sb.append("\n");
 		
 		// permet de dire qu'on est en train de générer cette StateMachine (pour récupérer le parentId)
 		currentStateMachine = a;
 		sb.append("/*  Creating the " + a.getName() + " state */\n");
 		sb.append("removeSlot(\"" + a.getName() + "\");\n");
-		sb.append("var Global." + a.getName() + " = fsm.State.new(\"" + a.getName() + "\");\n");
-
+		sb.append("var " + a.getName() + " = fsm.State.new(\"" + a.getName() + "\");\n");
 		// on ne comprend pas ce code...
-		sb.append(a.getName() + ".params_dict = Dictionary.new();\n");
+		sb.append(a.getName() + ".params_dict = Dictionary.new();\n\n");
 
 		// les states
 		for (State state : a.getStates()) {
 			state.accept(this);
 		}
+		sb.append("\n");
 
 		// puis les transitions
 		for (State state : a.getStates()) {
@@ -410,6 +415,7 @@ public class Visitor implements IVisitor {
 				transition.accept(this);
 			}
 		}
+		sb.append("\n");
 	}
 
 	@Override
@@ -419,7 +425,7 @@ public class Visitor implements IVisitor {
 		 * 		wheels.speed = 0;
 		 * };
 		 */
-		actuators.addFunction(Stopping.class.getSimpleName() + "()", actuators.getGroup().getName() + ".speed = 0;");
+		actuators.addFunction(Stopping.class.getSimpleName() + "(s)", actuators.getGroup().getName() + ".speed = 0;");
 	}
 
 	@Override
@@ -451,7 +457,7 @@ public class Visitor implements IVisitor {
 		 * 		wheelL.speed = -s & wheelR.speed = s;
 		 * };
 		 */
-		actuators.addFunction(TurnLeft.class.getSimpleName() + "(s)", actuators.getDifferentialWheel(true).getName() + ".speed = -s &"
+		actuators.addFunction(TurnLeft.class.getSimpleName() + "(s)", actuators.getDifferentialWheel(true).getName() + ".speed = -s & "
 				+ actuators.getDifferentialWheel(false).getName() + ".speed = s;");
 	}
 
@@ -462,7 +468,7 @@ public class Visitor implements IVisitor {
 		 * 		wheelL.speed = s & wheelR.speed = -s;
 		 * };
 		 */
-		actuators.addFunction(TurnRight.class.getSimpleName() + "(s)", actuators.getDifferentialWheel(true).getName() + ".speed = s &"
+		actuators.addFunction(TurnRight.class.getSimpleName() + "(s)", actuators.getDifferentialWheel(true).getName() + ".speed = s & "
 				+ actuators.getDifferentialWheel(false).getName() + ".speed = -s;");
 	}
 
