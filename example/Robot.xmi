@@ -7,10 +7,86 @@
     xsi:schemaLocation="http://metamodel/1.0 ../model/metaModel.ecore"
     name="e-puck">
   <behaviours
-      name="home"/>
+      name="home">
+    <stateMachine/>
+  </behaviours>
   <behaviours
       name="escape"
-      priority="1"/>
+      priority="1">
+    <stateMachine
+        name="stateMachineScape">
+      <states
+          name="init"
+          isInitial="true"
+          uid="rootEscape">
+        <transitions
+            dstId="//@behaviours.1/@stateMachine/@states.1"
+            nameIn="initToLeft">
+          <cond
+              xsi:type="metamodel:And">
+            <operandRight
+                xsi:type="metamodel:And">
+              <operandRight
+                  xsi:type="metamodel:MoreThan"
+                  operandLeft="//@sensors.0/@value"/>
+              <operandLeft
+                  xsi:type="metamodel:LessThan"
+                  operandLeft="//@sensors.0/@value"/>
+            </operandRight>
+            <operandLeft
+                xsi:type="metamodel:MoreOrEqual"
+                operandLeft="//@sensors.1/@value"/>
+          </cond>
+        </transitions>
+        <transitions
+            dstId="//@behaviours.1/@stateMachine/@states.4"
+            nameIn="initToStraight">
+          <cond
+              xsi:type="metamodel:Or">
+            <operandRight
+                xsi:type="metamodel:And">
+              <operandRight
+                  xsi:type="metamodel:LessThan"
+                  operandLeft="//@sensors.2/@value"/>
+              <operandLeft
+                  xsi:type="metamodel:LessThan"
+                  operandLeft="//@sensors.3/@value"/>
+            </operandRight>
+            <operandLeft
+                xsi:type="metamodel:And">
+              <operandRight
+                  xsi:type="metamodel:MoreThan"
+                  operandLeft="//@sensors.0/@value"/>
+              <operandLeft
+                  xsi:type="metamodel:MoreThan"
+                  operandLeft="//@sensors.1/@value"/>
+            </operandLeft>
+          </cond>
+        </transitions>
+        <transitions
+            dstId="//@behaviours.1/@stateMachine/@states.2"
+            nameIn="initToRight"/>
+        <transitions
+            dstId="//@behaviours.1/@stateMachine/@states.3"
+            nameIn="initToBackward"/>
+      </states>
+      <states
+          workingAction="//@actions.1"
+          name="goLeft"
+          uid="rootEscape"/>
+      <states
+          workingAction="//@actions.2"
+          name="goRight"
+          uid="rootEscape"/>
+      <states
+          name="backward"
+          uid="rootEscape"/>
+      <states
+          workingAction="//@actions.0"
+          name="goStraight"
+          uid="rootEscape"/>
+    </stateMachine>
+  </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
       name="FrDsRight"
       sensorName="ds0">
@@ -80,5 +156,7 @@
       group="//@actuators.2"
       speed="50"/>
   <actions xsi:type="metamodel:Stopping"
+      group="//@actuators.2"/>
+  <actions xsi:type="metamodel:Backward"
       group="//@actuators.2"/>
 </metamodel:Robot>
