@@ -60,7 +60,53 @@
         </transitions>
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.4"
-            nameIn="initToStraight"/>
+            nameIn="initToStraight">
+          <cond
+              xsi:type="metamodel:Or">
+            <operandRight
+                xsi:type="metamodel:And">
+              <operandRight
+                  xsi:type="metamodel:More">
+                <operandLeft
+                    xsi:type="metamodel:Negative"
+                    valeur="//@sensors.0/@value"/>
+                <OperandRight
+                    xsi:type="metamodel:Positive"
+                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
+              </operandRight>
+              <operandLeft
+                  xsi:type="metamodel:More">
+                <operandLeft
+                    xsi:type="metamodel:Positive"
+                    valeur="//@sensors.1/@value"/>
+                <OperandRight
+                    xsi:type="metamodel:Positive"
+                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
+              </operandLeft>
+            </operandRight>
+            <operandLeft
+                xsi:type="metamodel:And">
+              <operandRight
+                  xsi:type="metamodel:Less">
+                <operandLeft
+                    xsi:type="metamodel:Positive"
+                    valeur="//@sensors.2/@value"/>
+                <OperandRight
+                    xsi:type="metamodel:Positive"
+                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
+              </operandRight>
+              <operandLeft
+                  xsi:type="metamodel:Less">
+                <operandLeft
+                    xsi:type="metamodel:Positive"
+                    valeur="//@sensors.3/@value"/>
+                <OperandRight
+                    xsi:type="metamodel:Positive"
+                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
+              </operandLeft>
+            </operandLeft>
+          </cond>
+        </transitions>
         <transitions
             dstId="//@behaviours.0/@stateMachine/@states.2"
             nameIn="initToRight"/>
