@@ -1,0 +1,73 @@
+	
+var Global.FrDsRight = DistanceSensor.new("ds0");
+var Global.FrDsLeft = DistanceSensor.new("ps7");
+var Global.BhDsRight = DistanceSensor.new("ps3");
+var Global.BhDsLeft = DistanceSensor.new("ps4");
+var Global.LsRight = LightSensor.new("ls1");
+var Global.LsLeft = LightSensor.new("ls6");
+class Actuators {
+var wheelLeft;
+var wheelRight;
+var group;
+function init() {
+wheelLeft = DifferentialWheels.new("e-puck", true);
+wheelRight = DifferentialWheels.new("e-puck", false);
+group = Group.new(wheelLeft, wheelRight);
+};
+function Forward(s) {
+group.speed = s;
+}
+
+function TurnLeft(s) {
+wheelLeft.speed = -s &wheelRight.speed = s;
+}
+
+function TurnRight(s) {
+wheelLeft.speed = s &wheelRight.speed = -s;
+}
+
+function Stopping() {
+group.speed = 0;
+}
+
+function Backward() {
+group.speed = -0;
+}
+
+};
+/* ==============Behavior escape============== */
+/*  Creating the stateMachineScape state */
+removeSlot("stateMachineScape");
+var Global.stateMachineScape = fsm.State.new("stateMachineScape");
+stateMachineScape.params_dict = Dictionary.new();
+var stateMachineScape.init = fsm.State.create("stateMachineScape.init", stateMachineScape, function() {}
+, true, rootEscape, function() {}
+, function() {}
+, false);
+
+var stateMachineScape.goRight = fsm.State.create("stateMachineScape.goRight", stateMachineScape, function() {
+ actuator.TurnRightImpl(50)
+}
+, false, rootEscape, function() {}
+, function() {}
+, false);
+
+var stateMachineScape.backward = fsm.State.create("stateMachineScape.backward", stateMachineScape, function() {}
+, false, rootEscape, function() {}
+, function() {}
+, false);
+
+var stateMachineScape.goLeft = fsm.State.create("stateMachineScape.goLeft", stateMachineScape, function() {
+ actuator.TurnLeftImpl(50)
+}
+, false, rootEscape, function() {}
+, function() {}
+, false);
+
+var stateMachineScape.goStraight = fsm.State.create("stateMachineScape.goStraight", stateMachineScape, function() {
+ actuator.ForwardImpl(50)
+}
+, false, rootEscape, function() {}
+, function() {}
+, false);
+
