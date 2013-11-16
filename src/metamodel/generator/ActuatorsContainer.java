@@ -6,7 +6,7 @@ import java.util.List;
 import metamodel.DifferentialWheel;
 import metamodel.Group;
 
-public class Actuators {
+public class ActuatorsContainer {
 
 	private List<String> vars;
 	private List<String> inits;
@@ -16,7 +16,7 @@ public class Actuators {
 	private DifferentialWheel leftWheels;
 	private DifferentialWheel rightWheels;
 	
-	public Actuators() {
+	public ActuatorsContainer() {
 		super();
 		vars = new ArrayList<>();
 		inits = new ArrayList<>();
