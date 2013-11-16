@@ -165,7 +165,7 @@ public abstract class ActuatorImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public void accept(IVisitor v) {
-		throw new UnsupportedOperationException();
+		v.visit(this);
 	}
 
 } //ActuatorImpl

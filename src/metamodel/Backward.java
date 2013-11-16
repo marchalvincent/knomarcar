@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -15,5 +17,5 @@ package metamodel;
  * @model
  * @generated
  */
-public interface Backward extends ActionWheel {
+public interface Backward extends ActionWheel, IVisitable {
 } // Backward

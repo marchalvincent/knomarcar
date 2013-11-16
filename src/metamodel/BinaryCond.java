@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -23,7 +25,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface BinaryCond extends Condition {
+public interface BinaryCond extends Condition, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Operand Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

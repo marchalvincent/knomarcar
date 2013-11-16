@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -15,5 +17,5 @@ package metamodel;
  * @model
  * @generated
  */
-public interface DistanceSensor extends Sensor {
+public interface DistanceSensor extends Sensor, IVisitable {
 } // DistanceSensor

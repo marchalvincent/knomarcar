@@ -4,6 +4,7 @@ package metamodel.impl;
 
 import metamodel.MetamodelPackage;
 import metamodel.Operator;
+import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +35,16 @@ public abstract class OperatorImpl extends ConditionImpl implements Operator {
 	@Override
 	protected EClass eStaticClass() {
 		return MetamodelPackage.Literals.OPERATOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 } //OperatorImpl

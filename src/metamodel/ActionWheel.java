@@ -2,6 +2,8 @@
  */
 package metamodel;
 
+import metamodel.generator.IVisitable;
+
 
 
 
@@ -23,7 +25,7 @@ package metamodel;
  * @model abstract="true"
  * @generated
  */
-public interface ActionWheel extends Action {
+public interface ActionWheel extends Action, IVisitable {
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' reference.
 	 * <!-- begin-user-doc -->

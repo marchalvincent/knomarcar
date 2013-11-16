@@ -4,6 +4,7 @@ package metamodel.impl;
 
 import metamodel.Add;
 import metamodel.MetamodelPackage;
+import metamodel.generator.IVisitor;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -34,6 +35,16 @@ public class AddImpl extends BinaryOperatorImpl implements Add {
 	@Override
 	protected EClass eStaticClass() {
 		return MetamodelPackage.Literals.ADD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 } //AddImpl
