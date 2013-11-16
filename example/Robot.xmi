@@ -231,7 +231,7 @@
             <operandRight
                 xsi:type="metamodel:More">
               <operandLeft
-                  xsi:type="metamodel:Negative"
+                  xsi:type="metamodel:Positive"
                   valeur="//@sensors.0/@value"/>
               <OperandRight
                   xsi:type="metamodel:Positive"
@@ -353,7 +353,7 @@
             <operandRight
                 xsi:type="metamodel:More">
               <operandLeft
-                  xsi:type="metamodel:Negative"
+                  xsi:type="metamodel:Positive"
                   valeur="//@sensors.0/@value"/>
               <OperandRight
                   xsi:type="metamodel:Positive"
@@ -447,48 +447,24 @@
             dstId="//@behaviours.0/@stateMachine/@states.4"
             nameIn="leftToStraight">
           <cond
-              xsi:type="metamodel:Or">
+              xsi:type="metamodel:And">
             <operandRight
-                xsi:type="metamodel:And">
-              <operandRight
-                  xsi:type="metamodel:More">
-                <operandLeft
-                    xsi:type="metamodel:Negative"
-                    valeur="//@sensors.0/@value"/>
-                <OperandRight
-                    xsi:type="metamodel:Positive"
-                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
-              </operandRight>
+                xsi:type="metamodel:More">
               <operandLeft
-                  xsi:type="metamodel:More">
-                <operandLeft
-                    xsi:type="metamodel:Positive"
-                    valeur="//@sensors.1/@value"/>
-                <OperandRight
-                    xsi:type="metamodel:Positive"
-                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
-              </operandLeft>
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.0/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.0"/>
             </operandRight>
             <operandLeft
-                xsi:type="metamodel:And">
-              <operandRight
-                  xsi:type="metamodel:Less">
-                <operandLeft
-                    xsi:type="metamodel:Positive"
-                    valeur="//@sensors.2/@value"/>
-                <OperandRight
-                    xsi:type="metamodel:Positive"
-                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
-              </operandRight>
+                xsi:type="metamodel:More">
               <operandLeft
-                  xsi:type="metamodel:Less">
-                <operandLeft
-                    xsi:type="metamodel:Positive"
-                    valeur="//@sensors.3/@value"/>
-                <OperandRight
-                    xsi:type="metamodel:Positive"
-                    valeur="//@behaviours.0/@stateMachine/@constants.0"/>
-              </operandLeft>
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.1/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.0"/>
             </operandLeft>
           </cond>
         </transitions>
@@ -561,7 +537,30 @@
           </cond>
         </transitions>
         <transitions
-            nameIn="leftToInit"/>
+            dstId="//@behaviours.0/@stateMachine/@states.0"
+            nameIn="leftToInit">
+          <cond
+              xsi:type="metamodel:And">
+            <operandRight
+                xsi:type="metamodel:MoreOrEqual">
+              <operandLeft
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.0/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.1"/>
+            </operandRight>
+            <operandLeft
+                xsi:type="metamodel:MoreOrEqual">
+              <operandLeft
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.1/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.1"/>
+            </operandLeft>
+          </cond>
+        </transitions>
       </states>
       <states
           workingAction="//@actions.0"
@@ -679,14 +678,49 @@
           </cond>
         </transitions>
         <transitions
-            nameIn="straightToInit"/>
+            dstId="//@behaviours.0/@stateMachine/@states.0"
+            nameIn="straightToInit">
+          <cond
+              xsi:type="metamodel:And">
+            <operandRight
+                xsi:type="metamodel:MoreOrEqual">
+              <operandLeft
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.0/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.1"/>
+            </operandRight>
+            <operandLeft
+                xsi:type="metamodel:MoreOrEqual">
+              <operandLeft
+                  xsi:type="metamodel:Positive"
+                  valeur="//@sensors.1/@value"/>
+              <OperandRight
+                  xsi:type="metamodel:Positive"
+                  valeur="//@behaviours.0/@stateMachine/@constants.1"/>
+            </operandLeft>
+          </cond>
+        </transitions>
       </states>
       <constants
-          name="minDistance"/>
+          name="minDistance">
+        <value
+            xsi:type="metamodel:FloatVal"
+            value="0.2"/>
+      </constants>
       <constants
-          name="maxDistance"/>
+          name="maxDistance">
+        <value
+            xsi:type="metamodel:FloatVal"
+            value="0.5"/>
+      </constants>
       <constants
-          name="beta"/>
+          name="beta">
+        <value
+            xsi:type="metamodel:FloatVal"
+            value="0.02"/>
+      </constants>
     </stateMachine>
   </behaviours>
   <sensors xsi:type="metamodel:DistanceSensor"
