@@ -128,7 +128,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String UID_EDEFAULT = null;
+	protected static final int UID_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -138,7 +138,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @generated
 	 * @ordered
 	 */
-	protected String uid = UID_EDEFAULT;
+	protected int uid = UID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,7 +332,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUid() {
+	public int getUid() {
 		return uid;
 	}
 
@@ -341,8 +341,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUid(String newUid) {
-		String oldUid = uid;
+	public void setUid(int newUid) {
+		int oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STATE__UID, oldUid, uid));
@@ -430,7 +430,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				setOnLeaveAction((Action)newValue);
 				return;
 			case MetamodelPackage.STATE__UID:
-				setUid((String)newValue);
+				setUid((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -490,7 +490,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case MetamodelPackage.STATE__ON_LEAVE_ACTION:
 				return onLeaveAction != null;
 			case MetamodelPackage.STATE__UID:
-				return UID_EDEFAULT == null ? uid != null : !UID_EDEFAULT.equals(uid);
+				return uid != UID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

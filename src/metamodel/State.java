@@ -185,12 +185,12 @@ public interface State extends EObject, IVisitable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Uid</em>' attribute.
-	 * @see #setUid(String)
+	 * @see #setUid(int)
 	 * @see metamodel.MetamodelPackage#getState_Uid()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getUid();
+	int getUid();
 
 	/**
 	 * Sets the value of the '{@link metamodel.State#getUid <em>Uid</em>}' attribute.
@@ -200,6 +200,6 @@ public interface State extends EObject, IVisitable {
 	 * @see #getUid()
 	 * @generated
 	 */
-	void setUid(String value);
+	void setUid(int value);
 
 } // State
