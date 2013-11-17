@@ -75,10 +75,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="StateUidUnique"/>
+      <details key="constraints" value="StateUidUnique StateTransitionDestination"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="StateUidUnique" value="&#xA;&#x9;&#x9; self.states->collect(s : State | s.uid)->isUnique(n : Integer | n)"/>
+      <details key="StateUidUnique" value="&#xA;&#x9;&#x9;&#x9;self.states->collect(s : State | s.uid)->isUnique(n : Integer | n)"/>
+      <details key="StateTransitionDestination" value="&#xA;&#x9;&#x9; &#x9;states->select(s : State | s.transitions->select(t: Transition | t.dstId = s)->notEmpty())->size() = 0"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="#//State" containment="true"/>
@@ -94,11 +95,7 @@
       <details key="TransitionsUniqueName" value="&#xA;&#x9;&#x9;transitions->collect(t : Transition | t.nameIn)->isUnique(n : String | n)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-        eType="#//Transition" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="invariant TransitionsSrcDiffDest:&#xA;transitions->collect(trans : Transition.transitions | trans.dstId)->excludes(trans);&#xA;&#xA;invariant:&#xA;State.allInstances() -> forAll(t : Transition | self.transitions = t);"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workingAction" eType="#//Action"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInitial" lowerBound="1"
