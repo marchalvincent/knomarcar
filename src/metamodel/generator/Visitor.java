@@ -327,8 +327,18 @@ public class Visitor implements IVisitor {
 		for (Behaviour behavior : a.getBehaviours()) {
 			behavior.accept(this);
 		}
-
-		// TODO...
+		
+		// le main
+		sb.append("/* ====== Main.u ====== */\n");
+		sb.append("var path = \"/Users/skchir/Desktop/These_Selma/SearchForLight/controllers/\";\n");
+		sb.append("var Global.actuator = actuators.new();\n");
+		sb.append("var fsmEscape = Tag.new;\n");
+		sb.append("var fsmHome = Tag.new;\n");
+		sb.append("var active_fsmEscape = false;\n");
+		sb.append("var active_fsmHome = false;\n");
+		sb.append("actuator.forward(500);\n");
+		sb.append("var active_fsmEscape = false;\n");
+		sb.append("stateMachineHome.enter();\n");
 	}
 
 	@Override
@@ -421,6 +431,25 @@ public class Visitor implements IVisitor {
 				transition.accept(this);
 			}
 		}
+		sb.append("\n");
+		
+		// et enfin le code sur les channel que nous n'avons pas eu le temps de comprendre, modéliser et générer dynamiquement
+		String name = currentStateMachine.getName();
+		sb.append("var " + name + ".enterChan = Channel.new(\"enteringNode\");\n");
+		sb.append("var " + name + ".enterChan.lobby = getSlot(\"lobby\");\n");
+		sb.append("at(" + name + ".enteringNode?(var id)) " + name + ".enterChan << id.name;\n");
+		
+		sb.append("var " + name + ".leaveChan = Channel.new(\"leavingNode\");\n");
+		sb.append("var " + name + ".leaveChan.lobby = getSlot(\"lobby\");\n");
+		sb.append("at(" + name + ".leavingNode?(var id)) " + name + ".leaveChan << id.name;\n");
+
+		sb.append("var " + name + ".transitingChan = Channel.new(\"transiting\");\n");
+		sb.append("var " + name + ".transitingChan.lobby = getSlot(\"lobby\");\n");
+		sb.append("at(" + name + ".transit?(var node, var trans)) " + name + ".transitingChan << trans.name;\n");
+
+		sb.append("var " + name + ".freezeChan = Channel.new(\"freezed\");\n");
+		sb.append("var " + name + ".freezeChan.lobby = getSlot(\"lobby\");\n");
+		sb.append("at(" + name + ".fsmFreezed?()) " + name + ".freezeChan << 1;\n");
 		sb.append("\n");
 	}
 

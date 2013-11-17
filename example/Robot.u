@@ -81,6 +81,19 @@ fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stat
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.backwardESC, "(( ( FrDsLeftVal.val ) < ( minDistance ) ) && ( ( FrDsRightVal.val ) < ( minDistance ) ))", "stateMachineEscape.straightToBackward");
 fsm.Transition.create(stateMachineEscape, stateMachineEscape.goStraightESC, stateMachineEscape.initESC, "(( ( FrDsLeftVal.val ) >= ( maxDistance ) ) && ( ( FrDsRightVal.val ) >= ( maxDistance ) ))", "stateMachineEscape.straightToInit");
 
+var stateMachineEscape.enterChan = Channel.new("enteringNode");
+var stateMachineEscape.enterChan.lobby = getSlot("lobby");
+at(stateMachineEscape.enteringNode?(var id)) stateMachineEscape.enterChan << id.name;
+var stateMachineEscape.leaveChan = Channel.new("leavingNode");
+var stateMachineEscape.leaveChan.lobby = getSlot("lobby");
+at(stateMachineEscape.leavingNode?(var id)) stateMachineEscape.leaveChan << id.name;
+var stateMachineEscape.transitingChan = Channel.new("transiting");
+var stateMachineEscape.transitingChan.lobby = getSlot("lobby");
+at(stateMachineEscape.transit?(var node, var trans)) stateMachineEscape.transitingChan << trans.name;
+var stateMachineEscape.freezeChan = Channel.new("freezed");
+var stateMachineEscape.freezeChan.lobby = getSlot("lobby");
+at(stateMachineEscape.fsmFreezed?()) stateMachineEscape.freezeChan << 1;
+
 /* ==============Behavior home============== */
 var alpha = 100;
 var zero = 0;
@@ -135,3 +148,26 @@ fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineH
 fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.end, "(( ( LsRightVal.val ) == ( zero ) ) && ( ( LsLeftVal.val ) == ( zero ) ))", "stateMachineHome.backwardToEnd");
 fsm.Transition.create(stateMachineHome, stateMachineHome.backward, stateMachineHome.backward, "(( ( ( LsLeftVal.val ) >= ( valueMax ) ) && ( ( LsRightVal.val ) >= ( valueMax ) ) ) && ( ( ( ( LsLeftVal.val ) - ( LsRightVal.val ) ) <= ( alpha ) ) || ( ( ( LsRightVal.val ) - ( LsLeftVal.val ) ) < ( alpha ) ) ))", "stateMachineHome.backwardToBackward");
 
+var stateMachineHome.enterChan = Channel.new("enteringNode");
+var stateMachineHome.enterChan.lobby = getSlot("lobby");
+at(stateMachineHome.enteringNode?(var id)) stateMachineHome.enterChan << id.name;
+var stateMachineHome.leaveChan = Channel.new("leavingNode");
+var stateMachineHome.leaveChan.lobby = getSlot("lobby");
+at(stateMachineHome.leavingNode?(var id)) stateMachineHome.leaveChan << id.name;
+var stateMachineHome.transitingChan = Channel.new("transiting");
+var stateMachineHome.transitingChan.lobby = getSlot("lobby");
+at(stateMachineHome.transit?(var node, var trans)) stateMachineHome.transitingChan << trans.name;
+var stateMachineHome.freezeChan = Channel.new("freezed");
+var stateMachineHome.freezeChan.lobby = getSlot("lobby");
+at(stateMachineHome.fsmFreezed?()) stateMachineHome.freezeChan << 1;
+
+/* ====== Main.u ====== */
+var path = "/Users/skchir/Desktop/These_Selma/SearchForLight/controllers/";
+var Global.actuator = actuators.new();
+var fsmEscape = Tag.new;
+var fsmHome = Tag.new;
+var active_fsmEscape = false;
+var active_fsmHome = false;
+actuator.forward(500);
+var active_fsmEscape = false;
+stateMachineHome.enter();
